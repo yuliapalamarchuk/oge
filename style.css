@@ -1,0 +1,1026 @@
+@font-face {
+  font-family: "Maki-Sans";
+  src: url("fonts/MakiSans-Regular.otf");
+}
+
+@font-face {
+  font-family: "Jost";
+  src: url("fonts/Jost-Regular.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+body {
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur;
+}
+
+/**************************  Video modal   ***************************/
+
+.blur {
+  filter: blur(5px);
+}
+
+.modal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 10%;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+
+  &:target {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-content {
+    max-height: 95%;
+    background: white;
+    border-radius: 5px;
+    overflow: auto;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 58%;
+  }
+}
+
+.container-button {
+  margin: 30px;
+}
+
+.modal-close {
+  color: #aaa;
+  line-height: 50px;
+  font-size: 80%;
+  position: absolute;
+  right: 2%;
+  text-align: center;
+  top: 2%;
+  width: 70px;
+  text-decoration: none;
+
+  &:hover {
+    color: #363636;
+  }
+}
+
+/**************************  ИДЕЯ ПРОЕКТА  **************************/
+.sec_poject {
+  background-image: url("img/background_project_idea.png");
+  background-size: cover;
+  width: 100%;
+}
+
+.project_idea {
+  max-width: 1530px;
+  margin: 0 auto;
+}
+
+.project_idea_title {
+  overflow: hidden;
+  color: #5c0c70;
+  text-overflow: ellipsis;
+  font-family: "Maki-Sans";
+  font-size: 86px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.project_idea_description {
+  display: flex;
+  justify-content: space-between;
+}
+
+.project_idea_text {
+  color: #5c0c70;
+  font-family: Jost;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  max-width: 599px;
+  padding-top: 60px;
+}
+
+.project_idea_video {
+  position: relative;
+}
+
+.ay {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  top: 2%;
+  right: 11%;
+}
+
+.video_preview {
+  border-radius: 40px;
+  box-shadow: 20px 20px 0 0 #84ca5d;
+  transform: rotate(10deg);
+  position: relative;
+}
+
+.central_svg {
+  padding-top: 17%;
+}
+
+.project_idea_card {
+  width: 571px;
+  transform: rotate(5deg);
+  padding: 47px 36px 59px 35px;
+  border-radius: 40px;
+  background: #c18ed1;
+  position: relative;
+}
+
+.project_idea_card_label {
+  position: absolute;
+  transform: rotate(-5deg);
+  right: 2%;
+  bottom: -4%;
+}
+
+.project_idea_card_text {
+  color: #fff;
+  font-family: Jost;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.button_svg {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.smile_svg {
+  padding-right: 2%;
+  padding-bottom: 2%;
+}
+
+/**************************  АДАПТИВ ИДЕЯ ПРОЕКТА  **************************/
+
+@media (max-width: 1600px) {
+  .container {
+    max-width: 1300px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1100px;
+  }
+
+  .btn_play_img {
+    width: 100px;
+  }
+  .video_preview {
+    max-width: 400px;
+  }
+  .project_idea_text {
+    font-size: 20px;
+    max-width: 341px;
+  }
+  .project_idea_card_text {
+    font-size: 20px;
+  }
+  .project_idea_card {
+    width: 450px;
+  }
+}
+
+@media (max-width: 1160px) {
+  .project_idea_title {
+    font-size: 48px;
+  }
+  .project_idea_text {
+    font-size: 16px;
+    max-width: 341px;
+  }
+  .container {
+    max-width: 948px;
+  }
+
+  .project_idea_svg {
+    width: 127px;
+  }
+  .btn_play {
+    top: -7% !important;
+  }
+  .btn_play_img {
+    width: 80px;
+  }
+  .video_preview {
+    max-width: 341px;
+  }
+  .project_idea_card_text {
+    font-size: 16px;
+  }
+  .project_idea_card {
+    width: 326px;
+  }
+  .project_idea_card_label {
+    max-width: 217px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 700px;
+  }
+  .project_idea_text {
+    font-size: 14px;
+  }
+  .project_idea_card_text {
+    font-size: 16px;
+  }
+  .project_idea_card {
+    max-width: 315px;
+  }
+}
+
+@media (max-width: 800px) {
+  .project_idea_video {
+    width: fit-content;
+  }
+  .central_svg {
+    display: none;
+  }
+  .project_idea_description {
+    align-items: center;
+    flex-direction: column-reverse;
+    padding-top: 6%;
+  }
+  .btn_play {
+    top: -7% !important;
+  }
+  .project_idea_title {
+    text-align: center;
+  }
+  .pidmobile {
+    flex-direction: column;
+  }
+  .project_idea_title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 500px) {
+  .video_preview {
+    max-width: 300px;
+  }
+}
+
+/**************************  УСПЕШНАЯ ПОДГОТОВКА К ОГЭ  ******************/
+
+.uniqueness {
+  background-color: #faeeeb;
+  width: 100%;
+}
+
+.uniqueness_img {
+  padding-bottom: 60px;
+}
+
+.uniqueness_title {
+  color: #5c0c70;
+  font-family: Maki-Sans;
+  font-size: 86px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+}
+
+.uniqueness_img {
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+}
+
+h2 ~ h2 {
+  padding-left: 27%;
+  padding-bottom: 120px;
+}
+
+.btn_play {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+  top: -17%;
+  right: 0%;
+}
+
+/**************************  УСПЕШНАЯ ПОДГОТОВКА К ОГЭ АДАПТИВ  ********************/
+
+@media (max-width: 1160px) {
+  .uniqueness_title {
+    font-size: 48px;
+  }
+  .uniqueness_img_dragon {
+    max-width: 279px;
+  }
+}
+
+@media (max-width: 500px) {
+  .uniqueness_title {
+    font-size: 28px;
+  }
+  .uniqueness_title_wrapper {
+  }
+}
+
+/**************************  КАРТОЧКИ  ********************/
+.cards {
+  position: relative;
+}
+
+.cards_bg {
+  background-image: url("img/cards_bg.png");
+  background-repeat: no-repeat;
+}
+
+.bookmark_wrapper {
+  display: flex;
+  justify-content: space-around;
+  z-index: 5;
+}
+
+.card_wrapper {
+  display: flex;
+  justify-content: space-around;
+  /* flex-wrap: wrap; */
+  padding-top: 11%;
+  padding-bottom: 120px;
+}
+
+.first_bookmark {
+  position: absolute;
+  z-index: 10;
+  top: -21%;
+  left: 12%;
+  transform: rotate(-8deg);
+}
+
+.second_bookmark {
+  position: absolute;
+  top: -35%;
+  left: 40%;
+}
+
+.third_bookmark {
+  position: absolute;
+  top: -31%;
+  right: 15%;
+  transform: rotate(4deg);
+}
+
+.fourth_bookmark {
+  position: absolute;
+  top: -17%;
+  left: 8%;
+  transform: rotate(-8deg);
+}
+
+.card_img {
+  display: flex;
+  justify-content: center;
+}
+
+.cards_title {
+  color: #5c0c70;
+  font-family: Maki-Sans;
+  font-size: 86px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 225px 0 0 195px;
+}
+
+.card_purple_text {
+  color: #5c0c70;
+  font-family: Jost;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  width: 310px;
+  margin: 0 auto;
+}
+
+.card_purple_border {
+  padding-top: 8%;
+  transform: rotate(5deg);
+}
+
+.card_white_text {
+  color: #fff;
+  font-family: Jost;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  max-width: 310px;
+  margin: 0 auto;
+}
+
+.card_white_wrapper {
+  position: relative;
+}
+
+.card {
+  width: 407px;
+  height: 296px;
+  border-radius: 60px;
+}
+
+.card_text_border {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card_purple_wrap {
+  position: relative;
+}
+/**************************  КАРТОЧКИ АДАПТИВ ********************/
+@media (max-width: 1800px) {
+  .cards_bg {
+    min-width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 1650px) {
+  .cards_title {
+    font-size: 48px;
+    padding: 40px 0 0 9%;
+  }
+  .card_wrapper {
+    max-width: 1217px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 auto;
+  }
+  .cards_bg {
+    background-image: url("img/cards_bg_tablet.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .card_adaptive {
+    margin-top: 32%;
+  }
+  .card {
+    width: 445px;
+    height: 260px;
+  }
+  .green_card_adaptive {
+    margin-top: 5%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .card_adaptive {
+    margin-top: 25%;
+  }
+}
+
+@media (max-width: 900px) {
+  .cards_bg {
+    background-image: url("img/cards_bg_mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .card {
+    margin: 0 0 80px 0;
+    width: 292px;
+    height: 212px;
+  }
+  .card_wrapper {
+    max-width: 700px;
+  }
+  .green_card_adaptive {
+    margin-top: 28%;
+  }
+  .cards_title {
+    font-size: 28px;
+  }
+  .card_svg {
+    width: 80px;
+    height: 80px;
+  }
+  .card_white_text,
+  .card_purple_text {
+    font-size: 14px;
+    width: 212px;
+  }
+
+  .card_text_border {
+    width: 270px;
+    height: 90px;
+  }
+  .bookmark {
+    width: 27px;
+    height: 70px;
+  }
+}
+
+/**************************  АНИМИРОВАННЫЕ КАРТОЧКИ  ******************/
+.dp_none {
+  opacity: 0;
+}
+.purple_card {
+  opacity: 1;
+  background-image: url("img/purple_card.png");
+  background-repeat: no-repeat;
+  max-width: 600px;
+  position: absolute;
+  top: 0;
+  z-index: -5;
+  right: 35%;
+}
+
+.rotate_purple_card {
+  animation: anim_purple_card 4s ease;
+}
+
+@keyframes anim_purple_card {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%) rotate(5deg);
+    z-index: 100;
+  }
+  30% {
+    transform: translateY(-55%) rotate(-5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  60% {
+    transform: translateY(-100%) rotate(5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(-55%) rotate(-5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+    z-index: 100;
+    transform: translateY(-0%);
+  }
+}
+
+.green_card {
+  opacity: 1;
+  background-image: url("img/green_card.png");
+  background-repeat: no-repeat;
+  max-width: 600px;
+  position: absolute;
+  z-index: -4;
+  right: 3%;
+  top: 0;
+  /* transform: rotate(-10deg); */
+}
+
+.rotate_green_card {
+  animation: anim_green_card 4s ease;
+}
+@keyframes anim_green_card {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%) rotate(5deg);
+    z-index: 100;
+  }
+  30% {
+    transform: translateY(-55%) rotate(-5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  60% {
+    transform: translateY(-100%) rotate(5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(-55%) rotate(-5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+    z-index: 100;
+    transform: translateY(-0%);
+  }
+}
+
+.orange_card {
+  opacity: 1;
+  background-image: url("img/orange_card.png");
+  background-repeat: no-repeat;
+  max-width: 600px;
+  position: absolute;
+  top: 0;
+  right: 19%;
+  z-index: -5;
+}
+
+.rotate_orange_card {
+  animation: anim_orange_card 2s ease;
+}
+
+@keyframes anim_orange_card {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%) rotate(5deg);
+    z-index: 100;
+  }
+  30% {
+    transform: translateY(-55%) rotate(-5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  60% {
+    transform: translateY(-100%) rotate(5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  75% {
+    transform: translateY(-55%) rotate(-5deg);
+    z-index: 100;
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+    z-index: 100;
+    transform: translateY(-0%);
+  }
+}
+
+.uniqueness_cards_title {
+  color: #fff;
+  font-family: Maki-Sans;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-bottom: 32px;
+  padding-top: 80px;
+}
+
+.uniqueness_cards_text {
+  color: #faeeeb;
+  font-family: Jost;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.uniqueness_cards_img_wrapper {
+  padding-left: 12%;
+}
+
+.btn_go_wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn_go {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin-top: -5%;
+}
+
+.uniqueness_cards_text_wrapper {
+  padding: 0 40px;
+}
+
+.uniqueness_cards_img {
+  padding-top: 20px;
+}
+
+/**************************  НАСТАВНИКИ  ******************/
+.mentors {
+  background-color: #000000;
+  padding-top: 120px;
+}
+
+.mentors_header {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 116px;
+}
+
+.mentors_title {
+  color: #84ca5d;
+  font-family: Maki-Sans;
+  font-size: 86px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.mentors_arrows {
+  display: flex;
+  align-self: center;
+  justify-content: space-around;
+  width: 186px;
+}
+
+/************************************* SLIDER ***********************/
+
+.swiper-slide-active {
+  transition: 0.3s all;
+  opacity: 1;
+  width: 100%;
+  max-width: 910px;
+}
+
+.swiper-slide-active > img {
+}
+
+.swiper-prev,
+.swiper-next:hover {
+  cursor: pointer;
+  fill: wheat;
+}
+
+.slide_title_wrapper {
+  padding-bottom: 20px;
+  padding-left: 5%;
+}
+
+.slide_title {
+  color: #5c0c70;
+  font-family: Jost;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+li {
+  color: #5c0c70;
+  font-family: Jost;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.slide_text {
+  color: #5c0c70;
+  text-align: center;
+  font-family: Jost;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  border-radius: 12px;
+  border: 1px solid #c18ed1;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.slide_img_wrapper {
+  width: 100%;
+  max-width: 340px;
+}
+
+.slide_text_wrapper {
+  max-width: 370px;
+  width: 100vw;
+  padding-top: 3%;
+}
+
+.swiper {
+  width: 100%;
+  padding-bottom: 10%;
+}
+
+.swiper-slide {
+  padding: 40px 60px;
+  background-position: center;
+  background-size: cover;
+  background: white;
+  border-radius: 60px;
+  display: flex;
+  justify-content: space-around;
+  height: auto;
+  max-height: 460px;
+  background-color: #faeeeb;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.slide_text_wrapper > ul {
+  padding-bottom: 20px;
+}
+.slide_list {
+  padding-left: 10%;
+}
+/************************************* SLIDER АДАПТИВ ***********************/
+@media (max-width: 1800px) {
+  .slide_title,
+  li,
+  .slide_text {
+    font-size: 16px;
+  }
+  .slide_img {
+    width: 174px;
+  }
+  .swiper-slide img {
+    width: 174px;
+  }
+  .mentors_title {
+    font-size: 48px;
+  }
+}
+/**************************  ОСТАЛИСЬ ВОПРОСЫ?  ******************/
+
+.faq {
+  background-color: #ffd983;
+}
+.faq_bg {
+  position: relative;
+  padding: 130px 0 80px 0;
+  border-radius: 0px 0px 100px 100px;
+}
+
+.wave {
+  position: absolute;
+  bottom: 82%;
+}
+
+.accordion {
+  max-width: 1530px;
+  margin: 0 auto;
+}
+
+.accordion a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem 3rem 1rem 1rem;
+  border-bottom: 1px solid #191812;
+  overflow: hidden;
+  color: #191812;
+  text-overflow: ellipsis;
+  font-family: Jost;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.accordion a::after {
+  font-family: "Ionicons";
+  content: "\f35d";
+  position: absolute;
+  float: right;
+  right: 1rem;
+  font-size: 3rem;
+  color: #191812;
+  transform: rotate(-45deg);
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.accordion a.active::after {
+  font-family: "Ionicons";
+  content: "\f35d";
+  transform: rotate(-135deg);
+}
+
+.accordion .content {
+  opacity: 0;
+  padding: 0 1rem;
+  max-height: 0;
+  border-bottom: 1px solid #191812;
+  overflow: hidden;
+  clear: both;
+  transition: all 0.2s ease 0.15s;
+}
+
+.accordion .content p {
+  color: #191812;
+  font-family: Jost;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.accordion .content.active {
+  opacity: 1;
+  padding: 1rem;
+  max-height: 100%;
+  transition: all 0.35s ease 0.15s;
+}
+
+@media (max-width: 1600px) {
+  .faq {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 1200px) {
+  .accordion a {
+    font-size: 20px;
+  }
+}
+
+/**************************  СПРЯТАННЫЙ БЛОК С КАРТОЧКАМИ  ******************/
+
+.orange_card_hidden {
+  opacity: 1;
+  background-image: url("img/orange_card.png");
+  background-repeat: no-repeat;
+  max-width: 600px;
+}
+
+.green_card_hiddden {
+  opacity: 1;
+  background-image: url("img/green_card.png");
+  background-repeat: no-repeat;
+  max-width: 600px;
+}
+
+.purple_card_hidden {
+  opacity: 1;
+  background-image: url("img/purple_card.png");
+  background-repeat: no-repeat;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hidden_cards_wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.hidden_uniqueness_cards {
+  display: none;
+}
+
+@media (max-width: 1650px) {
+  .hidden_uniqueness_cards {
+    display: block;
+  }
+  .uniqueness_cards {
+    display: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .uniqueness_cards_title {
+    font-size: 24px;
+  }
+  .uniqueness_cards_text {
+    font-size: 20px;
+  }
+  .btn_go_img {
+    width: 146px;
+  }
+}
