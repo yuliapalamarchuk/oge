@@ -1,0 +1,128 @@
+/****************************   УДАЛИТЬ  ****************************/
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+/****************************  FOOTER  ****************************/
+.footer {
+  background-image: url("img/footer_background.png");
+}
+
+.footer_wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+.footer_logo_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.logo {
+  margin-top: 40px;
+}
+.copyrite {
+  color: #5c0c70;
+  font-family: Jost;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  max-width: 445px;
+}
+
+.footer_team_logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.socials {
+  margin-top: 40px;
+}
+.contacts_title {
+  color: #5c0c70;
+  font-family: Jost;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.privacy_policy_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.contacts_wrapper {
+  max-width: 445px;
+}
+
+.contacts_text {
+  color: #5c0c70;
+  font-family: Jost;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.youtube {
+  padding-right: 20px;
+}
+
+.footer_links {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.footer_link {
+  text-decoration: none;
+}
+
+.ITitans {
+  color: #5c0c70;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding-bottom: 4px;
+}
+
+/****************************  FOOTER АДАПТИВ ****************************/
+
+@media (max-width: 1300px) {
+  .contacts_title {
+    font-size: 20px;
+  }
+
+  .contacts_text,
+  .footer_links,
+  .copyrite {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer_wrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .privacy_policy_wrapper {
+    /* align-self: center; */
+  }
+}
+
+@media (max-width: 700px) {
+  .contacts_title {
+    font-size: 16px;
+  }
+  .copyrite {
+    font-size: 12px;
+  }
+}
