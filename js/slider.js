@@ -21,13 +21,30 @@ items.forEach((item) => item.addEventListener("click", toggleAccordion));
   },
 }); */
 
-var swiper = new Swiper(".mySwiper", {
+const swiper = new Swiper(".mySwiper", {
   effect: "coverflow",
   loop: true,
   spaceBetween: 150,
   grabCursor: true,
   centeredSlides: true,
   slidesPerView: 2,
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    640: {
+      slidesPerView: 1.5,
+    },
+    768: {
+      slidesPerView: 1.5,
+      spaceBetween: 100,
+    },
+    1244: {
+      slidesPerView: 2,
+      spaceBetween: 150,
+    },
+  },
   coverflowEffect: {
     rotate: 0,
     stretch: 0,
@@ -57,12 +74,9 @@ var swiper = new Swiper(".mySwiper", {
 document.querySelectorAll("#modal").forEach((el) => {
   console.log(el);
   el.addEventListener("mouseover", () => {
-    console.log("adasdasda");
     document.querySelector(".video_preview").style.rotate = "-10deg";
   });
   el.addEventListener("mouseout", () => {
-    console.log("adasdasda");
     document.querySelector(".video_preview").style.rotate = "0deg";
   });
 });
-
