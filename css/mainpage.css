@@ -447,8 +447,8 @@ nav {
   }
 
   .menu-burger__header {
-    position: relative; /* задаем относительное позиционирование */
-    width: 40px; /* определяем размеры блока */
+    position: relative;
+    width: 40px;
     height: 35px;
     display: block;
     margin-left: 10px;
@@ -1521,37 +1521,8 @@ position: relative;
   background-size: contain;
 }
 
-.rotate_purple_card {
-  animation: anim_purple_card 4s ease;
-}
 
-@keyframes anim_purple_card {
-  0% {
-    opacity: 0;
-    transform: translateY(-10%) rotate(5deg);
-    z-index: 100;
-  }
-  30% {
-    transform: translateY(-55%) rotate(-5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  60% {
-    transform: translateY(-100%) rotate(5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  75% {
-    transform: translateY(-55%) rotate(-5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 1;
-    z-index: 100;
-    transform: translateY(-0%);
-  }
-}
+
 
 .green_card {
   opacity: 1;
@@ -1566,37 +1537,8 @@ position: relative;
   /* transform: rotate(-10deg); */
 }
 
-.rotate_green_card {
-  animation: anim_green_card 4s ease;
-}
 
-@keyframes anim_green_card {
-  0% {
-    opacity: 0;
-    transform: translateY(-10%) rotate(5deg);
-    z-index: 100;
-  }
-  30% {
-    transform: translateY(-55%) rotate(-5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  60% {
-    transform: translateY(-100%) rotate(5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  75% {
-    transform: translateY(-55%) rotate(-5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 1;
-    z-index: 100;
-    transform: translateY(-0%);
-  }
-}
+
 
 .orange_card {
   opacity: 1;
@@ -1611,37 +1553,7 @@ position: relative;
   z-index: -5;
 }
 
-.rotate_orange_card {
-  animation: anim_orange_card 2s ease;
-}
 
-@keyframes anim_orange_card {
-  0% {
-    opacity: 0;
-    transform: translateY(-10%) rotate(5deg);
-    z-index: 100;
-  }
-  30% {
-    transform: translateY(-55%) rotate(-5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  60% {
-    transform: translateY(-100%) rotate(5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  75% {
-    transform: translateY(-55%) rotate(-5deg);
-    z-index: 100;
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 1;
-    z-index: 100;
-    transform: translateY(-0%);
-  }
-}
 
 .uniqueness_cards_title {
   color: #fff;
@@ -1687,6 +1599,52 @@ position: relative;
 .uniqueness_cards_img {
   padding-top: 20px;
 }
+
+/*
+************  ВРЕМЕННЫЕ КАРТОЧКИ  ***********
+*/
+
+
+.btn_go_cards {
+  margin-top: 0;
+}
+
+.purple_cards {
+  min-width: 509px;
+}
+
+@media (max-width: 1810px) {
+  .text_wrapper_cards {
+    padding: 0 17px;
+  }
+}
+@media (max-width: 1800px) {
+  .title_cards {
+    padding-top: 21px;
+  }
+  .purple_cards {
+    min-width: 1px;
+  }
+}
+.wrapper_btn_cards {
+  margin-left: 16%;
+}
+
+.wrapper_cards {
+  padding: 0 19px;
+}
+.hidden_cards_wrapper{
+  gap: 0;
+}
+@media (max-width: 1800px) {
+  .purple_card_hidden .uniqueness_cards_text{
+    max-width: 73%;
+  }
+  .btn_go_cards_purple {
+    margin-top: -16%;
+  }
+}
+
 
 /*
 !**************************  АНИМИРОВАННЫЕ КАРТОЧКИ  ******************!
