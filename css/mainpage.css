@@ -44,8 +44,6 @@ body {
 
 /******************* HEADER *******************/
 
-
-
 .ellipse {
   /* display: none; */
   right: 10%;
@@ -355,14 +353,11 @@ nav {
   right: 0;
 }
 
-
-
 .header_last_img {
   display: flex;
   justify-content: center;
   margin-top: -4px;
 }
-
 
 /************************** АДАПТИВ HEADER ******************/
 @media (max-width: 1600px) {
