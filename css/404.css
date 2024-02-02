@@ -46,8 +46,7 @@ body {
 .info-wrapper {
   max-width: 517px;
 }
-.title_wrapper {
-}
+
 .title {
   color: #fff;
   -webkit-text-stroke-width: 2px;
@@ -58,8 +57,7 @@ body {
   font-weight: 400;
   line-height: normal;
 }
-.text-wrapper {
-}
+
 .text {
   color: #5c0c70;
   font-family: "Jost";
@@ -90,8 +88,7 @@ body {
   background: rgba(255, 78, 0, 0.1);
   color: #ff4e00;
 }
-.img-wrapper {
-}
+
 
 img {
   width: 438px;

@@ -1521,9 +1521,6 @@ position: relative;
   background-size: contain;
 }
 
-
-
-
 .green_card {
   opacity: 1;
   background-image: url("../img/green_card.png");
@@ -1537,9 +1534,6 @@ position: relative;
   /* transform: rotate(-10deg); */
 }
 
-
-
-
 .orange_card {
   opacity: 1;
   background-image: url("../img/orange_card.png");
@@ -1552,8 +1546,6 @@ position: relative;
 
   z-index: -5;
 }
-
-
 
 .uniqueness_cards_title {
   color: #fff;
@@ -1604,7 +1596,6 @@ position: relative;
 ************  ВРЕМЕННЫЕ КАРТОЧКИ  ***********
 */
 
-
 .btn_go_cards {
   margin-top: 0;
 }
@@ -1633,18 +1624,17 @@ position: relative;
 .wrapper_cards {
   padding: 0 19px;
 }
-.hidden_cards_wrapper{
+.hidden_cards_wrapper {
   gap: 0;
 }
 @media (max-width: 1800px) {
-  .purple_card_hidden .uniqueness_cards_text{
+  .purple_card_hidden .uniqueness_cards_text {
     max-width: 73%;
   }
   .btn_go_cards_purple {
     margin-top: -16%;
   }
 }
-
 
 /*
 !**************************  АНИМИРОВАННЫЕ КАРТОЧКИ  ******************!
@@ -2065,6 +2055,10 @@ li {
     font-size: 20px;
   }
 
+  .accordion .content p {
+    font-size: 16px;
+  }
+
   /* .wave_tablet {
       display: block;
       position: absolute;
@@ -2074,6 +2068,12 @@ li {
     .wave {
       display: none;
     } */
+}
+
+@media (max-width: 700px) {
+  .accordion .content p {
+    font-size: 14px;
+  }
 }
 
 /**************************  СПРЯТАННЫЙ БЛОК С КАРТОЧКАМИ  ******************/

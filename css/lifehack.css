@@ -21,8 +21,8 @@ h3 {
   margin: 0;
 }
 
-.header_logo img {
-  min-width: 100%;
+.open-menu {
+  height: 28%;
 }
 
 @font-face {
