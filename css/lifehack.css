@@ -21,6 +21,10 @@ h3 {
   margin: 0;
 }
 
+.header_logo img {
+  min-width: 100%;
+}
+
 @font-face {
   font-family: "Maki-Sans";
   src: local("MakiSans"), url("../fonts/MakiSans-Regular.woff") format("woff");
