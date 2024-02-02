@@ -931,6 +931,11 @@ nav {
     width: fit-content;
   }
 
+  .sec_poject {
+    background-image: none;
+    background-color: #faeeeb;
+  }
+
   .central_svg {
     display: none;
   }
@@ -939,6 +944,10 @@ nav {
     align-items: center;
     flex-direction: column-reverse;
     padding-top: 6%;
+  }
+
+  .project_idea_text {
+    padding-top: 33px;
   }
 
   .btn_play {
@@ -1014,6 +1023,10 @@ h2 ~ h2 {
   z-index: 2;
   top: -17%;
   right: 0%;
+}
+
+.btn_play_img:hover {
+  width: 160px;
 }
 
 /**************************  УСПЕШНАЯ ПОДГОТОВКА К ОГЭ АДАПТИВ  ********************/
