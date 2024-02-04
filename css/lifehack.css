@@ -771,7 +771,7 @@ body {
   border: none;
   position: absolute;
   right: 12px;
-  top: 50px;
+  top: 55%;
   width: 24px;
   height: 24px;
   background-color: transparent;
@@ -1351,10 +1351,6 @@ body {
 
   .form-text {
     font-size: 12px;
-  }
-
-  .btn-clear {
-    top: 33px;
   }
 
   .thanks-text {
