@@ -49,6 +49,8 @@ function handleTabletChange(e) {
         document.querySelector(".btn-wrap").style.display = "none";
         document.body.append(document.querySelector(".lifehack_information"));
         document.querySelector(".lifehack").style.marginBottom = "0";
+        document.querySelector("header").style.display = "none";
+        document.querySelector("footer").style.display = "none";
       });
     }
 
@@ -66,6 +68,8 @@ function handleTabletChange(e) {
         document.querySelector(".back-wrap").style.display = "block";
         document.querySelector(".btn-wrap").style.display = "block";
         document.querySelector(".lifehack").style.marginBottom = "60px";
+        document.querySelector("header").style.display = "block";
+        document.querySelector("footer").style.display = "block";
       });
     }
   }
