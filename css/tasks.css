@@ -387,11 +387,14 @@ body {
   width: 100%;
 }
 
-.card-task {
+.cards__item .card {
+  margin-bottom: 0;
+  width: 100%;
+  border-radius: 32px;
   background-color: #d9d9d9;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1600px) {
   .theme__btn {
     display: block;
   }
