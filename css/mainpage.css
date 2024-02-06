@@ -143,6 +143,7 @@ input {
 form {
     position: relative;
     width: 100%;
+    min-width: 147px;
 }
 
 .dpnone {
@@ -232,10 +233,7 @@ form {
 }
 
 .header_btn {
-    display: flex;
     padding: 14px 40px;
-    justify-content: center;
-    align-items: center;
     border-radius: 8px;
     background: #ff4e00;
     color: #fff;
@@ -550,6 +548,10 @@ nav {
         border: none;
         margin-top: 17%;
     }
+
+    form {
+        min-width: 0;
+    }
 }
 
 @media (max-width: 1010px) {
@@ -623,6 +625,7 @@ nav {
 
     .minute_svg {
         width: 43px;
+        animation: none;
     }
 
     .header_last_img img {
@@ -631,10 +634,9 @@ nav {
         margin-top: 33px;
     }
 
-    .menu-burger__header {
-        margin-left: 0;
-    }
-
+    /* .menu-burger__header {
+      margin-left: 0;
+    } */
     .header_search {
         margin-right: 0;
     }
@@ -784,7 +786,7 @@ nav {
 }
 
 .project_idea_video_rotate {
-    background: #84CA5D;
+    background: #84ca5d;
     border-radius: 40px;
     transform: rotate(10deg);
     position: relative;
@@ -803,7 +805,7 @@ nav {
 .video_preview {
     border-radius: 40px;
     /*  box-shadow: 20px 20px 0 0 #84ca5d;
-      transform: rotate(10deg);*/
+        transform: rotate(10deg);*/
     position: relative;
     top: -11px;
     right: 11px;
@@ -971,7 +973,7 @@ nav {
     .project_idea_description {
         align-items: center;
         flex-direction: column-reverse;
-        padding-top: 6%;
+        padding-top: 40px;
     }
 
     .project_idea_text {
@@ -1062,7 +1064,6 @@ h2 ~ h2 {
     width: 130px;
 }
 
-
 /**************************  УСПЕШНАЯ ПОДГОТОВКА К ОГЭ АДАПТИВ  ********************/
 
 @media (max-width: 1160px) {
@@ -1134,7 +1135,7 @@ h2 ~ h2 {
 
 .second_bookmark {
     position: absolute;
-    top: -35%;
+    top: -31%;
     left: 40%;
 }
 
@@ -2157,11 +2158,13 @@ li {
 }
 
 .accordion a.active::after {
+    transition: 0.7s;
     content: url("../img/accordion_arrow.svg");
     transform: rotate(-90deg);
 }
 
 .accordion a.active {
+    transition: all 0.7s ease 0.7s;
     border-bottom: none;
 }
 
@@ -2172,10 +2175,11 @@ li {
     border-bottom: 1px solid #191812;
     overflow: hidden;
     clear: both;
-    transition: all 0.2s ease 0.15s;
+    transition: all 0.5s ease 0.5s;
 }
 
 .accordion .content p {
+
     color: #191812;
     font-family: "Jost";
     font-size: 24px;
@@ -2221,6 +2225,7 @@ li {
         font-size: 16px;
     }
 }
+
 @media (max-width: 500px) {
     .wave svg {
         width: 100vw;
@@ -2369,8 +2374,8 @@ li {
     }
 
     /*.accordion .content p {
-        font-size: 16px;
-      }*/
+          font-size: 16px;
+        }*/
 }
 
 @media (max-width: 1000px) {

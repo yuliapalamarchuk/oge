@@ -1,10 +1,11 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="iconoir:arrow-br" clip-path="url(#clip0_1_36060)">
-<path id="Vector" d="M1.00009 1.00048L23 23M23 23V1M23 23H1.00003" stroke="#2D0736" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_1_36060">
-<rect width="24" height="24" fill="white"/>
-</clipPath>
-</defs>
+    <g id="iconoir:arrow-br" clip-path="url(#clip0_1_36060)">
+        <path id="Vector" d="M1.00009 1.00048L23 23M23 23V1M23 23H1.00003" stroke="#191812" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <defs>
+        <clipPath id="clip0_1_36060">
+            <rect width="24" height="24" fill="white"/>
+        </clipPath>
+    </defs>
 </svg>
