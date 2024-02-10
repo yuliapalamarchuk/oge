@@ -31,14 +31,20 @@
   font-display: swap;
 }
 
+.task__list {
+  scrollbar-color: #5c0c70 transparent;
+  scrollbar-width: thin;
 
+}
 
 .task__list::-webkit-scrollbar {
   width: 6px;
+ 
 }
 
 .task__list::-webkit-scrollbar-track {
   background: transparent;
+
 }
 
 .task__list::-webkit-scrollbar-thumb {
@@ -47,10 +53,9 @@
   border: 3px solid transparent;
 }
 
-.task__list {
-  scrollbar-width: thin;
-  scrollbar-color: #5c0c70 transparent;
-}
+
+
+
 
 p,
 ul,
@@ -203,6 +208,8 @@ body {
 
 .task__block {
   padding: 20px;
+  padding-bottom: 5px;
+  padding-right: 12px;
   border-radius: 40px;
   background-color: var(--orange);
 }
@@ -270,6 +277,7 @@ body {
   margin-bottom: 20px;
   font-family: Maki-Sans;
   font-size: 40px;
+  font-weight: 400;
   color: white;
 }
 
@@ -361,6 +369,7 @@ body {
   padding-left: 52px;
   margin-bottom: 20px;
   display: none;
+  font-family: 'Jost';
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -431,6 +440,8 @@ body {
   .task__block {
     position: absolute;
     padding: 40px 20px;
+    padding-right: 5px;
+    padding-bottom: 5px;
     right: 0;
     width: 325px;
     border-radius: 28px;
@@ -501,6 +512,7 @@ body {
 
   .task__cards {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .card {
@@ -536,4 +548,30 @@ body {
   .banner__text {
     font-size: 14px;
   }
+
+  .back svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .task__block {
+    margin-top: 22px;
+  }
+
+  .task__list {
+    max-height: 490px;
+}
+
+.theme {
+  position: initial;
+}
+
+.task__container {
+  position: relative;
+}
+
+.task__block {
+  width: 100%;
+}
+
 }
