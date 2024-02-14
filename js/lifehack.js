@@ -127,7 +127,7 @@ btnClose.onclick = () => {
 // Выпадающий список
 
 const select = document.querySelector(".form-select");
-const choices = new Choices (select, {
+const choices = new Choices(select, {
   searchEnabled: false,
   itemSelectText: "",
 });
