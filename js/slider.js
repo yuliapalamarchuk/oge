@@ -74,9 +74,9 @@ const swiper = new Swiper(".mySwiper", {
 document.querySelectorAll("#modal").forEach((el) => {
   console.log(el);
   el.addEventListener("mouseover", () => {
-    document.querySelector(".video_preview").style.rotate = "-10deg";
+    document.querySelector(".video_preview").style.transform = "rotate(-10deg)";
   });
   el.addEventListener("mouseout", () => {
-    document.querySelector(".video_preview").style.rotate = "0deg";
+    document.querySelector(".video_preview").style.transform = "rotate(0deg)";
   });
 });

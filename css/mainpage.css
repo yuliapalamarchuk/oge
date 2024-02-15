@@ -76,6 +76,10 @@ body {
     /* backdrop-filter: blur; */
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 /******************* HEADER *******************/
 
 .ellipse {
@@ -164,13 +168,17 @@ form {
 .form_btn:before {
     content: "\f2f5";
     font-family: "Ionicons";
-    font-size: 19px;
+    font-size: 24px;
     color: #5c0c70;
 }
 
 ::placeholder {
     color: #5c0c7066;
     font-size: 18px;
+    font-family: "Jost";
+    font-weight: 500;
+    line-height: 24px;
+
 }
 
 .header_bg {
@@ -508,6 +516,8 @@ nav {
         width: 99%;
         border: #faeeeb;
         background: #faeeeb;
+        height: 100vh;
+        padding-bottom: 40vh;
     }
 
     .header_menu_items {
@@ -604,6 +614,14 @@ nav {
 }
 
 @media (max-width: 650px) {
+    .menu_wrapper {
+        gap: 15px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 40px 20px 40px;
+        background-color: #faeeeb;
+    }
+
     .oge5 img {
         width: 293px;
     }
@@ -663,6 +681,15 @@ nav {
         top: 32%;
         height: 60px;
     }
+
+    .menu-burger__header {
+        position: relative;
+        width: 0px;
+        height: 35px;
+        display: block;
+        margin-left: 16px;
+        padding-left: 2.3rem;
+    }
 }
 
 @media (max-width: 450px) {
@@ -685,7 +712,6 @@ nav {
 
 .modal {
     position: fixed;
-    background: rgba(0, 0, 0, 0.5);
     top: 0;
     right: 0;
     bottom: 0;
@@ -698,14 +724,15 @@ nav {
     z-index: 999;
     visibility: hidden;
     opacity: 0;
-    pointer-events: none;
     transition: all 0.3s;
 
-&:target {
+&
+:target {
     visibility: visible;
     opacity: 1;
     pointer-events: auto;
 }
+
 
 .modal-content {
     max-height: 95%;
@@ -735,10 +762,29 @@ nav {
     width: 70px;
     text-decoration: none;
 
-&:hover {
+&
+:hover {
     color: #363636;
 }
 
+}
+.openModalVideo {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    overflow: hidden;
+
+}
+
+.openModalVideo::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../img/blur_video.png) center/cover fixed;
+    z-index: 48;
+    overflow: hidden;
 }
 
 /**************************  ИДЕЯ ПРОЕКТА  **************************/
@@ -809,6 +855,7 @@ nav {
     position: relative;
     top: -11px;
     right: 11px;
+    transition: transform 0.4s ease;;
 }
 
 .central_svg {
@@ -918,7 +965,7 @@ nav {
     }
 
     .btn_play_img:hover {
-        width: 100px !important;
+        width: 110px !important;
     }
 
     .video_preview {
@@ -1180,8 +1227,12 @@ h2 ~ h2 {
 }
 
 .card_purple_border {
-    padding-top: 8%;
-    transform: rotate(5deg);
+    padding-top: 13%;
+    transform: rotate(3deg);
+}
+
+.card_white_wrapper .card_purple_border {
+    padding-top: 13%;
 }
 
 .card_white_text {
@@ -1194,6 +1245,28 @@ h2 ~ h2 {
     max-width: 310px;
     margin: 0 auto;
     padding-top: 7%;
+}
+
+.purple_card_adaptive .purple_card_text {
+    max-width: 383px;
+}
+
+.purple_card_adaptive img {
+    margin-top: 7%;
+    margin-bottom: 1rem;
+}
+
+.green_card_adaptive .card_img {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.green_card_adaptive .card_text_border {
+    top: -8px;
+}
+
+.green_card_adaptive p {
+    padding-top: 8%;
 }
 
 .card_svg_purple {
@@ -1211,13 +1284,33 @@ h2 ~ h2 {
 }
 
 .card_text_border {
+    transform: rotate(356deg);
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 16px;
+    left: 12px;
 }
 
 .card_purple_wrap {
     position: relative;
+}
+
+.card_adaptive_white .card_img {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.card_adaptive_orange .card_img {
+    padding-top: 10px;
+    padding-bottom: 1rem;
+}
+
+.card_adaptive_orange .card_purple_border {
+    padding-top: 1rem;
+}
+
+.card_adaptive_orange .card_text_border {
+    top: -18px;
+
 }
 
 /*!**************************  КАРТОЧКИ  ********************!
@@ -1389,6 +1482,21 @@ position: relative;
     .purple_card_adaptive {
         margin-top: 7% !important;
     }
+
+    .card_text_border {
+        transform: rotate(356deg);
+        position: absolute;
+        top: -10px;
+        left: 27px;
+    }
+
+    .card_purple_border {
+        padding-top: 7%;
+    }
+
+    .card_white_wrapper .card_purple_border {
+        padding-top: 5%;
+    }
 }
 
 @media (max-width: 1550px) {
@@ -1479,6 +1587,17 @@ position: relative;
 }
 
 @media (max-width: 900px) {
+    .third_bookmark {
+        position: absolute;
+        top: -18%;
+        right: 15%;
+        transform: rotate(4deg);
+    }
+
+    .card_img img {
+        max-width: 80px;
+    }
+
     .cards_bg {
         background-image: url("../img/cards_bg_mobile.png");
         background-repeat: no-repeat;
@@ -1525,6 +1644,19 @@ position: relative;
     .card_text_border {
         width: 270px;
         height: 90px;
+        transform: rotate(356deg);
+        position: absolute;
+        top: -6px;
+        left: -2px;
+    }
+
+    .card_adaptive_orange .card_img {
+        padding-bottom: 8%;
+    }
+
+    .card_adaptive_orange .card_text_border {
+        top: -11px;
+        left: 12px;
     }
 
     .bookmark {
@@ -1538,6 +1670,13 @@ position: relative;
         padding-bottom: 116px;
         padding-top: 29% !important;
     }
+
+    .card_adaptive_white {
+        background: #FBF0ED;
+        transform: rotate(-4deg);
+        position: relative;
+        top: 20vw;
+    }
 }
 
 @media (max-width: 580px) {
@@ -1547,6 +1686,13 @@ position: relative;
 
     .purple_card_adaptive {
         margin-top: 23% !important;
+    }
+
+    .card_adaptive_white {
+        background: #FBF0ED;
+        transform: rotate(-4deg);
+        position: relative;
+        top: -12vw;
     }
 }
 
@@ -2085,7 +2231,33 @@ li {
     }
 
     .mentors_title {
+        padding-left: 2rem;
+        text-align: left;
         font-size: 28px;
+    }
+}
+
+@media (max-width: 630px) {
+    .swiper {
+        width: 90%;
+    }
+
+    .swiper-3d {
+        perspective: 0;
+    }
+
+    .slide_title_wrapper {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+        padding-left: 5%;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 500px) {
+    li {
+        text-align: start;
     }
 }
 
@@ -2098,7 +2270,7 @@ li {
 
 .faq_bg {
     position: relative;
-    padding: 130px 0 80px 0;
+    padding: 0px 0 80px 0;
 }
 
 .faq_for_bg {
@@ -2106,13 +2278,12 @@ li {
 }
 
 .wave {
-    position: absolute;
-    bottom: 82%;
+    position: relative;
 }
 
 .wave svg {
     width: 100%;
-    height: 233px;
+    margin-top: -5rem;
 }
 
 .wave_tablet {
@@ -2216,6 +2387,15 @@ li {
     }
 }
 
+@media (max-width: 1000px) {
+
+    .wave svg {
+        width: 100%;
+        margin-top: -3rem;
+    }
+}
+
+
 @media (max-width: 700px) {
     .accordion .content p {
         font-size: 14px;
@@ -2226,12 +2406,14 @@ li {
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
+
     .wave svg {
-        width: 100vw;
-        height: 233px;
+        width: 100%;
+        margin-top: -1rem;
     }
 }
+
 
 /**************************  СПРЯТАННЫЙ БЛОК С КАРТОЧКАМИ  ******************/
 
@@ -2387,6 +2569,12 @@ li {
 }
 
 @media (max-width: 500px) {
+    .uniqueness_cards_img {
+        width: 32px;
+        padding-top: 0px;
+        padding-bottom: 38px;
+    }
+
     .uniqueness_cards_text {
         font-size: 14px;
         max-width: 79% !important;
@@ -2452,7 +2640,13 @@ li {
     .green_card_hiddden .uniqueness_cards_text {
         max-width: 69% !important;
     }
+
+    .purple_card_hidden, .green_card_hiddden, .orange_card_hidden {
+        max-width: 327px;
+    }
+
 }
+
 
 /*!**************************  СПРЯТАННЫЙ БЛОК С КАРТОЧКАМИ  ******************!
 
@@ -2521,7 +2715,6 @@ display: none;
   font-size: 16px;
 }
 }*/
-
 /****************************  FOOTER  ****************************/
 .footer {
     background-image: url("../img/footer_background.png");
@@ -2667,7 +2860,6 @@ a .footer_link {
 /*
  ***************************  FOOTER АДАПТИВ ***************************
 */
-
 @media (max-width: 1360px) {
     .footer_team_logo {
         padding-bottom: 50px;
