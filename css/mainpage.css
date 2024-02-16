@@ -2764,7 +2764,10 @@ a .footer_link {
 .footer_team_logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+}
+
+.footer_team_link {
+  padding-top: 4px;
 }
 
 .footer_team_text {
@@ -2841,7 +2844,8 @@ a .footer_link {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  padding-bottom: 4px;
+
+  padding-left: 6px;
 }
 
 .footer_contacts_reverse {
