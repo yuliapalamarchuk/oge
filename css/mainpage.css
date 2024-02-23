@@ -1048,6 +1048,12 @@ nav {
   }
 }
 
+@media (max-width: 576px) {
+  .menu_wrapper {
+    padding: 0px 20px 20px 20px;
+  }
+}
+
 @media (max-width: 500px) {
   .video_preview {
     max-width: 300px;
