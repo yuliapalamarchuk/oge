@@ -109,6 +109,7 @@ body {
 }
 
 .hero-back {
+  padding-left: 25px;
   width: fit-content;
   align-items: center;
   color: #5c0c70;
@@ -493,6 +494,7 @@ body {
 
 .lifehack_foto {
   width: 100%;
+  border-radius: 40px;
 }
 
 .lifehack-information-text {
@@ -541,7 +543,6 @@ body {
 }
 
 .offer-modal {
-  border: 1px solid red;
   width: 600px;
   height: 791px;
   border-radius: 32px;
@@ -598,6 +599,22 @@ body {
 .form-textarea:hover {
   border: 2px solid rgba(255, 78, 0, 0.28);
   background: #fff;
+}
+
+:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+:focus::-moz-placeholder {
+  color: transparent;
+}
+
+:focus:-moz-placeholder {
+  color: transparent;
+}
+
+:focus:-ms-input-placeholder {
+  color: transparent;
 }
 
 .form-input:focus,
@@ -895,6 +912,7 @@ body {
 
 @media (max-width: 1200px) {
   .lifehack_title {
+    width: 376px;
     font-size: 60px;
   }
 
@@ -978,7 +996,12 @@ body {
     left: 304px;
   }
 
+  .hero-back {
+    padding-left: 20px;
+  }
+
   .lifehack_title {
+    width: 292px;
     font-size: 47px;
   }
 
@@ -1023,6 +1046,10 @@ body {
 
   .thanks-text {
     font-size: 20px;
+  }
+
+  .lifehack_foto {
+    border-radius: 20px;
   }
 }
 
@@ -1102,6 +1129,10 @@ body {
     padding-top: 87px;
   }
 
+  .hero-back {
+    padding-left: 0;
+  }
+
   .lifehack {
     margin-bottom: 60px;
     gap: 0;
@@ -1168,6 +1199,10 @@ body {
     max-width: 100%;
     height: 100vh;
     border-radius: 0;
+  }
+
+  .lifehack-information-end {
+    text-align: center;
   }
 }
 
@@ -1383,6 +1418,10 @@ body {
   .hero-top {
     margin-bottom: 87px;
     padding-top: 60px;
+  }
+
+  .lifehack_title {
+    width: 261px;
   }
 
   .lifehack-name {
