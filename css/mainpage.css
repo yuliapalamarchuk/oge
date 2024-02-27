@@ -1679,6 +1679,11 @@ position: relative;
     top: 20vw;
   }
 }
+@media (max-width: 700px) {
+  .second_bookmark {
+    top: -23%;
+  }
+}
 
 @media (max-width: 580px) {
   .green_card_adaptive {
@@ -2973,6 +2978,13 @@ a .footer_link {
 @media (max-width: 400px) {
   .logo svg {
     max-width: 60px;
+  }
+}
+
+@media (max-width: 500px) {
+  .page_404 {
+    background-size: 100% 100% !important;
+    background-image: url(../img/background_404_mobile.png) !important;
   }
 }
 
