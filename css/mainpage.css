@@ -239,6 +239,7 @@ body.menu-open {
   background: rgba(255, 255, 255, 0.7);
   color: #be9ec6;
   margin-bottom: 20px;
+  margin-top: 8px;
 }
 .modal-reg-btn {
   width: 444px;
@@ -296,6 +297,67 @@ body.menu-open {
 .modal-reg-img-wrapper {
   display: flex;
   align-items: center;
+}
+.password {
+  position: relative;
+}
+.password-control {
+  position: absolute;
+  right: 23px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../img/eye-off.svg) 0 0 no-repeat;
+  top: 51%;
+}
+
+.password-control2 {
+  position: absolute;
+  right: 23px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../img/eye-off.svg) 0 0 no-repeat;
+  bottom: 24%;
+}
+
+.password-control3 {
+  position: absolute;
+  right: 23px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../img/eye-off.svg) 0 0 no-repeat;
+  bottom: 51%;
+}
+
+/******************* МОДАЛКА ВОЙТИ *******************/
+.modal-auth {
+  display: none;
+  position: fixed;
+  z-index: 55;
+  left: 50%;
+  top: 50%;
+  max-width: 1065px;
+  overflow: auto;
+  transform: translate(-50%, -50%);
+  border-radius: 28px;
+  background-color: #faeeeb;
+  padding: 40px;
+}
+
+.modal-auth-forgot-password {
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "Jost";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+}
+
+.modal-auth-btn {
+  margin-top: 40px;
 }
 
 /******************* HEADER *******************/
@@ -473,12 +535,12 @@ form {
 
 .header_btn:hover {
   background: #faeeeb;
-  border: 2px solid #ff4e00;
+  outline: 2px solid #ff4e00;
   color: #ff4e00;
 }
 
 .header_btn:active {
-  border: 2px solid #ff4e00;
+  outline: 2px solid #ff4e00;
   background: rgba(255, 78, 0, 0.1);
   color: #ff4e00;
 }

@@ -1,34 +1,3 @@
-//МОДАЛКА РЕГИСТРАЦИИ
-// // Получаем элементы модального окна и кнопки открытия
-// const modal = document.getElementById("myModal");
-// console.log(modal);
-// const btn = document.getElementById("openModalReg");
-// const btnMobile = document.getElementById("openModalRegMobile");
-// console.log(btn);
-// const span = document.getElementsByClassName("close-reg")[0];
-// console.log(span);
-
-// // Открываем модальное окно при клике на кнопку
-// btn.onclick = function () {
-//   modal.style.display = "block";
-// };
-
-// btnMobile.onclick = function () {
-//   modal.style.display = "block";
-// };
-
-// // Закрываем модальное окно при клике на крестик
-// span.onclick = function () {
-//   modal.style.display = "none";
-// };
-
-// // Закрываем модальное окно при клике вне его области
-// window.onclick = function (event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// };
-
 //МОДАЛКА ВОЙТИ ИЛИ ЗАРЕГИСТРИРОВАТЬСЯ
 const modalAuthReg = document.getElementById("modalAuthReg");
 const openModalAuthReg = document.getElementById("openModalAuthReg");
@@ -48,11 +17,15 @@ openModalAuthRegMobile.onclick = function () {
 closeModalAuthReg.onclick = function () {
   modalAuthReg.style.display = "none";
 };
-// window.onclick = function (event) {
-//   if (event.target == modalAuthReg) {
-//     modalAuthReg.style.display = "none";
-//   }
-// };
+document.addEventListener("click", function (event) {
+  if (
+    !modalAuthReg.contains(event.target) &&
+    event.target !== openModalAuthReg &&
+    event.target !== openModalAuthRegMobile
+  ) {
+    modalAuthReg.style.display = "none";
+  }
+});
 
 //ОТКРЫВАЕМ МОДАЛКУ РЕГИСТРАЦИИ ПО КЛИКУ НА КНОПКУ 'ЗАРЕГИСТРИРОВАТЬСЯ'
 const modalReg = document.getElementById("modalReg");
@@ -68,8 +41,64 @@ closeModalReg.onclick = () => {
   modalReg.style.display = "none";
 };
 
-// window.onclick = function (event) {
-//     if (event.target == modalReg) {
-//         modalReg.style.display = "none";
-//     }
-//   };
+document.addEventListener("click", function (event) {
+  if (!modalReg.contains(event.target) && event.target !== openModalReg) {
+    modalReg.style.display = "none";
+  }
+});
+
+//ОТКРЫВАЕМ МОДАЛКУ АВТОРИЗАЦИИ ПО КЛИКУ НА КНОПКУ 'ВОЙТИ'
+const modalAuth = document.getElementById("modalAuth");
+console.log(modalAuth);
+const closeModalAuth = document.getElementById("closeModalAuth");
+console.log(closeModalAuth);
+const openModalAuth = document.getElementById("openModalAuth");
+console.log(openModalAuth);
+
+openModalAuth.onclick = () => {
+  modalAuthReg.style.display = "none";
+  modalAuth.style.display = "block";
+};
+
+closeModalAuth.onclick = () => {
+  modalAuth.style.display = "none";
+};
+
+document.addEventListener("click", function (event) {
+  if (!modalAuth.contains(event.target) && event.target !== openModalAuth) {
+    modalAuth.style.display = "none";
+  }
+});
+
+$("body").on("click", ".password-control", function () {
+  if ($("#password-input").attr("type") == "password") {
+    $(this).addClass("view");
+    $("#password-input").attr("type", "text");
+  } else {
+    $(this).removeClass("view");
+    $("#password-input").attr("type", "password");
+  }
+  return false;
+});
+
+$("body").on("click", ".password-control2", function () {
+  if ($("#confirmPassword").attr("type") == "password") {
+    $(this).addClass("view");
+    $("#confirmPassword").attr("type", "text");
+  } else {
+    $(this).removeClass("view");
+    $("#confirmPassword").attr("type", "password");
+  }
+  return false;
+});
+
+$("body").on("click", ".password-control3", function () {
+  if ($("#password-auth").attr("type") == "password") {
+    $(this).addClass("view");
+    $("#password-auth").attr("type", "text");
+  } else {
+    $(this).removeClass("view");
+    $("#password-auth").attr("type", "password");
+  }
+  return false;
+});
