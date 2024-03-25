@@ -364,3 +364,18 @@ $(document).ready(function () {
     }
   });
 });
+
+// Меню профиля
+const btnMenu = document.querySelector(".profile-menu");
+const menuProfile = document.querySelector(".profile-left");
+const menuProfileClose = document.querySelector(".profil-close");
+
+btnMenu.addEventListener("click", (e) => {
+  e.preventDefault();
+  menuProfile.classList.toggle("appear");
+});
+
+menuProfileClose.addEventListener("click", (e) => {
+  e.preventDefault();
+  menuProfile.classList.remove("appear");
+});
