@@ -6,16 +6,18 @@ const openModalAuthRegMobile = document.getElementById(
 );
 const closeModalAuthReg = document.getElementById("closeModalAuthReg");
 
+modalAuthReg.classList.add("display-none");
+
 openModalAuthReg.onclick = function () {
-  modalAuthReg.style.display = "block";
+  modalAuthReg.classList.remove("display-none");
 };
 
 openModalAuthRegMobile.onclick = function () {
-  modalAuthReg.style.display = "block";
+  modalAuthReg.classList.remove("display-none");
 };
 
 closeModalAuthReg.onclick = function () {
-  modalAuthReg.style.display = "none";
+  modalAuthReg.classList.add("display-none");
 };
 document.addEventListener("click", function (event) {
   if (
@@ -23,7 +25,7 @@ document.addEventListener("click", function (event) {
     event.target !== openModalAuthReg &&
     event.target !== openModalAuthRegMobile
   ) {
-    modalAuthReg.style.display = "none";
+    modalAuthReg.classList.add("display-none");
   }
 });
 
@@ -32,43 +34,63 @@ const modalReg = document.getElementById("modalReg");
 const closeModalReg = document.getElementById("closeModalReg");
 const openModalReg = document.getElementById("openModalReg");
 
+modalReg.classList.add("display-none");
+
 openModalReg.onclick = () => {
-  modalAuthReg.style.display = "none";
-  modalReg.style.display = "block";
+  modalAuthReg.classList.add("display-none");
+  modalReg.classList.remove("display-none");
 };
 
 closeModalReg.onclick = () => {
-  modalReg.style.display = "none";
+  modalReg.classList.add("display-none");
 };
 
 document.addEventListener("click", function (event) {
   if (!modalReg.contains(event.target) && event.target !== openModalReg) {
-    modalReg.style.display = "none";
+    modalReg.classList.add("display-none");
   }
 });
 
 //ОТКРЫВАЕМ МОДАЛКУ АВТОРИЗАЦИИ ПО КЛИКУ НА КНОПКУ 'ВОЙТИ'
 const modalAuth = document.getElementById("modalAuth");
-console.log(modalAuth);
 const closeModalAuth = document.getElementById("closeModalAuth");
-console.log(closeModalAuth);
 const openModalAuth = document.getElementById("openModalAuth");
-console.log(openModalAuth);
+
+modalAuth.classList.add("display-none");
 
 openModalAuth.onclick = () => {
-  modalAuthReg.style.display = "none";
-  modalAuth.style.display = "block";
+  modalAuthReg.classList.add("display-none");
+  modalAuth.classList.remove("display-none");
 };
 
 closeModalAuth.onclick = () => {
-  modalAuth.style.display = "none";
+  modalAuth.classList.add("display-none");
 };
 
 document.addEventListener("click", function (event) {
   if (!modalAuth.contains(event.target) && event.target !== openModalAuth) {
-    modalAuth.style.display = "none";
+    modalAuth.classList.add("display-none");
   }
 });
+
+//ПЕРЕХОДЫ МЕЖДУ МОДАЛКОЙ РЕГИСТРАЦИИ И АВТОРИЗАЦИИ ПО ССЫЛКАМ ВНИЗУ
+const switchtoLogin = document.getElementById("switchtoLogin");
+
+switchtoLogin.addEventListener("click", function (event) {
+  event.preventDefault();
+  modalReg.classList.add("display-none");
+  modalAuth.style.display = "block";
+});
+
+const switchToReg = document.getElementById("switchToReg");
+
+switchToReg.addEventListener("click", function (event) {
+  event.preventDefault();
+  modalAuth.classList.add("display-none");
+  modalReg.style.display = "block";
+});
+
+//ПО КЛИКУ НА ГЛАЗИК ПОКАЗЫВАЕТ И СКРЫВАЕТ ПАРОЛЬ
 
 $("body").on("click", ".password-control", function () {
   if ($("#password-input").attr("type") == "password") {
