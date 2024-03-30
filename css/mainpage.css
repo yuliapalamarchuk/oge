@@ -83,7 +83,6 @@ body.menu-open {
 /******************* МОДАЛКА ВОЙТИ ИЛИ ЗАРЕГИСТРИРОВАТЬСЯ *******************/
 
 .modal-auth-reg {
-  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
@@ -93,6 +92,10 @@ body.menu-open {
   background-color: #faeeeb;
   transform: translate(-50%, -50%);
   border-radius: 28px;
+}
+
+.display-none {
+  display: none;
 }
 
 .close-modal-auth-reg {
@@ -181,7 +184,6 @@ body.menu-open {
 
 /******************* МОДАЛКА ЗАРЕГИСТРИРОВАТЬСЯ *******************/
 .modal-reg {
-  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
@@ -333,7 +335,6 @@ body.menu-open {
 
 /******************* МОДАЛКА ВОЙТИ *******************/
 .modal-auth {
-  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
