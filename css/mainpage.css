@@ -22,6 +22,21 @@
     scroll-behavior: smooth;
 }*/
 
+
+
+
+/*
+Классы для скрытия/откртия модалки
+*/
+.showModal{
+  display: block!important;
+}
+/*.closeModal{
+  display: none;
+}*/
+
+
+
 @font-face {
   font-family: "Jost";
   src: url("../fonts/Jost-Regular.woff2") format("woff2"),
@@ -83,6 +98,7 @@ body.menu-open {
 /******************* МОДАЛКА ВОЙТИ ИЛИ ЗАРЕГИСТРИРОВАТЬСЯ *******************/
 
 .modal-auth-reg {
+  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
@@ -184,6 +200,7 @@ body.menu-open {
 
 /******************* МОДАЛКА ЗАРЕГИСТРИРОВАТЬСЯ *******************/
 .modal-reg {
+  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
@@ -335,6 +352,7 @@ body.menu-open {
 
 /******************* МОДАЛКА ВОЙТИ *******************/
 .modal-auth {
+  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
@@ -843,6 +861,7 @@ nav {
   form {
     min-width: 0;
   }
+
 }
 
 @media (max-width: 1010px) {

@@ -1,9 +1,7 @@
 //МОДАЛКА ВОЙТИ ИЛИ ЗАРЕГИСТРИРОВАТЬСЯ
 const modalAuthReg = document.getElementById("modalAuthReg");
 const openModalAuthReg = document.getElementById("openModalAuthReg");
-const openModalAuthRegMobile = document.getElementById(
-  "openModalAuthRegMobile"
-);
+const openModalAuthRegMobile = document.getElementById("openModalAuthRegMobile");
 const closeModalAuthReg = document.getElementById("closeModalAuthReg");
 
 modalAuthReg.classList.add("display-none");
