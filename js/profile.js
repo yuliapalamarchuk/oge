@@ -273,6 +273,7 @@ const listItems = document.querySelectorAll(".profile-cards li");
 hideElementsButton.addEventListener("click", function () {
   for (let i = 4; i < listItems.length; i++) {
     listItems[i].style.display = "none";
+    hideElementsButton.style.display = "none";
   }
 });
 
@@ -343,4 +344,23 @@ resultHide.addEventListener("click", (e) => {
   resultsAll.classList.add("hidden-total");
   resultHide.classList.add("hidden-total");
   resultLook.classList.remove("hidden-total");
+});
+
+// Результаты во вкладке Задания
+$(document).ready(function () {
+  $(".results-card--topic").on("click", function (e) {
+    e.preventDefault();
+    if ($(this).hasClass("active")) {
+      $(this).removeClass("active");
+      $(this).siblings(".results-card--hidden").slideUp(200);
+      $(".card-svg").removeClass("minus").addClass("plus");
+    } else {
+      $(".card-svg").removeClass("minus").addClass("plus");
+      $(this).find("i").removeClass("plus").addClass("minus");
+      $(".results-card--topic").removeClass("active");
+      $(this).addClass("active");
+      $(".results-card--hidden").slideUp(200);
+      $(this).siblings(".results-card--hidden").slideDown(200);
+    }
+  });
 });

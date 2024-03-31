@@ -683,3 +683,75 @@ table.task-table {
   display: block;
   max-height: 264px;
 }
+
+/* Задания */
+.results-card--name {
+  position: relative;
+  padding: 20px;
+  padding-right: 30px;
+  font-weight: 600;
+}
+
+.card-svg {
+  position: absolute;
+  right: 30px;
+}
+
+.minus {
+  top: 16px;
+}
+
+.results-card--topic {
+  border-radius: 20px;
+  background-color: rgba(250, 238, 235, 1);
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+
+.plus:before {
+  content: url(../img/plus.svg);
+}
+
+.minus:before {
+  content: url(../img/minus.svg);
+}
+
+.results-card--hidden {
+  display: none;
+}
+
+.profile-text--margin {
+  margin-bottom: 46px;
+}
+
+.results-card--test li {
+  margin-bottom: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+  list-style-type: none;
+}
+
+.card-hidden--name {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.card-hidden {
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.card-hidden--left {
+  width: 50%;
+}
+
+table.task-table--topic {
+  height: auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.task-table--topic tr:last-child {
+  border-bottom: none;
+}
