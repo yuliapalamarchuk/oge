@@ -22,6 +22,16 @@
     scroll-behavior: smooth;
 }*/
 
+/*
+Классы для скрытия/откртия модалки
+*/
+.showModal {
+  display: block !important;
+}
+/*.closeModal{
+  display: none;
+}*/
+
 @font-face {
   font-family: "Jost";
   src: url("../fonts/Jost-Regular.woff2") format("woff2"),
@@ -80,13 +90,18 @@ body.menu-open {
   overflow: hidden;
 }
 
+.blur {
+  filter: blur(9px);
+}
+
 /******************* МОДАЛКА ВОЙТИ ИЛИ ЗАРЕГИСТРИРОВАТЬСЯ *******************/
 
 .modal-auth-reg {
+  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
-  top: 50%;
+  top: 57%;
   max-width: 600px;
   overflow: auto;
   background-color: #faeeeb;
@@ -182,8 +197,16 @@ body.menu-open {
   margin-bottom: 40px;
 }
 
+@media (max-width: 1250px) {
+  .modal-auth-reg-btn-reg,
+  .modal-auth-reg-btn-auth {
+    max-width: 480px;
+  }
+}
+
 /******************* МОДАЛКА ЗАРЕГИСТРИРОВАТЬСЯ *******************/
 .modal-reg {
+  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
@@ -305,36 +328,55 @@ body.menu-open {
 }
 .password-control {
   position: absolute;
+  outline: none;
+  border: none;
   right: 23px;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url(../img/eye-off.svg) 0 0 no-repeat;
+  width: 24px;
+  height: 24px;
+  background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
   top: 51%;
+  cursor: pointer;
 }
 
 .password-control2 {
   position: absolute;
-  right: 23px;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url(../img/eye-off.svg) 0 0 no-repeat;
-  bottom: 24%;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
+  bottom: 23%;
 }
 
 .password-control3 {
   position: absolute;
-  right: 23px;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url(../img/eye-off.svg) 0 0 no-repeat;
-  bottom: 51%;
+  right: 21px;
+  width: 24px;
+  height: 24px;
+  background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
+  bottom: 50%;
+}
+
+@media (max-width: 1600px) {
+  .modal-reg-img-wrapper img {
+    max-width: 371px;
+  }
+  .modal-reg-form-wrapper {
+    margin-top: 4rem;
+  }
+  .modal-reg-title {
+    font-size: 24px;
+  }
+  .modal-reg-btn {
+    font-size: 18px;
+  }
+  .modal-reg-already-have-account {
+    font-size: 20px;
+  }
 }
 
 /******************* МОДАЛКА ВОЙТИ *******************/
 .modal-auth {
+  display: none;
   position: fixed;
   z-index: 55;
   left: 50%;
