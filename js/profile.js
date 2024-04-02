@@ -366,7 +366,7 @@ $(document).ready(function () {
 });
 
 // Меню профиля
-const btnMenu = document.querySelector(".profile-menu");
+const btnMenu = document.querySelector(".profile-menu--icon");
 const menuProfile = document.querySelector(".profile-left");
 const menuProfileClose = document.querySelector(".profil-close");
 
