@@ -1,0 +1,21 @@
+.results {
+    padding: 40px 0;
+}
+
+.results .container {
+    max-width: 1530px;
+}
+
+.results__container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+}
+
+.results__left {
+    grid-column: 5 span;
+}
+
+.results__right {
+    grid-column: 4 span;
+}
