@@ -164,7 +164,10 @@ function createQuestion() {
         num += 1;
 
         console.log(num)
-        document.body.append(createQuestion(num));
+
+        if (num < 20) document.body.append(createQuestion(num))
+        else window.location.href = '../test-final.html';
+
 
     })
 

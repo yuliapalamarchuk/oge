@@ -3,7 +3,7 @@
 }
 
 .results .container {
-    max-width: 1530px;
+    max-width: 1610px;
 }
 
 .results__container {
@@ -12,10 +12,134 @@
     align-items: center;
 }
 
+.results__container>.results__link {
+    display: none;
+}
+
 .results__left {
+    position: relative;
     grid-column: 5 span;
+    background-image: url(../img/test-arrow.svg);
+    background-position: calc(100% - 38px) calc(100% - 14px);
+    background-repeat: no-repeat;
 }
 
 .results__right {
-    grid-column: 4 span;
+    grid-column: 7/11;
+}
+
+.results__title {
+    margin-bottom: 60px;
+    font-family: Maki-Sans;
+    font-size: 86px;
+    font-weight: 400;
+    line-height: 94.6px;
+    letter-spacing: 0.02em;
+    -webkit-text-stroke: 3px var(--dark-purple);
+    color: var(--bg);
+}
+
+.results__text {
+    margin-bottom: 120px;
+    max-width: 600px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 44px;
+    color: var(--dark-purple);
+}
+
+.results__link {
+    display: block;
+    padding: 14px 40px;
+    max-width: max-content;
+    border-radius: 8px;
+    font-family: Maki-Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.51px;
+    background-color: var(--dark-orange);
+    color: white;
+}
+
+@media (max-width: 1400px) {
+    .results__container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .results__left,
+    .results__right {
+        grid-column: 1;
+    }
+
+    .results__left {
+        background-image: none;
+    }
+
+    .results__title {
+        font-size: 64px;
+        line-height: 76.03px;
+    }
+
+    .results__text {
+        margin-bottom: 60px;
+        font-size: 32px;
+        line-height: 35.2px;
+
+    }
+
+
+
+}
+
+@media (max-width: 1024px) {
+    .results .container {
+        max-width: 780px;
+    }
+
+    .results__right img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .results .back {
+        margin-bottom: 20px;
+        padding: 4px 0;
+    }
+
+    .results__title {
+        margin-bottom: 8px;
+        font-size: 28px;
+        line-height: 33.26px;
+        letter-spacing: 0.06em;
+        -webkit-text-stroke: 2px var(--dark-purple);
+    }
+
+    .results__text {
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 16.8px;
+    }
+
+    .results__container {
+        gap: 20px;
+    }
+
+    .results__left .results__link {
+        display: none;
+    }
+
+    .results__container>.results__link {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+        line-height: 19.01px;
+        text-align: center;
+    }
+
+    .results {
+        padding: 20px 0;
+    }
 }
