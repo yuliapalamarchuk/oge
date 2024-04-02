@@ -31,8 +31,18 @@
     </header>
 
     <main>
+        <div class="wrapper profile-menu flex hidden-total">
+            <svg class="profile-menu--icon" width="36" height="24" viewBox="0 0 36 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 2H34M2 12H34M2 22C9.81049 22 26.1895 22 34 22" stroke="#5C0C70" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <p class="profile-menu--text">Меню</p>
+        </div>
+
         <section class="wrapper profile flex">
             <div class="profile-left">
+                <button class="btn-reset close profil-close hidden-total"></button>
                 <p class="profile-fio">Иванов Иван Иванович</p>
                 <div class="profile-list">
                     <div class="profile-card profile-card--active flex">
@@ -317,313 +327,351 @@
                         <div class="results-card results-card--active">
 
                             <!-- Если нет баллов -->
-                            <!-- <p class="profile-text profile-text--results">У вас нет пройденных тестов</p>
-                            <a href="tests.html" class="btn-profile">Пройти тест</a> -->
+                            <!-- <div>
+                                <p class="profile-text profile-text--results">У вас нет пройденных тестов</p>
+                                <a href="tests.html" class="btn-profile">Пройти тест</a>
+                            </div> -->
+
                             <!-- ---------------- -->
 
                             <!-- Если есть баллы -->
-                            <p class="profile-text profile-text--test">Ниже ты можешь посмотреть результаты по
-                                каждому из заданий теста, а также при необходимости пройти его заново.</p>
+                            <div>
+                                <p class="profile-text profile-text--test">Ниже ты можешь посмотреть результаты по
+                                    каждому из заданий теста, а также при необходимости пройти его заново.</p>
 
-                            <table class="results-table">
-                                <tbody>
-                                    <tr class="results-table--row1">
-                                        <td class="results-table--cell results-table--title cell-border-right">Выполнено
-                                            заданий</td>
-                                        <td class="results-table--cell results-table--title cell-border-right">Выполнено
-                                            верно</td>
-                                        <td class="results-table--cell results-table--title">Результативность</td>
-                                    </tr>
-                                    <tr class="results-table--row2">
-                                        <td class="results-table--cell cell-border-right">16 из 16</td>
-                                        <td class="results-table--cell cell-border-right">3</td>
-                                        <td class="results-table--cell">18,75%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                <table class="results-table">
+                                    <tbody>
+                                        <tr class="results-table--row1">
+                                            <td class="results-table--cell results-table--title cell-border-right">
+                                                Выполнено
+                                                заданий</td>
+                                            <td class="results-table--cell results-table--title cell-border-right">
+                                                Выполнено
+                                                верно</td>
+                                            <td class="results-table--cell results-table--title">Результативность</td>
+                                        </tr>
+                                        <tr class="results-table--row2">
+                                            <td class="results-table--cell cell-border-right">16 из 16</td>
+                                            <td class="results-table--cell cell-border-right">3</td>
+                                            <td class="results-table--cell">18,75%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-                            <div class="results-btn-wrap flex">
-                                <div class="btn-result">
-                                    <button class="btn-reset favorite-btn result-btn-look">Посмотреть результаты
-                                        <svg width="24" height="14" viewBox="0 0 24 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 2L12 12L22 2" stroke-width="4" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </button>
-                                    <button class="btn-reset favorite-btn result-btn-hide hidden-total">Скрыть
-                                        результаты
-                                        <svg width="24" height="14" viewBox="0 0 24 14" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 12L12 2L22 12" stroke-width="4" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                    </button>
+                                <div class="results-btn-wrap flex">
+                                    <div class="btn-result">
+                                        <button class="btn-reset favorite-btn result-btn-look">Посмотреть результаты
+                                            <svg width="24" height="14" viewBox="0 0 24 14" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2 2L12 12L22 2" stroke-width="4" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
+                                        <button class="btn-reset favorite-btn result-btn-hide hidden-total">Скрыть
+                                            результаты
+                                            <svg width="24" height="14" viewBox="0 0 24 14" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M2 12L12 2L22 12" stroke-width="4" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+                                        </button>
 
-                                    <div class="results-tests-wrap hidden-total">
-                                        <div class="result-block">
-                                            <div class="results-tests flex">
-                                                <p class="results-tests-name">Общий тест</p>
-                                                <time datetime="2023-12-13T20:10+03:00" class="results-tests-date">
-                                                    13.12.2023 20:10
-                                                </time>
+                                        <div class="results-tests-wrap hidden-total">
+                                            <div class="result-block">
+                                                <div class="results-tests flex">
+                                                    <p class="results-tests-name">Общий тест</p>
+                                                    <time datetime="2023-12-13T20:10+03:00" class="results-tests-date">
+                                                        13.12.2023 20:10
+                                                    </time>
+                                                </div>
+
+                                                <div class="task-table-wrap">
+                                                    <table class="task-table">
+                                                        <tbody>
+                                                            <tr class="task-table--row1">
+                                                                <td class="task-table-title cell-border-right">Задание 6
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 7
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 8
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 9
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    10
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    11
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    12
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    13
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    14
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    15
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    16
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    17
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    18
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    19
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
 
-                                            <div class="task-table-wrap">
-                                                <table class="task-table">
-                                                    <tbody>
-                                                        <tr class="task-table--row1">
-                                                            <td class="task-table-title cell-border-right">Задание 6
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 7
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 8
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 9
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 10
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 11
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 12
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 13
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 14
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 15
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 16
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 17
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 18
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 19
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div class="result-block">
+                                                <div class="results-tests flex">
+                                                    <p class="results-tests-name">Общий тест</p>
+                                                    <time datetime="2023-10-20T20:10+03:00" class="results-tests-date">
+                                                        20.10.2023 20:10
+                                                    </time>
+                                                </div>
+
+                                                <div class="task-table-wrap">
+                                                    <table class="task-table">
+                                                        <tbody>
+                                                            <tr class="task-table--row1">
+                                                                <td class="task-table-title cell-border-right">Задание 6
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 7
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 8
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 9
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    10
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    11
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    12
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    13
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    14
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    15
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    16
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    17
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    18
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    19
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
+
+                                            <div class="result-block">
+                                                <div class="results-tests flex">
+                                                    <p class="results-tests-name">Общий тест</p>
+                                                    <time datetime="2023-09-15T20:10+03:00" class="results-tests-date">
+                                                        15.09.2023 20:10
+                                                    </time>
+                                                </div>
+
+                                                <div class="task-table-wrap">
+                                                    <table class="task-table">
+                                                        <tbody>
+                                                            <tr class="task-table--row1">
+                                                                <td class="task-table-title cell-border-right">Задание 6
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 7
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 8
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание 9
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    10
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    11
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    12
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    13
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    14
+                                                                </td>
+                                                                <td class="task-table-cell">Неверно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    15
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    16
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    17
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    18
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="task-table-title cell-border-right">Задание
+                                                                    19
+                                                                </td>
+                                                                <td class="task-table-cell">Верно</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
                                         </div>
-
-                                        <div class="result-block">
-                                            <div class="results-tests flex">
-                                                <p class="results-tests-name">Общий тест</p>
-                                                <time datetime="2023-10-20T20:10+03:00" class="results-tests-date">
-                                                    20.10.2023 20:10
-                                                </time>
-                                            </div>
-
-                                            <div class="task-table-wrap">
-                                                <table class="task-table">
-                                                    <tbody>
-                                                        <tr class="task-table--row1">
-                                                            <td class="task-table-title cell-border-right">Задание 6
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 7
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 8
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 9
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 10
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 11
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 12
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 13
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 14
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 15
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 16
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 17
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 18
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 19
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-
-                                        <div class="result-block">
-                                            <div class="results-tests flex">
-                                                <p class="results-tests-name">Общий тест</p>
-                                                <time datetime="2023-09-15T20:10+03:00" class="results-tests-date">
-                                                    15.09.2023 20:10
-                                                </time>
-                                            </div>
-
-                                            <div class="task-table-wrap">
-                                                <table class="task-table">
-                                                    <tbody>
-                                                        <tr class="task-table--row1">
-                                                            <td class="task-table-title cell-border-right">Задание 6
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 7
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 8
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 9
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 10
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 11
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 12
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 13
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 14
-                                                            </td>
-                                                            <td class="task-table-cell">Неверно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 15
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 16
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 17
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 18
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="task-table-title cell-border-right">Задание 19
-                                                            </td>
-                                                            <td class="task-table-cell">Верно</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-
                                     </div>
-                                </div>
 
-                                <div class="btn-again flex">
-                                    <a href="tests.html" class="favorite-btn result-btn-again">Пройти тест заново</a>
+                                    <div class="btn-again flex">
+                                        <a href="tests.html" class="favorite-btn result-btn-again">Пройти тест
+                                            заново</a>
+                                    </div>
                                 </div>
                             </div>
 
