@@ -57,8 +57,7 @@
               </svg>
 
             </a>
-            <a href="https://www.vk.com" target="_blank">
-
+            <button class="vk_auth" target="_blank">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <rect width="40" height="40" rx="20" fill="#5181B8" />
@@ -66,9 +65,9 @@
                   d="M32.7189 13.7789C32.9044 13.1608 32.7189 12.7065 31.8366 12.7065H28.9193C28.1774 12.7065 27.8357 13.0989 27.6502 13.5317C27.6502 13.5317 26.1665 17.1478 24.0648 19.4967C23.3848 20.1766 23.0758 20.3927 22.7049 20.3927C22.5194 20.3927 22.251 20.1766 22.251 19.5586V13.7789C22.251 13.037 22.0358 12.7065 21.4175 12.7065H16.8331C16.3697 12.7065 16.0908 13.0508 16.0908 13.3771C16.0908 14.0804 17.1415 14.2425 17.2499 16.2205V20.5167C17.2499 21.4586 17.0798 21.6295 16.7089 21.6295C15.7199 21.6295 13.3144 17.9969 11.8874 13.8408C11.6077 13.0329 11.3272 12.7065 10.5816 12.7065H7.6643C6.83077 12.7065 6.66406 13.0989 6.66406 13.5317C6.66406 14.3044 7.65325 18.137 11.2693 23.2057C13.6803 26.6669 17.0765 28.5436 20.1672 28.5436C22.0218 28.5436 22.251 28.1268 22.251 27.4089V24.7927C22.251 23.9592 22.4267 23.7929 23.0137 23.7929C23.4467 23.7929 24.1884 24.0092 25.9194 25.6781C27.8974 27.6559 28.2233 28.5436 29.336 28.5436H32.2534C33.0869 28.5436 33.5037 28.1268 33.2632 27.3043C33.0002 26.4845 32.0558 25.2955 30.8026 23.8856C30.1227 23.0819 29.1026 22.2165 28.7938 21.7839C28.361 21.2275 28.4846 20.9803 28.7938 20.4861C28.7938 20.4861 32.348 15.4791 32.7189 13.7791V13.7789Z"
                   fill="white" />
               </svg>
+            </button>
 
-            </a>
-            <a href="https://www.mail.ru" target="_blank">
+            <!--<a href="https://www.mail.ru" target="_blank">
 
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +77,7 @@
                   fill="white" />
               </svg>
 
-            </a>
+            </a>-->
             <a href="#" target="_blank">
 
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -169,7 +168,7 @@
                 </svg>
 
               </a>
-              <a href="https://www.vk.com" target="_blank">
+              <button class="vk_auth" target="_blank">
 
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -179,8 +178,9 @@
                     fill="white" />
                 </svg>
 
-              </a>
-              <a href="https://www.mail.ru" target="_blank">
+              </button>
+                <div class="mailru-login-button" data-ui="userpic login_as" data-type="login" style="width: 300px; height: 48px;"></div>
+             <!-- <a href="https://www.mail.ru" target="_blank">
 
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -190,7 +190,7 @@
                     fill="white" />
                 </svg>
 
-              </a>
+              </a>-->
               <a href="#" target="_blank">
 
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -274,7 +274,7 @@
                 </svg>
 
               </a>
-              <a href="https://www.vk.com" target="_blank">
+              <button class="vk_auth"  target="_blank">
 
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -284,8 +284,9 @@
                     fill="white" />
                 </svg>
 
-              </a>
-              <a href="https://www.mail.ru" target="_blank">
+              </button>
+                <div class="mailru-login-button" data-ui="userpic login_as" data-type="login" style="width: 300px; height: 48px;"></div>
+              <!--<a href="https://www.mail.ru" target="_blank">
 
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
                   xmlns="http://www.w3.org/2000/svg">
@@ -295,7 +296,7 @@
                     fill="white" />
                 </svg>
 
-              </a>
+              </a>-->
               <a href="#" target="_blank">
 
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -4606,11 +4607,29 @@
     <script src="./js/modal.js"></script>
 -->
     <script src="./js/max.js"></script>
+    <script type="module" src="./js/auth.js"></script>
 
     <!--
 <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
 <script src="./js/animation-cards.js"></script>-->
+
+    <script src="https://oauth.mail.ru/sdk/v0.16.2/oauth.js"></script>
+    <script>
+        MR.init({
+            clientId: '0a66d6c9d00a4551b690f08eaa1d0cca',
+            onlogin: function (state) {
+                if (state.user) {
+                    console.info('MR.login:', state);
+                }
+            },
+            onlogout: function () {
+                console.info('MR.logout');
+            }
+        });
+    </script>
+
+
   </body>
 </html>

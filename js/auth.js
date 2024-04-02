@@ -8,19 +8,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const query = `uuid=${uuid}&app_id=${appId}&response_type=silent_token&redirect_uri=${redirectUri}&redirect_state=${redirect_state}`;
     const vk_btn = document.querySelector('.vk_auth')
-    console.log(vk_btn)
     vk_btn.addEventListener('click',()=>{
         location.assign(`https://id.vk.com/auth?${query}`);
     })
-    // Получение параметров строки запроса из текущего URL
+
     let searchParams = new URLSearchParams(window.location.search);
 
-// Проверка наличия параметров в строке запроса
     if (searchParams.has("payload")) {
-        console.log("Параметр param1 присутствует в текущем URL.");
-        // Получаем объект URLSearchParams
-
-// Преобразуем объект URLSearchParams в объект JavaScript
         let paramsObject = {};
         for (let [key, value] of searchParams) {
             paramsObject[key] = value;
