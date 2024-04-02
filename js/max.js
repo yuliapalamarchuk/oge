@@ -2,6 +2,7 @@
 const modalEnter = document.querySelector("#modalAuthReg"); // Модалка выбора
 const modalReg = document.querySelector("#modalReg"); //Модалка регистрации
 const modalAuth = document.querySelector("#modalAuth"); // Модалка входа
+const modalForgotPassword = document.querySelector("#modalForgotPassword");
 
 // Кнопки
 const closeModal = document.querySelectorAll(".close-modal"); // Кнопка закрытия
@@ -12,7 +13,8 @@ const switchToReg = document.querySelector("#switchToReg"); // Кнопка "П�
 const switchtoLogin = document.querySelector("#switchtoLogin"); // Кнопка "Перейти ко входу"
 const openModalAuthRegMobile = document.querySelector(
   "#openModalAuthRegMobile"
-);
+); //Кнопка "вход" на мобилке
+const forgotPassword = document.querySelector("#forgotPassword"); //Кнопка забыли пароль?
 
 //Хедер блюр
 const headerBlur = document.querySelector("header");
@@ -62,6 +64,9 @@ switchtoLogin.addEventListener("click", () => {
 });
 openModalAuthRegMobile.addEventListener("click", () => {
   openModalFunc(modalEnter);
+});
+forgotPassword.addEventListener("click", () => {
+  openModalFunc(modalForgotPassword);
 });
 
 //ПО КЛИКУ НА ГЛАЗИК ПОКАЗЫВАЕТ И СКРЫВАЕТ ПАРОЛЬ
