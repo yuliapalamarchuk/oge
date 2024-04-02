@@ -1,13 +1,8 @@
-.rules,
-.question {
+.test-body {
     padding: 40px 0;
     background-color: var(--green);
 }
 
-.question {
-    height: 100vh;
-    height: 100dvh;
-}
 
 .question__top {
     display: flex;

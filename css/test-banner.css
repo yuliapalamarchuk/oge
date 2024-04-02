@@ -264,6 +264,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    .test .back {
+        padding: 4px 0;
+    }
+}
+
 @media (max-width: 576px) {
     .test {
         padding: 24px 0;
