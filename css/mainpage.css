@@ -267,6 +267,11 @@ body.menu-open {
 .modal-reg-form-wrapper {
   margin-top: 2rem;
 }
+
+.vk_auth {
+  border: none;
+}
+
 .modal-reg-title {
   font-family: "Jost";
   font-size: 32px;
@@ -371,7 +376,7 @@ body.menu-open {
   width: 24px;
   height: 24px;
   background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
-  bottom: 35%;
+  bottom: 36%;
   cursor: pointer;
 }
 
@@ -381,7 +386,7 @@ body.menu-open {
   width: 24px;
   height: 24px;
   background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
-  bottom: 17%;
+  bottom: 19%;
 }
 
 .password-control3 {
@@ -426,6 +431,13 @@ body.menu-open {
   }
   .password-control3 {
     bottom: 48%;
+  }
+  .password-control {
+    bottom: 34%;
+  }
+
+  .password-control2 {
+    bottom: 17%;
   }
 }
 @media (max-width: 1200px) {

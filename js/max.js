@@ -244,11 +244,13 @@ form.addEventListener("submit", function (event) {
       },
     ]);
 
-  if (isValid) {
-    openModalConfirmReg.addEventListener("click", () => {
-      openModalFunc(modalConfirmReg);
-    });
-  }
+  isValid.then((response) => {
+    if (response) {
+      openModalConfirmReg.addEventListener("click", () => {
+        openModalFunc(modalConfirmReg);
+      });
+    }
+  });
 });
 
 // let validation = new JustValidate("#form-validate", {
