@@ -328,15 +328,20 @@ for (let i = 0; i < resultTest.length; i++) {
 }
 
 // Кнопка Показать/скрыть результаты
+const mobileMediaQueryList = window.matchMedia("(max-width: 768px)");
 const resultLook = document.querySelector(".result-btn-look");
 const resultHide = document.querySelector(".result-btn-hide");
 const resultsAll = document.querySelector(".results-tests-wrap");
+const btnAgain = document.querySelector(".btn-again");
 
 resultLook.addEventListener("click", (e) => {
   e.preventDefault();
   resultsAll.classList.remove("hidden-total");
   resultHide.classList.remove("hidden-total");
   resultLook.classList.add("hidden-total");
+  if (mobileMediaQueryList.matches) {
+    btnAgain.classList.add("hidden-total");
+  }
 });
 
 resultHide.addEventListener("click", (e) => {
@@ -344,6 +349,7 @@ resultHide.addEventListener("click", (e) => {
   resultsAll.classList.add("hidden-total");
   resultHide.classList.add("hidden-total");
   resultLook.classList.remove("hidden-total");
+  btnAgain.classList.remove("hidden-total");
 });
 
 // Результаты во вкладке Задания

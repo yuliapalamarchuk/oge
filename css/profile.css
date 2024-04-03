@@ -695,7 +695,7 @@ table.task-table {
 
 /* Задания */
 .results-card--name {
-  position: relative;
+  /* position: relative; */
   padding: 20px;
   padding-right: 30px;
   font-size: 24px;
@@ -706,13 +706,18 @@ table.task-table {
 .card-svg {
   position: absolute;
   right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  /* top: 35%; */
 }
 
 .minus {
-  top: 16px;
+  /* top: 16px; */
+  transform: translateY(-80%);
 }
 
 .results-card--topic {
+  position: relative;
   border-radius: 20px;
   background-color: rgba(250, 238, 235, 1);
   cursor: pointer;
@@ -911,6 +916,10 @@ table.task-table--topic {
   .profil-close {
     display: block;
   }
+
+  .card-hidden--left {
+    width: 61%;
+  }
 }
 
 @media (max-width: 1440px) {
@@ -1033,6 +1042,10 @@ table.task-table--topic {
     height: 884px;
   }
 
+  .card-hidden--left {
+    width: 64%;
+  }
+
   /* .results-btn-wrap {
     padding-bottom: 368px;
   } */
@@ -1050,6 +1063,10 @@ table.task-table--topic {
 
   .btn-result {
     width: 52%;
+  }
+
+  .card-hidden--left {
+    width: 60%;
   }
 }
 
@@ -1300,7 +1317,6 @@ table.task-table--topic {
   }
 
   .favorite-btn {
-    margin-bottom: 0;
     font-size: 16px;
     line-height: 21.38px;
   }
@@ -1364,12 +1380,6 @@ table.task-table--topic {
     align-items: center;
   }
 
-  .btn-again {
-    position: fixed;
-    bottom: 22%;
-    z-index: -1;
-  }
-
   /* Задания */
   .plus:before {
     content: url(../img/plus-mobile.svg);
@@ -1389,13 +1399,24 @@ table.task-table--topic {
     content: url(../img/minus-mobile.svg);
   }
 
-  .minus {
-    top: 10px;
-  }
-
   .card-hidden--name,
   .card-hidden--text {
     font-size: 12px;
+    line-height: 14.4px;
+  }
+
+  .card-hidden {
+    padding-bottom: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-hidden--left {
+    margin-bottom: 30px;
+  }
+
+  .card-hidden--left {
+    width: 100%;
   }
 }
 
@@ -1417,6 +1438,32 @@ table.task-table--topic {
     width: 20px;
     height: 20px;
   }
+
+  .result-btn-look {
+    width: 309px;
+  }
+
+  .cell-breakword {
+    word-break: break-all;
+  }
+
+  .results-table--cell {
+    width: calc(100% / 3);
+  }
+
+  .results-tests-wrap {
+    width: 310px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-svg {
+    right: 7%;
+  }
+
+  .results-card--name {
+    width: 220px;
+  }
 }
 
 @media (max-width: 375px) {
@@ -1426,6 +1473,10 @@ table.task-table--topic {
 
   .cards__title-profile {
     line-height: 24px;
+  }
+
+  .results-tests-wrap {
+    width: 280px;
   }
 }
 
