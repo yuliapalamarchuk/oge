@@ -129,41 +129,39 @@
             <h2 class="modal-reg-title">Регистрация</h2>
             <form action="#" class="modal-reg-form" id="form-validate">
               <label>
-                  Фамилия
-                  <input class="" type="text" id="surname" name="surname"
-                         placeholder="Введите Фамилию" tabindex="1" required>
+                Фамилия
+                <input class type="text" id="surname" name="surname"
+                  placeholder="Введите Фамилию" tabindex="1" required>
               </label>
-
 
               <label>Имя
-                  <input type="text" id="name" name="name"
-                         placeholder="Введите Имя" tabindex="2" required>
+                <input type="text" id="name" name="name"
+                  placeholder="Введите Имя" tabindex="2" required>
               </label>
-
 
               <label>E-mail
-                  <input type="email" id="email" name="email"
-                         placeholder="Введите E-mail" tabindex="3" required>
+                <input type="email" id="email" name="email"
+                  placeholder="Введите E-mail" tabindex="3" required>
               </label>
-
 
               <label>Пароль
-                  <input type="password" id="password-input" name="password-input"
-                         class="password" placeholder="Введите пароль" tabindex="4" required>
-                  <a href="#" class="password-control"></a>
+                <input type="password" id="password-input" name="password-input"
+                  class="password" placeholder="Введите пароль" tabindex="4"
+                  required>
+                <a href="#" class="password-control"></a>
 
               </label>
 
-              <label >Подтвердите пароль
-                  <input type="password" id="confirmPassword" name="confirmPassword"
-                         tabindex="5"
-                         placeholder="Подтвердите пароль" required>
-                  <a href="#" class="password-control2"></a>
+              <label>Подтвердите пароль
+                <input type="password" id="confirmPassword"
+                  name="confirmPassword"
+                  tabindex="5"
+                  placeholder="Подтвердите пароль" required>
+                <a href="#" class="password-control2"></a>
               </label>
-
 
               <div class="modal-reg-button-wrapper">
-                <button  class="modal-reg-btn"
+                <button class="modal-reg-btn"
                   id="openModalConfirmReg">Зарегистрироваться</button>
               </div>
             </form>
@@ -298,16 +296,20 @@
 
           <div class="modal-reg-form-wrapper">
             <h2 class="modal-reg-title">Авторизация</h2>
-            <form action class="modal-reg-form">
-              <label for="email">E-mail:</label>
-              <input type="email" name="email" tabindex="6"
-                placeholder="Введите E-mail" required>
+            <form action class="modal-reg-form" id="form-validate2">
 
-              <label for="password">Пароль:</label>
-              <input type="password" id="password-auth" name="password"
-                class="password" tabindex="7"
-                placeholder="Введите пароль" required>
-              <a href="#" class="password-control3"></a>
+              <label>
+                E-mail:
+                <input class type="email" id="email2" name="email"
+                  placeholder="Введите E-mail" tabindex="6" required>
+              </label>
+
+              <label>Пароль:
+                <input type="password" id="password-auth" name="password-auth"
+                  class="password" placeholder="Введите пароль" tabindex="4"
+                  required>
+                <a href="#" class="password-control3"></a>
+              </label>
 
               <a href="#" class="modal-auth-forgot-password"
                 id="forgotPassword">Забыли пароль?</a>
@@ -315,7 +317,7 @@
               <div class="modal-auth-button-wrapper">
                 <button type="submit"
                   class="modal-reg-btn modal-auth-btn"
-                  onclick="location.href='profile.html'">Далее</button>
+                  id="modalAuthBtn">Далее</button>
               </div>
 
             </form>
@@ -1436,8 +1438,7 @@
               <form>
                 <button class="form_btn"
                   type="submit"></button>
-                <ion-icon
-                  name="search-outline"></ion-icon>
+                <ion-icon name="search"></ion-icon>
                 <input type="text" class="header-input"
                   placeholder="Найти">
               </form>
@@ -4752,7 +4753,8 @@
         </div>
       </div>
     </footer>
-    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script
+      src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <script
       src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
     <script

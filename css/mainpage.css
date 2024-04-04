@@ -32,6 +32,8 @@
   display: none;
 }*/
 
+
+
 @font-face {
   font-family: "Jost";
   src: url("../fonts/Jost-Regular.woff2") format("woff2"),
@@ -77,6 +79,10 @@
 .container {
   max-width: 1920px;
   margin: 0 auto;
+}
+
+.inCorrectPass {
+  color: red;
 }
 
 body {
@@ -290,6 +296,7 @@ body.menu-open {
   letter-spacing: 0em;
   text-align: left;
   color: #5c0c70;
+  position: relative;
 }
 .modal-reg-display-flex {
   display: flex;
@@ -324,6 +331,7 @@ body.menu-open {
   border: none;
   cursor: pointer;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .modal-reg-privacy-policy {
@@ -365,37 +373,41 @@ body.menu-open {
   display: flex;
   align-items: center;
 }
-.password {
+/* .password {
   position: relative;
-}
+} */
 .password-control {
   position: absolute;
   outline: none;
   border: none;
-  right: 23px;
   width: 24px;
   height: 24px;
   background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
-  bottom: 36%;
+  bottom: 41%;
   cursor: pointer;
+  display: none;
+}
+
+.view {
+  background: url(../img/tabler_eye-on.svg) 0 0 no-repeat;
 }
 
 .password-control2 {
   position: absolute;
-  right: 22px;
+  right: 11px;
   width: 24px;
   height: 24px;
   background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
-  bottom: 19%;
+  bottom: 0%;
 }
 
 .password-control3 {
   position: absolute;
-  right: 21px;
+  right: -27rem;
   width: 24px;
   height: 24px;
   background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
-  bottom: 50%;
+  bottom: 44%;
 }
 
 .modal-reg-confirm-text {
@@ -407,6 +419,10 @@ body.menu-open {
   color: #5c0c70;
   max-width: 431px;
   margin: 0 auto;
+}
+
+.just-validate-error-label {
+  margin-bottom: 5%;
 }
 
 @media (max-width: 1600px) {
@@ -462,10 +478,10 @@ body.menu-open {
     width: 100%;
   }
   .password-control {
-    bottom: 37%;
+    bottom: 42%;
   }
   .password-control2 {
-    bottom: 20%;
+    bottom: 0;
   }
   .modal-reg-button-wrapper {
     width: 100%;
@@ -852,7 +868,7 @@ form {
 }
 
 .form_btn:before {
-  content: "\f2f5";
+  content: "\f21f";
   font-family: "Ionicons";
   font-size: 24px;
   color: #5c0c70;
