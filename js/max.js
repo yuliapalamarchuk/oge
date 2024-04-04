@@ -21,6 +21,7 @@ const forgotPassword = document.querySelector("#forgotPassword"); //Кнопка
 const forgotPassword2 = document.querySelector("#forgotPassword2");
 const forgotPassword3 = document.querySelector("#forgotPassword3");
 const openModalConfirmReg = document.querySelector("#openModalConfirmReg");
+const modalAuthBtn = document.querySelector("#modalAuthBtn");
 
 //Хедер блюр
 const headerBlur = document.querySelector("header");
@@ -149,156 +150,157 @@ forgotPassword2.addEventListener("click", function () {
       clearInterval(timerId);
     }
 
-    // Calculate minutes and seconds
     const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) : 0;
     const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
 
-    // Display minutes and seconds
     $minutes.textContent = minutes < 10 ? "0" + minutes : minutes;
     $seconds.textContent = seconds < 10 ? "0" + seconds : seconds;
   }
 
-  // Select HTML elements for minutes and seconds
   const $minutes = document.querySelector(".timer__minutes");
   const $seconds = document.querySelector(".timer__seconds");
 
-  // Initialize timer
   countdownTimer();
 
-  // Start the countdown timer
   timerId = setInterval(countdownTimer, 1000);
 });
 
-// Валидация;
+// Валидация регистрации
 
 let form = document.querySelector("#form-validate");
 let validationForm = new JustValidate(form);
-let isValid = validationForm.validate();
+
 validationForm
-    .addField("#surname", [
-      {
-        rule: "required",
-        errorMessage: "Введите фамилию",
-      },
-      {
-        rule: "customRegexp",
-        value: /[a-zа-яё]/i,
-        errorMessage: "Введите корректную фамилию",
-      },
-      {
-        rule: "maxLength",
-        value: 100,
-        errorMessage: "Фамилия не может содержать больше 100 символов",
-      },
-    ])
+  .addField("#surname", [
+    {
+      rule: "required",
+      errorMessage: "Введите фамилию",
+    },
+    {
+      rule: "customRegexp",
+      value: /[a-zа-яё]/i,
+      errorMessage: "Введите корректную фамилию",
+    },
+    {
+      rule: "maxLength",
+      value: 100,
+      errorMessage: "Фамилия не может содержать больше 100 символов",
+    },
+  ])
 
-    .addField("#name", [
-      {
-        rule: "required",
-        errorMessage: "Введите имя",
-      },
-      {
-        rule: "customRegexp",
-        value: /[a-zа-яё]/i,
-        errorMessage: "Введите корректное имя",
-      },
-      {
-        rule: "maxLength",
-        value: 100,
-        errorMessage: "Имя не может содержать больше 100 символов",
-      },
-    ])
+  .addField("#name", [
+    {
+      rule: "required",
+      errorMessage: "Введите имя",
+    },
+    {
+      rule: "customRegexp",
+      value: /[a-zа-яё]/i,
+      errorMessage: "Введите корректное имя",
+    },
+    {
+      rule: "maxLength",
+      value: 100,
+      errorMessage: "Имя не может содержать больше 100 символов",
+    },
+  ])
 
-    .addField("#email", [
-      {
-        rule: "required",
-        errorMessage: "Введите E-mail",
-      },
-      {
-        rule: "email",
-        errorMessage: "Введите корректный E-mail",
-      },
-      {
-        rule: "maxLength",
-        value: 256,
-        errorMessage: "E-mail не может содержать больше 256 символов",
-      },
-    ])
+  .addField("#email", [
+    {
+      rule: "required",
+      errorMessage: "Введите E-mail",
+    },
+    {
+      rule: "email",
+      errorMessage: "Введите корректный E-mail",
+    },
+    {
+      rule: "maxLength",
+      value: 256,
+      errorMessage: "E-mail не может содержать больше 256 символов",
+    },
+  ])
 
-    .addField("#password-input", [
-      {
-        rule: "required",
-        errorMessage: "Введите пароль",
-      },
-      {
-        rule: "maxLength",
-        value: 64,
-        errorMessage: "Пароль не может содержать больше 64 символов",
-      },
-    ]);
-/*form.addEventListener("submit", function (event) {
-  event.preventDefault();
+  .addField("#password-input", [
+    {
+      rule: "required",
+      errorMessage: "Введите пароль",
+    },
+    {
+      rule: "maxLength",
+      value: 64,
+      errorMessage: "Пароль не может содержать больше 64 символов",
+    },
+  ]);
 
-
-  isValid.then((response) => {
-    if (response) {
-      openModalConfirmReg.addEventListener("click", () => {
+openModalConfirmReg.addEventListener("click", () => {
+  let inCorrectDiv = document.createElement("p");
+  inCorrectDiv.innerText = "Пароли не совпадают";
+  inCorrectDiv.classList.add("inCorrectPass");
+  let correctPass = false;
+  let clearInput = document.querySelector("#password-input");
+  let secondClearInput = document.querySelector("#confirmPassword");
+  if (clearInput.value === secondClearInput.value) {
+    correctPass = true;
+  }
+  validationForm
+    .onSuccess((event) => {
+      if (correctPass) {
         openModalFunc(modalConfirmReg);
-      });
-    }
-  });
-});*/
+      }
+    })
+    .onFail((err) => {
+      console.log(err);
+    });
+  if (!correctPass) {
+    secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
+    setTimeout(() => {
+      inCorrectDiv.remove();
+    }, 1000);
+  }
+});
 
-// let validation = new JustValidate("#form-validate", {
-//   rules: {
-//     surname: {
-//       required: true,
-//       maxLength: 100,
-//       custom: /[a-zа-яё]/i,
-//     },
-//     name: {
-//       required: true,
-//       maxLength: 100,
-//       custom: /[a-zа-яё]/i,
-//     },
-//     email: {
-//       required: true,
-//       email: true,
-//       maxLength: 256,
-//     },
-//     "password-input": {
-//       required: true,
-//       maxLength: 64,
-//     },
-//   },
-//   messages: {
-//     surname: {
-//       required: "Введите фамилию",
-//       maxLength: "Фамилия не может содержать больше 100 символов",
-//       custom: "Введите корректную фамилию",
-//     },
-//     name: {
-//       required: "Введите имя",
-//       maxLength: "Имя не может содержать больше 100 символов",
-//       custom: "Введите корректное имя",
-//     },
-//     email: {
-//       required: "Введите E-mail",
-//       email: "Введите корректный E-mail",
-//       maxLength: "E-mail не может содержать больше 256 символов",
-//     },
-//     "password-input": {
-//       required: "Введите пароль",
-//       maxLength: "Пароль не может содержать больше 64 символов",
-//     },
-//   },
-// });
+let form2 = document.querySelector("#form-validate2");
+let validationForm2 = new JustValidate(form2);
 
-// let form = document.getElementById("form-validate");
+validationForm2
+  .addField("#email2", [
+    {
+      rule: "required",
+      errorMessage: "Введите E-mail",
+    },
+    {
+      rule: "email",
+      errorMessage: "Введите корректный E-mail",
+    },
+    {
+      rule: "maxLength",
+      value: 256,
+      errorMessage: "E-mail не может содержать больше 256 символов",
+    },
+  ])
+  .addField("#password-auth", [
+    {
+      rule: "required",
+      errorMessage: "Введите пароль",
+    },
+    {
+      rule: "maxLength",
+      value: 64,
+      errorMessage: "Пароль не может содержать больше 64 символов",
+    },
+  ]);
 
-// form.addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   if (validation.validate()) {
-//     openModalFunc(modalConfirmReg);
-//   }
-// });
+// Add click event listener to modalAuthBtn
+modalAuthBtn.addEventListener("click", () => {
+  validationForm2
+    .onSuccess((event) => {
+      console.log(event);
+      document.location.href = "https://www.oge5.isp.sprint.1t.ru/profile.html";
+    })
+    .onFail((err) => {
+      console.log(err);
+      const inputEye = document.querySelector(".password-control3");
+      inputEye.style.bottom = "58%";
+    });
+});
