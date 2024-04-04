@@ -171,14 +171,10 @@ forgotPassword2.addEventListener("click", function () {
 
 // Валидация;
 
-let form = document.getElementById("form-validate");
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let validation = new JustValidate("#form-validate");
-  let isValid = validation.validate();
-
-  validation
+let form = document.querySelector("#form-validate");
+let validationForm = new JustValidate(form);
+let isValid = validationForm.validate();
+validationForm
     .addField("#surname", [
       {
         rule: "required",
@@ -240,6 +236,9 @@ form.addEventListener("submit", function (event) {
         errorMessage: "Пароль не может содержать больше 64 символов",
       },
     ]);
+/*form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
 
   isValid.then((response) => {
     if (response) {
@@ -248,7 +247,7 @@ form.addEventListener("submit", function (event) {
       });
     }
   });
-});
+});*/
 
 // let validation = new JustValidate("#form-validate", {
 //   rules: {

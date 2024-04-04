@@ -57,7 +57,3 @@
 // arr.forEach((i) => {
 //   observer.observe(i);
 // });
-
-
-
-

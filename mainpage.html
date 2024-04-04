@@ -128,31 +128,42 @@
           <div class="modal-reg-form-wrapper">
             <h2 class="modal-reg-title">Регистрация</h2>
             <form action="#" class="modal-reg-form" id="form-validate">
-              <label for="surname">Фамилия</label>
-              <input type="text" id="surname" name="surname"
-                placeholder="Введите Фамилию" tabindex="1">
+              <label>
+                  Фамилия
+                  <input class="" type="text" id="surname" name="surname"
+                         placeholder="Введите Фамилию" tabindex="1" required>
+              </label>
 
-              <label for="name">Имя</label>
-              <input type="text" id="name" name="name"
-                placeholder="Введите Имя" tabindex="2">
 
-              <label for="email">E-mail</label>
-              <input type="email" id="email" name="email"
-                placeholder="Введите E-mail" tabindex="3">
+              <label>Имя
+                  <input type="text" id="name" name="name"
+                         placeholder="Введите Имя" tabindex="2" required>
+              </label>
 
-              <label for="password-input">Пароль</label>
-              <input type="password" id="password-input" name="password-input"
-                class="password" placeholder="Введите пароль" tabindex="4">
-              <a href="#" class="password-control"></a>
 
-              <label for="confirmPassword">Подтвердите пароль</label>
-              <input type="password" id="confirmPassword" name="confirmPassword"
-                tabindex="5"
-                placeholder="Подтвердите пароль">
-              <a href="#" class="password-control2"></a>
+              <label>E-mail
+                  <input type="email" id="email" name="email"
+                         placeholder="Введите E-mail" tabindex="3" required>
+              </label>
+
+
+              <label>Пароль
+                  <input type="password" id="password-input" name="password-input"
+                         class="password" placeholder="Введите пароль" tabindex="4" required>
+                  <a href="#" class="password-control"></a>
+
+              </label>
+
+              <label >Подтвердите пароль
+                  <input type="password" id="confirmPassword" name="confirmPassword"
+                         tabindex="5"
+                         placeholder="Подтвердите пароль" required>
+                  <a href="#" class="password-control2"></a>
+              </label>
+
 
               <div class="modal-reg-button-wrapper">
-                <button type="submit" class="modal-reg-btn"
+                <button  class="modal-reg-btn"
                   id="openModalConfirmReg">Зарегистрироваться</button>
               </div>
             </form>
@@ -4741,8 +4752,7 @@
         </div>
       </div>
     </footer>
-    <script
-      src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
     <script
       src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
     <script
