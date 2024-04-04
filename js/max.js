@@ -74,9 +74,6 @@ openModalAuthRegMobile.addEventListener("click", () => {
 forgotPassword.addEventListener("click", () => {
   openModalFunc(modalForgotPassword);
 });
-// forgotPassword2.addEventListener("click", () => {
-//   openModalFunc(modalForgotPassword2);
-// });
 forgotPassword3.addEventListener("click", () => {
   openModalFunc(modalForgotPassword3);
 });
