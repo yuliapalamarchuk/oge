@@ -233,32 +233,55 @@ validationForm
     },
   ]);
 
-openModalConfirmReg.addEventListener("click", () => {
-  let inCorrectDiv = document.createElement("p");
-  inCorrectDiv.innerText = "Пароли не совпадают";
-  inCorrectDiv.classList.add("inCorrectPass");
-  let correctPass = false;
-  let clearInput = document.querySelector("#password-input");
-  let secondClearInput = document.querySelector("#confirmPassword");
-  if (clearInput.value === secondClearInput.value) {
+// Сверяем пароли на совпадение
+let correctPass = false;
+let startValidatePass = false;
+let addField = false
+
+
+let clearInput = document.querySelector("#password-input");
+let secondClearInput = document.querySelector("#confirmPassword");
+let inCorrectDiv = document.createElement("p");
+inCorrectDiv.innerText = "Пароли не совпадают";
+inCorrectDiv.classList.add("inCorrectPass");
+
+let checkPass = (first, second) => {
+  console.log('фыв')
+  if (first === second) {
+    console.log('Пароли совпали')
     correctPass = true;
-  }
-  validationForm
-    .onSuccess((event) => {
-      if (correctPass) {
-        openModalFunc(modalConfirmReg);
-      }
-    })
-    .onFail((err) => {
-      console.log(err);
-    });
-  if (!correctPass) {
+    inCorrectDiv.remove();
+  } else {
+    addField = true
+    correctPass = false;
     secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
-    setTimeout(() => {
-      inCorrectDiv.remove();
-    }, 1000);
+  }
+}
+clearInput.addEventListener('input', () => {
+    checkPass(clearInput.value, secondClearInput.value)
+
+})
+secondClearInput.addEventListener('input', () => {
+
+  checkPass(clearInput.value, secondClearInput.value)
+})
+
+
+openModalConfirmReg.addEventListener("click", () => {
+  startValidatePass = true
+  validationForm
+      .onSuccess((event) => {
+        if (correctPass) {
+          openModalFunc(modalConfirmReg);
+
+        }
+      })
+  if (!correctPass && !addField) {
+    secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
+    secondClearInput.value = ''
   }
 });
+
 
 let form2 = document.querySelector("#form-validate2");
 let validationForm2 = new JustValidate(form2);
