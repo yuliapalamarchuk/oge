@@ -363,6 +363,7 @@
 }
 
 .favorite-btn-show {
+  display: none;
   margin-right: 20px;
   border: 2px solid rgba(92, 12, 112, 1);
   border-radius: 8px;
@@ -980,6 +981,10 @@ table.task-table--topic {
     font-size: 18px;
   }
 
+  .profile-text--results {
+    margin-top: 0;
+  }
+
   .task-table-title,
   .task-table-cell,
   .results-tests-name,
@@ -993,9 +998,9 @@ table.task-table--topic {
     padding-left: 18px;
   }
 
-  .favorite-btn {
+  /* .favorite-btn {
     margin-bottom: 20px;
-  }
+  } */
 
   .card-hidden:not(:last-child) {
     margin-bottom: 4px;
@@ -1282,6 +1287,10 @@ table.task-table--topic {
     align-items: center;
   }
 
+  .favorite-btn-hide {
+    margin-top: 20px;
+  }
+
   .favorite-btn {
     padding: 10px 28px;
   }
@@ -1289,7 +1298,7 @@ table.task-table--topic {
   /* Общий тест */
   .results-info {
     padding: 40px 20px;
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
   }
 
   .profile-text {
@@ -1297,6 +1306,7 @@ table.task-table--topic {
     padding-bottom: 0;
     margin-bottom: 40px;
     font-size: 14px;
+    line-height: 16.8px;
   }
 
   .results-btn--text {
@@ -1325,6 +1335,10 @@ table.task-table--topic {
     margin-left: 5px;
     width: 14px;
     height: 7px;
+  }
+
+  .result-btn-look {
+    margin-bottom: 20px;
   }
 
   .results-tests-name,
@@ -1477,6 +1491,11 @@ table.task-table--topic {
 
   .results-tests-wrap {
     width: 280px;
+  }
+
+  .btn-no-points {
+    display: inline-block;
+    width: 100%;
   }
 }
 

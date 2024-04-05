@@ -250,20 +250,32 @@ passwordBtn.addEventListener("click", (e) => {
 // Кнопка "Показать больше" в избранном
 const SHOW_INITIAL = 4;
 const SHOW_MORE = 2;
+const hidden = () => $items.slice(SHOW_INITIAL);
 const $button = $(".favorite-btn-show");
 const $buttonHide = $(".favorite-btn-hide");
 const $items = $(".cards__item").hide();
 const getHidden = () => $items.filter(":hidden");
-const getVisible = () => $items.filter(":visible");
+
+if (hidden().length > 0) {
+  $button.show();
+}
 
 showItems(SHOW_INITIAL);
 $button.click(function () {
   showItems(SHOW_MORE);
+  checkButtonVisibility();
   $buttonHide.show();
 });
 
 function showItems(count) {
   getHidden().slice(0, count).show();
+}
+
+function checkButtonVisibility() {
+  if (getHidden().length === 0) {
+    $button.hide();
+    $buttonHide.css("margin-top", "0");
+  }
 }
 
 //   Кнопка "Скрыть" в избранном
