@@ -87,9 +87,11 @@ forgotPassword3.addEventListener("click", () => {
 $("body").on("click", ".password-control", function () {
   if ($("#password-input").attr("type") == "password") {
     $(this).addClass("view");
+    $(this).addClass("eye");
     $("#password-input").attr("type", "text");
   } else {
     $(this).removeClass("view");
+    $(this).removeClass("eye");
     $("#password-input").attr("type", "password");
   }
   return false;
@@ -98,9 +100,11 @@ $("body").on("click", ".password-control", function () {
 $("body").on("click", ".password-control2", function () {
   if ($("#confirmPassword").attr("type") == "password") {
     $(this).addClass("view");
+    $(this).addClass("eye");
     $("#confirmPassword").attr("type", "text");
   } else {
     $(this).removeClass("view");
+    $(this).removeClass("eye");
     $("#confirmPassword").attr("type", "password");
   }
   return false;
@@ -109,9 +113,11 @@ $("body").on("click", ".password-control2", function () {
 $("body").on("click", ".password-control3", function () {
   if ($("#password-auth").attr("type") == "password") {
     $(this).addClass("view");
+    $(this).addClass("eye");
     $("#password-auth").attr("type", "text");
   } else {
     $(this).removeClass("view");
+    $(this).removeClass("eye");
     $("#password-auth").attr("type", "password");
   }
   return false;
@@ -236,8 +242,7 @@ validationForm
 // Сверяем пароли на совпадение
 let correctPass = false;
 let startValidatePass = false;
-let addField = false
-
+let addField = false;
 
 let clearInput = document.querySelector("#password-input");
 let secondClearInput = document.querySelector("#confirmPassword");
@@ -246,42 +251,38 @@ inCorrectDiv.innerText = "Пароли не совпадают";
 inCorrectDiv.classList.add("inCorrectPass");
 
 let checkPass = (first, second) => {
-  console.log('фыв')
   if (first === second) {
-    console.log('Пароли совпали')
     correctPass = true;
     inCorrectDiv.remove();
   } else {
-    addField = true
+    addField = true;
     correctPass = false;
     secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
   }
-}
-clearInput.addEventListener('input', () => {
-    checkPass(clearInput.value, secondClearInput.value)
-
-})
-secondClearInput.addEventListener('input', () => {
-
-  checkPass(clearInput.value, secondClearInput.value)
-})
-
-
-openModalConfirmReg.addEventListener("click", () => {
-  startValidatePass = true
-  validationForm
-      .onSuccess((event) => {
-        if (correctPass) {
-          openModalFunc(modalConfirmReg);
-
-        }
-      })
-  if (!correctPass && !addField) {
-    secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
-    secondClearInput.value = ''
-  }
+};
+clearInput.addEventListener("input", () => {
+  checkPass(clearInput.value, secondClearInput.value);
+});
+secondClearInput.addEventListener("input", () => {
+  checkPass(clearInput.value, secondClearInput.value);
 });
 
+openModalConfirmReg.addEventListener("click", () => {
+  startValidatePass = true;
+  validationForm.onSuccess((event) => {
+    if (correctPass) {
+      openModalFunc(modalConfirmReg);
+    }
+  });
+  validationForm.onFail((event) => {
+    const confirmPass = document.querySelector(".password-control2");
+    confirmPass.style.bottom = "18%";
+  });
+  if (!correctPass && !addField) {
+    secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
+    secondClearInput.value = "";
+  }
+});
 
 let form2 = document.querySelector("#form-validate2");
 let validationForm2 = new JustValidate(form2);
@@ -324,6 +325,6 @@ modalAuthBtn.addEventListener("click", () => {
     .onFail((err) => {
       console.log(err);
       const inputEye = document.querySelector(".password-control3");
-      inputEye.style.bottom = "58%";
+      inputEye.style.bottom = "51%";
     });
 });
