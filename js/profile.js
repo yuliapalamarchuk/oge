@@ -202,6 +202,33 @@ validation
     },
   ]);
 
+// Валидация формы изменения пароля
+let validationPassword = new JustValidate("#changePasswordModal-modal");
+validationPassword
+  .addField("#current-password", [
+    {
+      rule: "required",
+      errorMessage: "Введите текущий пароль",
+    },
+    {
+      rule: "maxLength",
+      value: 64,
+      errorMessage: "Пароль не может содержать больше 64 символов",
+    },
+  ])
+
+  .addField("#new-password", [
+    {
+      rule: "required",
+      errorMessage: "Введите новый пароль",
+    },
+    {
+      rule: "maxLength",
+      value: 64,
+      errorMessage: "Пароль не может содержать больше 64 символов",
+    },
+  ]);
+
 // Кнопка очистки инпутов
 function updateButtonVisibility(input) {
   const button = input.nextElementSibling;
@@ -232,19 +259,46 @@ inputWithClear.forEach((item) => {
 });
 
 // Кнопка-глазик пароля
-const passwordBtn = document.querySelector(".btn-eye--off");
-const inputPassword = document.querySelector(".form-profile--password");
+const passwordBtns = document.querySelectorAll(".btn-eye--off");
+const inputPasswords = document.querySelectorAll(".form-profile--password");
 
-passwordBtn.addEventListener("click", (e) => {
+for (let i = 0; i < passwordBtns.length; i++) {
+  passwordBtns[i].addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const inputPassword = inputPasswords[i];
+    if (inputPassword.getAttribute("type") === "password") {
+      inputPassword.setAttribute("type", "text");
+      this.classList.add("btn-eye--on");
+    } else {
+      inputPassword.setAttribute("type", "password");
+      this.classList.remove("btn-eye--on");
+    }
+  });
+}
+
+// Кнопка Изменить пароль
+const passwordChange = document.querySelector(".password-change");
+const passwordChangeClose = document.querySelector(".changePassword-btn-close");
+const changePasswordModal = document.querySelector(".changePasswordModal");
+const headerBlur = document.querySelector("header");
+const mainBlur = document.querySelector("main");
+// const footerBlur = document.querySelector("footer");
+
+passwordChange.addEventListener("click", (e) => {
   e.preventDefault();
+  changePasswordModal.classList.remove("hidden-total");
+  headerBlur.classList.add("blur");
+  mainBlur.classList.add("blur");
+  // footerBlur.classList.add("blur");
+});
 
-  if (inputPassword.getAttribute("type") == "password") {
-    inputPassword.setAttribute("type", "text");
-    passwordBtn.classList.add("btn-eye--on");
-  } else {
-    inputPassword.setAttribute("type", "password");
-    passwordBtn.classList.remove("btn-eye--on");
-  }
+passwordChangeClose.addEventListener("click", (e) => {
+  e.preventDefault();
+  changePasswordModal.classList.add("hidden-total");
+  headerBlur.classList.remove("blur");
+  mainBlur.classList.remove("blur");
+  // footerBlur.classList.remove("blur");
 });
 
 // Кнопка "Показать больше" в избранном

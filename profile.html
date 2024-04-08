@@ -16,6 +16,39 @@
 </head>
 
 <body>
+
+    <!-- Модалка для смены пароля -->
+
+    <div class="changePasswordModal hidden-total">
+        <svg class="changePassword-btn-close" width="40" height="40" viewBox="0 0 40 40" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M6.11612 5.88388C6.35054 5.64946 6.71081 5.5601 7.11767 5.63544C7.52454 5.71079 7.94467 5.94467 8.28565 6.28565L33.9986 31.9986C34.3396 32.3396 34.5735 32.7597 34.6488 33.1666C34.7242 33.5735 34.6348 33.9337 34.4004 34.1682C34.166 34.4026 33.8057 34.4919 33.3988 34.4166C32.992 34.3413 32.5718 34.1074 32.2309 33.7664L6.51788 8.05342C6.17691 7.71244 5.94302 7.29231 5.86767 6.88544C5.79233 6.47858 5.8817 6.1183 6.11612 5.88388Z"
+                fill="#5C0C70" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M34.1161 6.11612C34.3505 6.35054 34.4399 6.71081 34.3646 7.11767C34.2892 7.52454 34.0553 7.94467 33.7144 8.28565L8.00137 33.9986C7.6604 34.3396 7.24026 34.5735 6.8334 34.6488C6.42653 34.7242 6.06626 34.6348 5.83184 34.4004C5.59742 34.166 5.50805 33.8057 5.5834 33.3988C5.65874 32.992 5.89263 32.5718 6.23361 32.2309L31.9466 6.51788C32.2876 6.17691 32.7077 5.94302 33.1146 5.86767C33.5214 5.79233 33.8817 5.8817 34.1161 6.11612Z"
+                fill="#5C0C70" />
+        </svg>
+        <h3 class="changePasswordModal-title profile-title">Пароль</h3>
+        <form action="#" class="changePasswordModal-form" id="changePasswordModal-modal">
+            <label class="changePasswordModal-label form-profile--label flex">
+                <span class="input-profile--info">Текущий пароль</span>
+                <input class="form-profile--input form-profile--password" id="current-password" type="password"
+                    name="password" maxlength="64" required>
+                <button class="btn-eye--off"></button>
+            </label>
+            <label class="changePasswordModal-label form-profile--label flex">
+                <span class="input-profile--info">Новый пароль</span>
+                <input class="form-profile--input form-profile--password" id="new-password" type="password"
+                    name="password" maxlength="64" required>
+                <button class="btn-eye--off"></button>
+            </label>
+            <button class="btn-reset btn-form changePasswordModal-btn">Сохранить</button>
+        </form>
+    </div>
+
+    <!-- -------------------------------- -->
+
     <header class="wrapper header-profile flex">
         <a class="profile-logo" href="mainpage.html"><img src="img/logo_header.png" alt="logo"></a>
         <a class="profile-back profile-back_margin" href="mainpage.html">Главная</a>
@@ -119,7 +152,7 @@
                                     <button class="btn-clear btn-clear--profile hidden"></button>
                                 </label>
 
-                                <label class="form-profile--label hhh flex">
+                                <label class="form-profile--label flex">
                                     <span class="input-profile--info">Пароль*</span>
                                     <input class="form-profile--input form-profile--password" id="password"
                                         type="password" name="password" placeholder="Введите пароль" maxlength="64"
@@ -328,7 +361,7 @@
                             <!-- Если нет баллов -->
                             <!-- <div class="result-no-points">
                                 <p class="profile-text profile-text--results">У вас нет пройденных тестов</p>
-                                <a href="tests.html" class="btn-profile btn-no-points">Пройти тест</a>
+                                <a href="test.html" class="btn-profile btn-no-points">Пройти тест</a>
                             </div> -->
 
                             <!-- ---------------- -->
@@ -669,7 +702,7 @@
                                     </div>
 
                                     <div class="btn-again flex">
-                                        <a href="tests.html" class="favorite-btn result-btn-again">Пройти тест
+                                        <a href="test.html" class="favorite-btn result-btn-again">Пройти тест
                                             заново</a>
                                     </div>
                                 </div>
