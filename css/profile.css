@@ -311,6 +311,42 @@
   background-image: url(../img/tabler_eye-on2.png);
 }
 
+/* Модалка изменения пароля */
+.changePasswordModal {
+  padding: 120px 60px 60px 60px;
+  position: fixed;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 600px;
+  border-radius: 28px;
+  background-color: rgba(250, 238, 235, 1);
+}
+
+.changePasswordModal-label:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.changePasswordModal-btn {
+  margin-bottom: 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 24px;
+  line-height: 28.5px;
+}
+
+.changePassword-btn-close {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  cursor: pointer;
+}
+
+.blur {
+  filter: blur(10px);
+}
+
 /* Избранное */
 .profile-cards {
   padding: 80px 155px 60px 155px;
@@ -409,6 +445,11 @@
   letter-spacing: 0em;
   text-align: left;
   color: rgba(92, 12, 112, 1);
+}
+
+.changePasswordModal-title {
+  margin-bottom: 40px;
+  text-align: center;
 }
 
 .profile-text {
