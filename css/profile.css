@@ -2,6 +2,10 @@
   display: none;
 }
 
+.noscroll {
+  overflow: hidden;
+}
+
 /* Хэдер */
 .header-profile {
   padding-top: 20px;
@@ -853,6 +857,10 @@ table.task-table--topic {
     font-size: 18px;
   }
 
+  .changePasswordModal-btn {
+    font-size: 18px;
+  }
+
   .form-profile--content {
     gap: 40px;
   }
@@ -889,6 +897,10 @@ table.task-table--topic {
     line-height: 24px;
   }
 
+  .changePasswordModal-title {
+    font-size: 20px;
+  }
+
   .profile-text {
     padding-top: 8px;
     padding-bottom: 8px;
@@ -919,6 +931,10 @@ table.task-table--topic {
 }
 
 @media (max-width: 1600px) {
+  .changePasswordModal {
+    width: 462px;
+  }
+
   .profile-menu {
     display: flex;
   }
@@ -1135,6 +1151,31 @@ table.task-table--topic {
 }
 
 @media (max-width: 768px) {
+  /* Модалка изменения пароля */
+  .label-current-password {
+    margin-bottom: 28px !important;
+  }
+
+  .label-new-password {
+    margin-bottom: 40px !important;
+  }
+
+  .changePassword-btn-close {
+    width: 24px;
+    height: 24px;
+    top: 24px;
+    right: 24px;
+  }
+
+  .changePasswordModal {
+    padding: 156px 20px;
+    width: 360px;
+  }
+
+  .input-password {
+    padding: 14px 14px !important;
+  }
+
   /* Форма */
   .profile-logo img {
     width: 52px;
@@ -1512,6 +1553,15 @@ table.task-table--topic {
 }
 
 @media (max-width: 480px) {
+  .changePasswordModal {
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+  }
+
   .card-svg {
     right: 7%;
   }
@@ -1522,6 +1572,10 @@ table.task-table--topic {
 }
 
 @media (max-width: 375px) {
+  .changePasswordModal {
+    border-radius: 0;
+  }
+
   .form-profile {
     padding: 28px 20px 120px 20px;
   }
