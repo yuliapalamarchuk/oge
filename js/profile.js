@@ -278,9 +278,12 @@ for (let i = 0; i < passwordBtns.length; i++) {
 }
 
 // Кнопка Изменить пароль
+const mobileSmallMediaQueryList = window.matchMedia("(max-width: 480px)");
+
 const passwordChange = document.querySelector(".password-change");
 const passwordChangeClose = document.querySelector(".changePassword-btn-close");
 const changePasswordModal = document.querySelector(".changePasswordModal");
+let body = document.querySelector("body");
 const headerBlur = document.querySelector("header");
 const mainBlur = document.querySelector("main");
 // const footerBlur = document.querySelector("footer");
@@ -291,6 +294,13 @@ passwordChange.addEventListener("click", (e) => {
   headerBlur.classList.add("blur");
   mainBlur.classList.add("blur");
   // footerBlur.classList.add("blur");
+
+  if (mobileSmallMediaQueryList.matches) {
+    body.classList.add("noscroll");
+    headerBlur.classList.remove("blur");
+    mainBlur.classList.remove("blur");
+    // footerBlur.classList.remove("blur");
+  }
 });
 
 passwordChangeClose.addEventListener("click", (e) => {
@@ -299,6 +309,10 @@ passwordChangeClose.addEventListener("click", (e) => {
   headerBlur.classList.remove("blur");
   mainBlur.classList.remove("blur");
   // footerBlur.classList.remove("blur");
+
+  if (mobileSmallMediaQueryList.matches) {
+    body.classList.remove("noscroll");
+  }
 });
 
 // Кнопка "Показать больше" в избранном
@@ -333,6 +347,7 @@ function checkButtonVisibility() {
 }
 
 //   Кнопка "Скрыть" в избранном
+const showElementsButton = document.querySelector(".favorite-btn-show");
 const hideElementsButton = document.querySelector(".favorite-btn-hide");
 const listItems = document.querySelectorAll(".profile-cards li");
 
@@ -340,6 +355,7 @@ hideElementsButton.addEventListener("click", function () {
   for (let i = 4; i < listItems.length; i++) {
     listItems[i].style.display = "none";
     hideElementsButton.style.display = "none";
+    showElementsButton.style.display = "block";
   }
 });
 
