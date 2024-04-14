@@ -51,7 +51,7 @@
 /* Слева */
 
 .profile {
-  margin-bottom: 120px;
+  /* margin-bottom: 120px; */
   gap: 20px;
 }
 
@@ -832,6 +832,10 @@ table.task-table--topic {
   margin-right: 24px;
 }
 
+.footer-logo-img {
+  display: inline-block;
+}
+
 /* Адаптив */
 @media (max-width: 1750px) {
   .input-profile--info {
@@ -887,9 +891,9 @@ table.task-table--topic {
     padding-bottom: 60px;
   }
 
-  .profile {
+  /* .profile {
     margin-bottom: 80px;
-  }
+  } */
 
   .profile-title,
   .results-btn--text {
