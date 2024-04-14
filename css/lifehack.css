@@ -509,6 +509,7 @@ body {
 }
 
 .lifehack-information-link {
+  /* display: none; */
   color: #5c0c70;
   font-family: Maki-Sans;
   font-size: 24px;
@@ -796,6 +797,10 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+}
+
+.footer-logo-img {
+  display: inline-block;
 }
 
 /* Модальное окно Спасибо */

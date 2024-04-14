@@ -1,5 +1,4 @@
 // Вкладки (табы)
-
 const tabs = document.querySelectorAll(".lifehack_cards");
 const contents = document.querySelectorAll(".lifehack_content");
 
@@ -22,7 +21,6 @@ for (let i = 0; i < tabs.length; i++) {
 }
 
 // Открытие материалов в мобильной версии
-
 const mediaQuery = window.matchMedia("(max-width: 768px)");
 function handleTabletChange(e) {
   if (e.matches) {
@@ -78,7 +76,6 @@ mediaQuery.addListener(handleTabletChange);
 handleTabletChange(mediaQuery);
 
 // Кнопка очистки инпутов
-
 function updateButtonVisibility(input) {
   const button = input.nextElementSibling;
   if (input.value.length === 0) {
@@ -108,7 +105,6 @@ inputWithClear.forEach((item) => {
 });
 
 // Модалка
-
 const btnLifehack = document.querySelector(".btn-lifehack");
 const modalOpen = document.querySelector(".modal-open");
 const btnClose = document.querySelector(".btn-close");
@@ -125,7 +121,6 @@ btnClose.onclick = () => {
 };
 
 // Выпадающий список
-
 const select = document.querySelector(".form-select");
 const choices = new Choices(select, {
   searchEnabled: false,
@@ -133,7 +128,6 @@ const choices = new Choices(select, {
 });
 
 // Запрет ввода некоторых символов
-
 const words = /[А-Яа-яёЁa-zA-Z ]/;
 const letters = /[А-Яа-яёЁ]/;
 
@@ -157,7 +151,6 @@ mail.forEach((el) => {
 });
 
 // Валидация
-
 let validation = new JustValidate("#form");
 
 validation
@@ -185,7 +178,6 @@ validation
   ]);
 
 // Модалка Спасибо
-
 const btnForm = document.querySelector(".btn-form");
 const thanksModal = document.querySelector(".thanks-modal");
 const thanksClose = document.querySelector(".thanks-btn_close");
@@ -202,7 +194,6 @@ thanksClose.onclick = () => {
 };
 
 // Адаптив
-
 const mediaQuery2 = window.matchMedia("(max-width: 1750px)");
 function handleTabletChange2(e) {
   if (e.matches) {
