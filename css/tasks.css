@@ -41,23 +41,23 @@
   font-display: swap;
 }
 
-.task__list {
+.tasks__list {
   scrollbar-color: #5c0c70 transparent;
   scrollbar-width: thin;
 
 }
 
-.task__list::-webkit-scrollbar {
+.tasks__list::-webkit-scrollbar {
   width: 6px;
  
 }
 
-.task__list::-webkit-scrollbar-track {
+.tasks__list::-webkit-scrollbar-track {
   background: transparent;
 
 }
 
-.task__list::-webkit-scrollbar-thumb {
+.tasks__list::-webkit-scrollbar-thumb {
   background-color: #5c0c70;
   border-radius: 100px;
   border: 3px solid transparent;
@@ -209,17 +209,17 @@ body {
   max-width: 1920px;
 }
 
-.task {
+.tasks {
   padding: 40px 0 120px 0;
 }
 
-.task__container {
+.tasks__container {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 22px;
 }
 
-.task__block {
+.tasks__block {
   padding: 20px;
   padding-bottom: 5px;
   padding-right: 12px;
@@ -235,35 +235,35 @@ body {
   display: block;
 }
 
-.task__left {
+.tasks__left {
   grid-column: 3 span;
 }
 
-.task__right {
+.tasks__right {
   padding: 0 40px;
   grid-column: 9 span;
 }
 
-.task__list {
+.tasks__list {
   padding-right: 20px;
   max-height: 770px;
   overflow: auto;
 }
 
-.task__item {
+.tasks__item {
   padding: 20px;
   border-radius: 20px;
 }
 
-.task__item.active {
+.tasks__item.active {
   background-color: #faeeeb;
 }
 
-.task__item.active .task__link {
+.tasks__item.active .tasks__link {
   color: var(--dark-purple);
 }
 
-.task__link {
+.tasks__link {
   font-family: Jost;
   font-size: 32px;
   font-style: normal;
@@ -272,7 +272,7 @@ body {
   color: white;
 }
 
-.task__banner {
+.tasks__banner {
   margin-bottom: 40px;
   display: flex;
   justify-content: space-between;
@@ -305,7 +305,7 @@ body {
   align-self: end;
 }
 
-.task__cards {
+.tasks__cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px 20px;
@@ -323,7 +323,7 @@ body {
   flex-direction: column;
 }
 
-.card-task {
+.card-tasks {
   margin-bottom: 20px;
   position: relative;
   border-radius: 32px;
@@ -351,7 +351,8 @@ body {
   cursor: pointer;
 }
 
-.cards__title {
+.cards__title,
+.card__title {
   font-family: Jost;
   font-size: 32px;
   font-style: normal;
@@ -360,7 +361,8 @@ body {
   color: var(--dark-purple);
 }
 
-.cards__count {
+.cards__count,
+.card__count {
   align-self: flex-end;
   padding: 8px 10px;
   padding-left: 33px;
@@ -394,20 +396,6 @@ body {
   cursor: pointer;
 }
 
-.f-video-container,
-.f-video-cover {
-  height: 100%;
-}
-
-.f-video-player iframe,
-.f-video-player object,
-.f-video-player embed {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-}
 
 .cards__item .card {
   margin-bottom: 0;
@@ -421,15 +409,15 @@ body {
     display: block;
   }
 
-  .task__block {
+  .tasks__block {
     display: none;
   }
 
-  .task__container {
+  .tasks__container {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .task__left {
+  .tasks__left {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -437,7 +425,7 @@ body {
     grid-row: 1;
   }
 
-  .task__right {
+  .tasks__right {
     padding: 0;
     grid-column: 2 span;
     grid-row: 2;
@@ -450,7 +438,7 @@ body {
     font-size: 20px;
   }
 
-  .task__block {
+  .tasks__block {
     position: absolute;
     padding: 40px 20px;
     padding-right: 5px;
@@ -461,11 +449,11 @@ body {
     z-index: 2;
   }
 
-  .task__block.open {
+  .tasks__block.open {
     display: block;
   }
 
-  .task__list {
+  .tasks__list {
     max-height: 923px;
   }
 
@@ -491,7 +479,7 @@ body {
     font-size: 20px;
   }
 
-  .task__banner {
+  .tasks__banner {
     border-radius: 32px;
   }
 
@@ -504,12 +492,12 @@ body {
     font-size: 14px;
   }
 
-  .task__item {
+  .tasks__item {
     padding: 12px;
     border-radius: 12px;
   }
 
-  .task__link {
+  .tasks__link {
     font-size: 16px;
   }
 
@@ -523,7 +511,7 @@ body {
     padding: 0 20px;
   }
 
-  .task__cards {
+  .tasks__cards {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -542,7 +530,7 @@ body {
     margin-bottom: 0;
   }
 
-  .task__banner {
+  .tasks__banner {
     flex-direction: column;
   }
 
@@ -567,11 +555,11 @@ body {
     height: 24px;
   }
 
-  .task__block {
+  .tasks__block {
     margin-top: 22px;
   }
 
-  .task__list {
+  .tasks__list {
     max-height: 490px;
 }
 
@@ -579,11 +567,11 @@ body {
   position: initial;
 }
 
-.task__container {
+.tasks__container {
   position: relative;
 }
 
-.task__block {
+.tasks__block {
   width: 100%;
 }
 
