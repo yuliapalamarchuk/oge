@@ -286,20 +286,20 @@ const changePasswordModal = document.querySelector(".changePasswordModal");
 let body = document.querySelector("body");
 const headerBlur = document.querySelector("header");
 const mainBlur = document.querySelector("main");
-// const footerBlur = document.querySelector("footer");
+const footerBlur = document.querySelector("footer");
 
 passwordChange.addEventListener("click", (e) => {
   e.preventDefault();
   changePasswordModal.classList.remove("hidden-total");
   headerBlur.classList.add("blur");
   mainBlur.classList.add("blur");
-  // footerBlur.classList.add("blur");
+  footerBlur.classList.add("blur");
 
   if (mobileSmallMediaQueryList.matches) {
     body.classList.add("noscroll");
     headerBlur.classList.remove("blur");
     mainBlur.classList.remove("blur");
-    // footerBlur.classList.remove("blur");
+    footerBlur.classList.remove("blur");
   }
 });
 
@@ -308,7 +308,7 @@ passwordChangeClose.addEventListener("click", (e) => {
   changePasswordModal.classList.add("hidden-total");
   headerBlur.classList.remove("blur");
   mainBlur.classList.remove("blur");
-  // footerBlur.classList.remove("blur");
+  footerBlur.classList.remove("blur");
 
   if (mobileSmallMediaQueryList.matches) {
     body.classList.remove("noscroll");
