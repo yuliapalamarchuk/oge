@@ -22,6 +22,16 @@
   font-display: swap;
 }
 
+
+@font-face {
+  font-family: "Jost";
+  src: url("../fonts/Jost-Medium.woff2") format("woff2"),
+    url("../fonts/Jost-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @font-face {
   font-family: "Maki-Sans";
   src: url("../fonts/MakiSans-Regular.woff2") format("woff2"),
@@ -77,6 +87,9 @@ img {
 :root {
   --orange: #fd8e5e;
   --dark-purple: #5c0c70;
+  --dark-orange: #FF4E00;
+  --green: rgba(132, 202, 93, 0.5);
+  --bg: #FAEEEB;
 }
 /*Переопределение Хедера*/
 @media (max-width: 1200px) {

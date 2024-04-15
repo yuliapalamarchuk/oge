@@ -127,9 +127,33 @@ btnClose.onclick = () => {
 // Выпадающий список
 
 const select = document.querySelector(".form-select");
-const choices = new Choices (select, {
+const choices = new Choices(select, {
   searchEnabled: false,
   itemSelectText: "",
+});
+
+// Запрет ввода некоторых символов
+
+const words = /[А-Яа-яёЁa-zA-Z ]/;
+const letters = /[А-Яа-яёЁ]/;
+
+const fio = document.querySelectorAll(".form-name");
+const mail = document.querySelectorAll(".form-mail");
+
+fio.forEach((el) => {
+  el.addEventListener("keypress", (e) => {
+    if (!words.test(e.key)) {
+      e.preventDefault();
+    }
+  });
+});
+
+mail.forEach((el) => {
+  el.addEventListener("keypress", (e) => {
+    if (letters.test(e.key)) {
+      e.preventDefault();
+    }
+  });
 });
 
 // Валидация
@@ -141,6 +165,11 @@ validation
     {
       rule: "required",
       errorMessage: "Введите Ф.И.О",
+    },
+    {
+      rule: "customRegexp",
+      value: /[a-zа-яё]/i,
+      errorMessage: "Введите корректное Ф.И.О",
     },
   ])
 

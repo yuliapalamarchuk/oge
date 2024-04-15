@@ -103,16 +103,17 @@
 }
 
 .test__input {
-    max-width: 445px;
+    width: 445px;
     padding: 12px 14px;
-    max-width: 445px;
     border-radius: 8px;
     border: 2px solid #FF4E001F;
     background-color: white;
 }
 
 .test__input::placeholder {
+    font-family: 'Jost';
     font-size: 20px;
+    font-weight: 400;
     color: #99A9B9;
 }
 
@@ -243,5 +244,10 @@
         width: 100%;
         max-width: 100%;
         text-align: center;
+    }
+
+    .test__input {
+        max-width: 100%;
+        width: 100%;
     }
 }
