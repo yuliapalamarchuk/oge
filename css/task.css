@@ -1,0 +1,247 @@
+.task__block {
+    padding: 80px 155px;
+    border-radius: 40px;
+    background: linear-gradient(95deg, rgba(253, 142, 94, 0.1) 5.44%, rgba(244, 142, 112, 0.1) 98.61%);
+}
+
+.task__video {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    /* height: 100%; */
+    border-radius: 32px;
+    overflow: hidden;
+    height: 855px;
+    cursor: pointer;
+}
+
+.task__block .card {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    height: auto;
+}
+
+.task__block .card__img {
+    width: 100%;
+    height: 100%;
+}
+
+.task .card__play {
+    top: calc(50% - 61px);
+    left: calc(50% - 61px);
+    width: 122px;
+    height: 122px;
+    background-size: 122px;
+}
+
+
+.f-video-container,
+.f-video-cover {
+    height: 100%;
+}
+
+.f-video-player iframe,
+.f-video-player object,
+.f-video-player embed {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    max-height: 855px;
+    width: 100%;
+}
+
+.card__img {
+    object-fit: cover;
+}
+
+.card__desc {
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.8px;
+    color: var(--dark-purple);
+}
+
+.task__btn {
+    margin-bottom: 60px;
+    display: block;
+    padding: 14px 40px;
+    max-width: max-content;
+    border-radius: 8px;
+    font-family: Maki-Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.51px;
+    border: 2px solid var(--dark-purple);
+    color: var(--dark-purple);
+    cursor: pointer;
+}
+
+.test__title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28.8px;
+    color: var(--dark-purple);
+
+}
+
+.test .card__title {
+    margin-bottom: 40px;
+}
+
+.test__text {
+    margin-bottom: 40px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.8px;
+    color: var(--dark-purple);
+}
+
+.test__input {
+    max-width: 445px;
+    padding: 12px 14px;
+    max-width: 445px;
+    border-radius: 8px;
+    border: 2px solid #FF4E001F;
+    background-color: white;
+}
+
+.test__input::placeholder {
+    font-size: 20px;
+    color: #99A9B9;
+}
+
+.test__form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.test .test__submit {
+    margin-bottom: 0;
+}
+
+
+
+@media (max-width: 1400px) {
+    .task__block {
+        padding: 40px 120px;
+    }
+
+    .card__title,
+    .card__desc {
+        font-size: 20px;
+    }
+
+    .task__btn {
+        padding: 12px 24px;
+        font-size: 18px;
+    }
+
+    .task__video,
+    .f-video-player iframe,
+    .f-video-player object,
+    .f-video-player embed {
+        height: 600px;
+    }
+
+    .task .card__play {
+        top: calc(50% - 40px);
+        left: calc(50% - 40px);
+        width: 80px;
+        height: 80px;
+        background-size: 80px;
+    }
+
+    .test__title,
+    .test__text {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .test .card__title {
+        margin-bottom: 20px;
+    }
+
+    .card__count {
+        font-size: 14px;
+    }
+
+    .test__input {
+        max-width: 340px;
+    }
+
+
+
+}
+
+@media (max-width: 1024px) {
+
+    .task__video,
+    .f-video-player iframe,
+    .f-video-player object,
+    .f-video-player embed {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .task__block {
+        padding: 0;
+        background: transparent;
+    }
+
+    .task .back {
+        margin-bottom: 20px;
+    }
+
+    .task__block .card {
+        margin-bottom: 20px;
+    }
+
+    .card__desc {
+        margin-bottom: 20px;
+        font-size: 14px;
+        line-height: 16.8px;
+    }
+
+    .task__btn {
+        margin-bottom: 52px;
+    }
+
+    .test__text {
+        margin-bottom: 12px;
+        font-size: 14px;
+        line-height: 16.8px;
+    }
+
+    .task .card__play {
+        top: calc(50% - 25px);
+        left: calc(50% - 25px);
+        width: 50px;
+        height: 50px;
+        background-size: 50px;
+    }
+
+    .test__input::placeholder {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 470px) {
+    .task__video, .f-video-player iframe, .f-video-player object, .f-video-player embed {
+        height: 240px;
+    }
+
+    .test__submit,
+    .task__btn {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+}
