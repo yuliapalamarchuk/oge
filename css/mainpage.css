@@ -263,6 +263,10 @@ body.menu-open {
   cursor: pointer;
 }
 
+#switchtoLogin {
+  color: #5c0c70;
+}
+
 .modal-reg-title {
   font-family: "Jost";
   font-size: 32px;
@@ -330,6 +334,11 @@ body.menu-open {
   color: #5c0c70;
   margin-bottom: 20px;
 }
+
+.modal-reg-privacy-policy a {
+  color: #5c0c70;
+}
+
 .modal-reg-or {
   text-align: center;
   font-family: "Jost";
@@ -339,12 +348,13 @@ body.menu-open {
   letter-spacing: 0em;
   color: #5c0c70;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .modal-reg-already-have-account {
   font-family: "Jost";
   font-size: 24px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 29px;
   letter-spacing: 0em;
   text-align: center;
@@ -483,8 +493,12 @@ body.menu-open {
     border-radius: 0;
   }
 
+  .modal-reg-or {
+    margin-top: 40px;
+  }
+
   .modal-reg-form-wrapper {
-    margin-top: 6rem;
+    margin-top: 0;
   }
   .modal-reg-img-wrapper {
     display: none;
@@ -514,6 +528,10 @@ body.menu-open {
   }
   .modal-reg-privacy-policy {
     font-size: 12px;
+  }
+  .modal-reg-or,
+  .modal-reg-already-have-account {
+    font-size: 14px;
   }
 
   .modal-reg-privacy-policy {
@@ -553,6 +571,10 @@ body.menu-open {
   padding: 40px;
 }
 
+#switchToReg {
+  color: #5c0c70;
+}
+
 .modal-auth-forgot-password {
   cursor: pointer;
   text-decoration: none;
@@ -561,6 +583,7 @@ body.menu-open {
   font-weight: 400;
   line-height: 19px;
   letter-spacing: 0em;
+  color: #5c0c70;
 }
 
 .modal-auth-btn {
@@ -2408,6 +2431,11 @@ position: relative;
     position: relative;
     top: -12vw;
   }
+
+  .cards_title {
+    padding: 40px 0 0 1%;
+    font-size: 26px;
+  }
 }
 
 /*
@@ -3471,10 +3499,6 @@ a .footer_link {
   justify-content: space-between;
 }
 
-.logo {
-  margin-top: 40px;
-}
-
 .logo img {
   margin-left: 45px;
 }
@@ -3609,6 +3633,8 @@ a .footer_link {
 
   .logo {
     padding-bottom: 50px;
+    display: flex;
+    align-items: center;
   }
 
   .contacts_wrapper {
@@ -3617,6 +3643,10 @@ a .footer_link {
 
   .footer_logo_wrapper {
     max-width: 258px;
+  }
+
+  .logo img {
+    max-width: 102px;
   }
 
   .footer_wrapper p {
