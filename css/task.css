@@ -35,6 +35,11 @@
     width: 122px;
     height: 122px;
     background-size: 122px;
+    transition: transform .3s ease-in-out;
+}
+
+.task .card__play:hover {
+    transform: scale(1.1);
 }
 
 
@@ -79,6 +84,17 @@
     border: 2px solid var(--dark-purple);
     color: var(--dark-purple);
     cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+
+.task__btn:hover {
+    background-color: rgba(92, 12, 112, 0.1);
+}
+
+
+.task__btn:focus-visible, 
+.task__btn:active {
+    background-color: rgba(92, 12, 112, 0.2);
 }
 
 .test__title {
