@@ -9,6 +9,7 @@
         <script
             src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
         <script defer src="js/profile.js"></script>
+        <script src="https://unpkg.com/imask"></script>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="./css/mainpage.css">
         <link rel="stylesheet" href="css/tasks.css">
@@ -214,8 +215,9 @@
                                         <span class="input-profile--info">Город,
                                             населенный пункт</span>
                                         <input
-                                            class="form-profile--input input-profile--text input-profile--clear"
-                                            id="city" type="text" name="city"
+                                            class="form-profile--input input-city input-profile--clear"
+                                            id="city"
+                                            type="text" name="city"
                                             placeholder="Введите ваш город"
                                             maxlength="50">
                                         <button
@@ -239,9 +241,9 @@
                                             class="input-profile--info">Название
                                             школы</span>
                                         <input
-                                            class="form-profile--input input-profile--text input-profile--clear"
-                                            id="school" type="text"
-                                            name="school"
+                                            class="form-profile--input input-school input-profile--clear"
+                                            id="school"
+                                            type="text" name="school"
                                             placeholder="Введите название школы"
                                             maxlength="200">
                                         <button
