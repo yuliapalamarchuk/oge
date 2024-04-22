@@ -218,6 +218,7 @@
 
 .form-profile--input {
   padding: 12px 14px;
+  padding-right: 40px;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.7);
   border: none;
@@ -254,6 +255,10 @@
 
 :focus:-ms-input-placeholder {
   color: transparent;
+}
+
+.input-profile--phone:focus::placeholder {
+  color: rgba(153, 169, 185, 1);
 }
 
 .form-profile--input:focus {
@@ -1245,6 +1250,7 @@ table.task-table--topic {
 
   .form-profile--input {
     padding: 12px 14px;
+    padding-right: 40px;
     font-size: 14px;
     line-height: 16.8px;
   }
@@ -1254,7 +1260,7 @@ table.task-table--topic {
   }
 
   .btn-clear--profile {
-    top: 46px;
+    top: 35px;
   }
 
   .btn-clear {

@@ -55,11 +55,16 @@ for (let i = 0; i < tabs.length; i++) {
 // Запрет ввода некоторых символов
 const words = /[А-Яа-яёЁa-zA-Z ]/;
 const letters = /[А-Яа-яёЁ]/;
-const telNumber = /\+?[0-9\s\-\+\(\)]+/;
+// const telNumber = /\+?[0-9\s\-\+\(\)]+/;
+// const telNumber = /^\d+$/;
+const cyrillicMarks = /^[а-яёА-ЯЁ\s\-\,\.\!\?\:\;\"\(\)]+$/;
+const noLatin = /^[а-яёА-ЯЁ\s\-\,\.\!\?\:\;\"\(\)\d]+$/;
 
 const inputText = document.querySelectorAll(".input-profile--text");
 const mail = document.querySelectorAll(".input-profile--mail");
-const phone = document.querySelectorAll(".input-profile--phone");
+const phone = document.querySelector(".input-profile--phone");
+const city = document.querySelector(".input-city");
+const school = document.querySelector(".input-school");
 
 inputText.forEach((el) => {
   el.addEventListener("keypress", (e) => {
@@ -77,12 +82,22 @@ mail.forEach((el) => {
   });
 });
 
-phone.forEach((el) => {
-  el.addEventListener("keypress", (e) => {
-    if (!telNumber.test(e.key)) {
-      e.preventDefault();
-    }
-  });
+city.addEventListener("keypress", (e) => {
+  if (!cyrillicMarks.test(e.key)) {
+    e.preventDefault();
+  }
+});
+
+// phone.addEventListener("keypress", (e) => {
+//   if (!telNumber.test(e.key)) {
+//     e.preventDefault();
+//   }
+// });
+
+school.addEventListener("keypress", (e) => {
+  if (!noLatin.test(e.key)) {
+    e.preventDefault();
+  }
 });
 
 // Валидация
@@ -158,7 +173,7 @@ validation
     // },
     {
       rule: "customRegexp",
-      value: /[a-zа-яё]/i,
+      value: /^[а-яёА-ЯЁ\s\-\,\.\!\?\:\;\"\(\)]+$/,
       errorMessage: "Введите корректный город",
     },
     {
@@ -168,22 +183,22 @@ validation
     },
   ])
 
-  .addField("#phone", [
-    // {
-    //   rule: "required",
-    //   errorMessage: "Введите ваш телефон",
-    // },
-    {
-      rule: "customRegexp",
-      value: /\+?[0-9\s\-\+\(\)]+/i,
-      errorMessage: "Введите корректный номер телефона",
-    },
-    {
-      rule: "maxLength",
-      value: 18,
-      errorMessage: "Номер телефона не может содержать больше 18 символов",
-    },
-  ])
+  // .addField("#phone", [
+  //   // {
+  //   //   rule: "required",
+  //   //   errorMessage: "Введите ваш телефон",
+  //   // },
+  //   // {
+  //   //   rule: "customRegexp",
+  //   //   value: /^\d+$/,
+  //   //   errorMessage: "Введите корректный номер телефона",
+  //   // },
+  //   // {
+  //   //   rule: "maxLength",
+  //   //   value: 10,
+  //   //   errorMessage: "Номер телефона не может содержать больше 10 символов",
+  //   // },
+  // ])
 
   .addField("#school", [
     // {
@@ -192,7 +207,7 @@ validation
     // },
     {
       rule: "customRegexp",
-      value: /[a-zа-яё]/i,
+      value: /^[а-яёА-ЯЁ\s\-\,\.\!\?\:\;\"\(\)\d]+$/,
       errorMessage: "Введите корректное название школы",
     },
     {
@@ -228,6 +243,13 @@ validationPassword
       errorMessage: "Пароль не может содержать больше 64 символов",
     },
   ]);
+
+// Маска для ввода номера телефона
+const maskOptions = {
+    mask: '+7 (000) 000-00-00',
+    // lazy: false
+} 
+const mask = new IMask(phone, maskOptions);
 
 // Кнопка очистки инпутов
 function updateButtonVisibility(input) {
