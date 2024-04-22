@@ -71,6 +71,7 @@ function createTask() {
     videoCount.textContent = question.likes;
 
     downloadBtn.textContent = 'Скачать материалы';
+    downloadBtn.download = true;
 
     title.textContent = 'Тест';
     submit.textContent = 'Принять ответы';

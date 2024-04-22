@@ -41,6 +41,13 @@
   font-display: swap;
 }
 
+input:focus,
+input:focus-visible,
+input:active {
+    outline: none;
+    border: 2px solid #FF4E0047;
+}
+
 .tasks__list {
   scrollbar-color: #5c0c70 transparent;
   scrollbar-width: thin;
