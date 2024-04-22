@@ -175,6 +175,13 @@ validation
       rule: "email",
       errorMessage: "Введите корректный E-mail",
     },
+  ])
+
+  .addField("#lifehack", [
+    {
+      rule: "required",
+      errorMessage: "Напишите свой лайфхак",
+    },
   ]);
 
 // Модалка Спасибо
