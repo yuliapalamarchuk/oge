@@ -1,3 +1,10 @@
+input:focus,
+input:focus-visible,
+input:active {
+    outline: none;
+    border: 2px solid #FF4E0047;
+}
+
 .test-body {
     padding: 40px 0;
     background-color: var(--green);
@@ -52,6 +59,7 @@
     border-radius: 8px;
     outline: 2px solid var(--dark-orange);
     cursor: pointer;
+    transition: color .3s ease-in-out, background-color .3s ease-in-out;
 }
 
 .rules__btn--prev,
@@ -59,10 +67,36 @@
     color: var(--dark-orange);
 }
 
+.question__btn--prev:hover,
+.rules__btn--prev:hover {
+    background-color: rgba(255, 78, 0, 0.1);
+}
+
+.question__btn--prev:active,
+.rules__btn--prev:active,
+.question__btn--prev:focus-visible,
+.rules__btn--prev:focus-visible {
+    background-color: rgba(255, 78, 0, 0.2);
+}
+
 .rules__btn--next,
 .question__btn--next {
     color: white;
     background-color: var(--dark-orange);
+}
+
+.question__btn--next:hover,
+.rules__btn--next:hover {
+    color: var(--dark-orange);
+    background-color: transparent;
+}
+
+.question__btn--next:active,
+.rules__btn--next:active,
+.question__btn--next:focus-visible,
+.rules__btn--next:focus-visible {
+    color: var(--dark-orange);
+    background-color: rgba(255, 78, 0, 0.1);
 }
 
 .rules__list {
