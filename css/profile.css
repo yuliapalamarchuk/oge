@@ -320,6 +320,10 @@
   background-image: url(../img/tabler_eye-on2.png);
 }
 
+.form-profile--label .just-validate-error-label {
+  margin-bottom: 0;
+}
+
 /* Модалка изменения пароля */
 .changePasswordModal {
   padding: 120px 60px 60px 60px;
