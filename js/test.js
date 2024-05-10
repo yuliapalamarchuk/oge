@@ -121,6 +121,8 @@ function createQuestion() {
 
     const question = getQuestionNum(num);
 
+    if (num == 1) prevBtn.disabled = true
+
         const questionText1 = document.createElement('p');
         questionText1.innerHTML = question.text1;
         questionText1.classList.add('question__text');
@@ -172,10 +174,13 @@ function createQuestion() {
     })
 
     prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.body.innerHTML = '';
-        num -= 1;
-        document.body.append(createQuestion(num));
+        e.preventDefault();       
+        if (num > 1) {
+            document.body.innerHTML = '';
+            num -= 1;
+            document.body.append(createQuestion(num));
+        } 
+        
 
     })
 
