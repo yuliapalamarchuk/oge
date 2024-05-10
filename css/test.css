@@ -99,6 +99,13 @@ input:active {
     background-color: rgba(255, 78, 0, 0.1);
 }
 
+.question__btn:disabled {
+    color: rgba(25, 24, 18, 0.4);
+    background-color: rgba(25, 24, 18, 0.1);
+    outline-color: rgba(25, 24, 18, 0.1);
+    cursor: auto;
+}
+
 .rules__list {
     padding-left: 28px;
 }
