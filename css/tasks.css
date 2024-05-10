@@ -42,8 +42,7 @@
 }
 
 input:focus,
-input:focus-visible,
-input:active {
+input:focus-visible {
     outline: none;
     border: 2px solid #FF4E0047;
 }
