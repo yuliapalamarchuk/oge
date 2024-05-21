@@ -58,7 +58,7 @@ const letters = /[А-Яа-яёЁ]/;
 // const telNumber = /\+?[0-9\s\-\+\(\)]+/;
 // const telNumber = /^\d+$/;
 const cyrillicMarks = /^[а-яёА-ЯЁ\s\-\,\.\!\?\:\;\"\(\)]+$/;
-const noLatin = /^[а-яёА-ЯЁ\s\-\,\.\!\?\:\;\"\(\)\d]+$/;
+const noLatin = /^[а-яёА-ЯЁ\d\s.,:;!?\\"()№-]+$/;
 
 const inputText = document.querySelectorAll(".input-profile--text");
 const mail = document.querySelectorAll(".input-profile--mail");
@@ -207,7 +207,7 @@ validation
     // },
     {
       rule: "customRegexp",
-      value: /^[а-яёА-ЯЁ\s\-\,\.\!\?\:\;\"\(\)\d]+$/,
+      value: /^[а-яёА-ЯЁ\d\s.,:;!?\\"()№-]+$/,
       errorMessage: "Введите корректное название школы",
     },
     {
