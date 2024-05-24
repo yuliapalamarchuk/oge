@@ -47,6 +47,10 @@
   box-sizing: border-box;
 }
 
+
+
+
+
 .container {
   max-width: 1920px;
   margin: 0 auto;
@@ -285,7 +289,7 @@ body.menu-open {
   letter-spacing: 0em;
   text-align: left;
   color: #5c0c70;
-  /* position: relative; */
+   position: relative;
 }
 .modal-reg-display-flex {
   display: flex;
@@ -508,10 +512,10 @@ body.menu-open {
     width: 100%;
   }
   .password-control {
-    bottom: 37%;
+    bottom: 40%;
   }
   .password-control2 {
-    bottom: 20%;
+    bottom: 40%;
   }
   .modal-reg-button-wrapper {
     width: 100%;
