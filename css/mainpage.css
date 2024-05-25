@@ -178,6 +178,22 @@ body.menu-open {
   margin-bottom: 15px;
 }
 
+/* Правки */
+
+.enter-label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.reg-label {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ---------- */
+
 @media (max-width: 1250px) {
   .modal-auth-reg-btn-reg,
   .modal-auth-reg-btn-auth {
@@ -375,8 +391,7 @@ body.menu-open {
 }
 
 #password-input,
-#confirmPassword,
-#password-auth {
+#confirmPassword {
   position: relative;
 }
 
@@ -389,27 +404,9 @@ body.menu-open {
   background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
   cursor: pointer;
   right: 12px;
-  bottom: 38%;
+  /* bottom: 26%; */
+  top: 41px;
 }
-/* .btn-eye--off {
-  outline: none;
-  border: none;
-  position: absolute;
-  right: 12px;
-  top: 48px;
-  width: 24px;
-  height: 24px;
-  background-color: transparent;
-  background-image: url(../img/tabler_eye-off.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-} */
-
-/* 
-.view {
-  background: url(../img/tabler_eye-on.svg) 0 0 no-repeat;
-} */
 
 .eye {
   background: url(../img/tabler_eye-on2.png) 0 0 no-repeat;
@@ -423,7 +420,7 @@ body.menu-open {
   height: 24px;
   background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
   cursor: pointer;
-  bottom: 22%;
+  top: 41px;
   right: 11px;
 }
 
@@ -433,7 +430,7 @@ body.menu-open {
   width: 24px;
   height: 24px;
   background: url(../img/tabler_eye-off.svg) 0 0 no-repeat;
-  bottom: 51%;
+  top: 44px;
 }
 
 .modal-reg-confirm-text {

@@ -1,3 +1,62 @@
+//Axios
+let registration = async () => {
+    try {
+        let surname = document.querySelector('#surname')
+        let name = document.querySelector('#name')
+        let email = document.querySelector('#email')
+        let pass = document.querySelector('#password-input')
+        let res = {
+            surname: surname.value,
+            name: name.value,
+            email: email.value,
+            pass: pass.value,
+        }
+        const response = await axios.post('php/register.php', res);
+        if (response.data.status === 'success') {
+            console.log('Регистрация прошла успешно!');
+            return true
+            // Дополнительные действия при успешной регистрации
+        } else {
+            console.error('Ошибка при регистрации:', response.data.message);
+            return false
+            // Дополнительные действия при ошибке регистрации
+        }
+    } catch (error) {
+        console.error('Ошибка в запросе на регистрацию:', error);
+        return false
+    }
+}
+let login = async () => {
+    try {
+        let email = document.querySelector('#email2')
+        let pass = document.querySelector('#password-auth')
+        let res = {
+            email: email.value,
+            pass: pass.value,
+        }
+        console.log(res)
+        const response = await axios.get('php/login.php', {
+            params: {
+                data: res
+            }
+        });
+        if (response.data.status === 'success') {
+            console.log('авторизация прошла успешно!');
+            return true
+            // Дополнительные действия при успешной регистрации
+        } else {
+            console.error('Ошибка при авторизации:', response.data.message);
+            return false
+            // Дополнительные действия при ошибке регистрации
+        }
+    } catch (error) {
+
+        console.error('Ошибка при авторизации:', error);
+        return false
+    }
+}
+
+
 // Модальные окна
 const modalEnter = document.querySelector("#modalAuthReg"); // Модалка выбора
 const modalReg = document.querySelector("#modalReg"); //Модалка регистрации
@@ -15,7 +74,7 @@ const openModalAuth = document.querySelector("#openModalAuth"); // Кнопка 
 const switchToReg = document.querySelector("#switchToReg"); // Кнопка "Перейти к регистрации"
 const switchtoLogin = document.querySelector("#switchtoLogin"); // Кнопка "Перейти ко входу"
 const openModalAuthRegMobile = document.querySelector(
-  "#openModalAuthRegMobile"
+    "#openModalAuthRegMobile"
 ); //Кнопка "вход" на мобилке
 const forgotPassword = document.querySelector("#forgotPassword"); //Кнопка забыли пароль?
 const forgotPassword2 = document.querySelector("#forgotPassword2");
@@ -30,53 +89,53 @@ const footerBlur = document.querySelector("footer");
 
 // Ф-ия открытия модального окна
 const openModalFunc = (modal) => {
-  closeModalFunc();
-  modal.classList.toggle("showModal");
-  headerBlur.classList.add("blur");
-  mainBlur.classList.add("blur");
-  footerBlur.classList.add("blur");
+    closeModalFunc();
+    modal.classList.toggle("showModal");
+    headerBlur.classList.add("blur");
+    mainBlur.classList.add("blur");
+    footerBlur.classList.add("blur");
 };
 
 // Ф-ия закртыия модального окна
 const closeModalFunc = () => {
-  let openModal = document.querySelector(".showModal");
-  if (openModal) openModal.classList.toggle("showModal");
-  headerBlur.classList.remove("blur");
-  mainBlur.classList.remove("blur");
-  footerBlur.classList.remove("blur");
+    let openModal = document.querySelector(".showModal");
+    if (openModal) openModal.classList.toggle("showModal");
+    headerBlur.classList.remove("blur");
+    mainBlur.classList.remove("blur");
+    footerBlur.classList.remove("blur");
 };
 
 //Вешаем слушатели события на кнопки
 
 closeModal.forEach((item) => {
-  item.addEventListener("click", () => {
-    closeModalFunc();
-  });
+    item.addEventListener("click", () => {
+        closeModalFunc();
+    });
 });
 
 openModalAuthReg.addEventListener("click", () => {
-  openModalFunc(modalEnter);
+    openModalFunc(modalEnter);
 });
 openModalReg.addEventListener("click", () => {
-  openModalFunc(modalReg);
+    openModalFunc(modalReg);
 });
 openModalAuth.addEventListener("click", () => {
-  openModalFunc(modalAuth);
+    openModalFunc(modalAuth);
 });
 switchToReg.addEventListener("click", () => {
-  openModalFunc(modalReg);
+    openModalFunc(modalReg);
 });
 switchtoLogin.addEventListener("click", () => {
-  openModalFunc(modalAuth);
+    openModalFunc(modalAuth);
 });
 openModalAuthRegMobile.addEventListener("click", () => {
-  openModalFunc(modalEnter);
+    openModalFunc(modalEnter);
 });
 forgotPassword.addEventListener("click", () => {
-  openModalFunc(modalForgotPassword);
+    openModalFunc(modalForgotPassword);
 });
 forgotPassword3.addEventListener("click", () => {
-  openModalFunc(modalForgotPassword3);
+    openModalFunc(modalForgotPassword3);
 });
 // openModalConfirmReg.addEventListener("click", () => {
 //   openModalFunc(modalConfirmReg);
@@ -85,90 +144,90 @@ forgotPassword3.addEventListener("click", () => {
 //ПО КЛИКУ НА ГЛАЗИК ПОКАЗЫВАЕТ И СКРЫВАЕТ ПАРОЛЬ
 
 $("body").on("click", ".password-control", function () {
-  if ($("#password-input").attr("type") == "password") {
-    $(this).addClass("view");
-    $(this).addClass("eye");
-    $("#password-input").attr("type", "text");
-  } else {
-    $(this).removeClass("view");
-    $(this).removeClass("eye");
-    $("#password-input").attr("type", "password");
-  }
-  return false;
+    if ($("#password-input").attr("type") == "password") {
+        $(this).addClass("view");
+        $(this).addClass("eye");
+        $("#password-input").attr("type", "text");
+    } else {
+        $(this).removeClass("view");
+        $(this).removeClass("eye");
+        $("#password-input").attr("type", "password");
+    }
+    return false;
 });
 
 $("body").on("click", ".password-control2", function () {
-  if ($("#confirmPassword").attr("type") == "password") {
-    $(this).addClass("view");
-    $(this).addClass("eye");
-    $("#confirmPassword").attr("type", "text");
-  } else {
-    $(this).removeClass("view");
-    $(this).removeClass("eye");
-    $("#confirmPassword").attr("type", "password");
-  }
-  return false;
+    if ($("#confirmPassword").attr("type") == "password") {
+        $(this).addClass("view");
+        $(this).addClass("eye");
+        $("#confirmPassword").attr("type", "text");
+    } else {
+        $(this).removeClass("view");
+        $(this).removeClass("eye");
+        $("#confirmPassword").attr("type", "password");
+    }
+    return false;
 });
 
 $("body").on("click", ".password-control3", function () {
-  if ($("#password-auth").attr("type") == "password") {
-    $(this).addClass("view");
-    $(this).addClass("eye");
-    $("#password-auth").attr("type", "text");
-  } else {
-    $(this).removeClass("view");
-    $(this).removeClass("eye");
-    $("#password-auth").attr("type", "password");
-  }
-  return false;
+    if ($("#password-auth").attr("type") == "password") {
+        $(this).addClass("view");
+        $(this).addClass("eye");
+        $("#password-auth").attr("type", "text");
+    } else {
+        $(this).removeClass("view");
+        $(this).removeClass("eye");
+        $("#password-auth").attr("type", "password");
+    }
+    return false;
 });
 
 //Ограничиваем ввод количества чисел в модалке забыли пароль 2
 
 const inputNumberforgotPass2 = document.querySelector(
-  "#inputNumberforgotPass2"
+    "#inputNumberforgotPass2"
 );
 
 document
-  .getElementById("inputNumberforgotPass2")
-  .addEventListener("input", function () {
-    // Получаем значение из поля ввода
-    let inputValue = this.value;
-    // Ограничиваем количество символов
-    let maxLength = 4; // Например, ограничить ввод тремя символами
+    .getElementById("inputNumberforgotPass2")
+    .addEventListener("input", function () {
+        // Получаем значение из поля ввода
+        let inputValue = this.value;
+        // Ограничиваем количество символов
+        let maxLength = 4; // Например, ограничить ввод тремя символами
 
-    if (inputValue.length > maxLength) {
-      // Если количество символов превышает допустимое, обрезаем введенное значение
-      this.value = inputValue.slice(0, maxLength);
-    }
-  });
+        if (inputValue.length > maxLength) {
+            // Если количество символов превышает допустимое, обрезаем введенное значение
+            this.value = inputValue.slice(0, maxLength);
+        }
+    });
 
 // Обратный отсчет в модалке забыли пароль 2
 forgotPassword2.addEventListener("click", function () {
-  openModalFunc(modalForgotPassword2);
+    openModalFunc(modalForgotPassword2);
 
-  const deadline = new Date(new Date().getTime() + 60 * 1000);
-  let timerId = null;
+    const deadline = new Date(new Date().getTime() + 60 * 1000);
+    let timerId = null;
 
-  function countdownTimer() {
-    const diff = deadline - new Date();
-    if (diff <= 0) {
-      clearInterval(timerId);
+    function countdownTimer() {
+        const diff = deadline - new Date();
+        if (diff <= 0) {
+            clearInterval(timerId);
+        }
+
+        const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) : 0;
+        const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+
+        $minutes.textContent = minutes < 10 ? "0" + minutes : minutes;
+        $seconds.textContent = seconds < 10 ? "0" + seconds : seconds;
     }
 
-    const minutes = diff > 0 ? Math.floor(diff / 1000 / 60) : 0;
-    const seconds = diff > 0 ? Math.floor(diff / 1000) % 60 : 0;
+    const $minutes = document.querySelector(".timer__minutes");
+    const $seconds = document.querySelector(".timer__seconds");
 
-    $minutes.textContent = minutes < 10 ? "0" + minutes : minutes;
-    $seconds.textContent = seconds < 10 ? "0" + seconds : seconds;
-  }
+    countdownTimer();
 
-  const $minutes = document.querySelector(".timer__minutes");
-  const $seconds = document.querySelector(".timer__seconds");
-
-  countdownTimer();
-
-  timerId = setInterval(countdownTimer, 1000);
+    timerId = setInterval(countdownTimer, 1000);
 });
 
 // Валидация регистрации
@@ -177,67 +236,67 @@ let form = document.querySelector("#form-validate");
 let validationForm = new JustValidate(form);
 
 validationForm
-  .addField("#surname", [
-    {
-      rule: "required",
-      errorMessage: "Введите фамилию",
-    },
-    {
-      rule: "customRegexp",
-      value: /[a-zа-яё]/i,
-      errorMessage: "Введите корректную фамилию",
-    },
-    {
-      rule: "maxLength",
-      value: 100,
-      errorMessage: "Фамилия не может содержать больше 100 символов",
-    },
-  ])
+    .addField("#surname", [
+        {
+            rule: "required",
+            errorMessage: "Введите фамилию",
+        },
+        {
+            rule: "customRegexp",
+            value: /[a-zа-яё]/i,
+            errorMessage: "Введите корректную фамилию",
+        },
+        {
+            rule: "maxLength",
+            value: 100,
+            errorMessage: "Фамилия не может содержать больше 100 символов",
+        },
+    ])
 
-  .addField("#name", [
-    {
-      rule: "required",
-      errorMessage: "Введите имя",
-    },
-    {
-      rule: "customRegexp",
-      value: /[a-zа-яё]/i,
-      errorMessage: "Введите корректное имя",
-    },
-    {
-      rule: "maxLength",
-      value: 100,
-      errorMessage: "Имя не может содержать больше 100 символов",
-    },
-  ])
+    .addField("#name", [
+        {
+            rule: "required",
+            errorMessage: "Введите имя",
+        },
+        {
+            rule: "customRegexp",
+            value: /[a-zа-яё]/i,
+            errorMessage: "Введите корректное имя",
+        },
+        {
+            rule: "maxLength",
+            value: 100,
+            errorMessage: "Имя не может содержать больше 100 символов",
+        },
+    ])
 
-  .addField("#email", [
-    {
-      rule: "required",
-      errorMessage: "Введите E-mail",
-    },
-    {
-      rule: "email",
-      errorMessage: "Введите корректный E-mail",
-    },
-    {
-      rule: "maxLength",
-      value: 256,
-      errorMessage: "E-mail не может содержать больше 256 символов",
-    },
-  ])
+    .addField("#email", [
+        {
+            rule: "required",
+            errorMessage: "Введите E-mail",
+        },
+        {
+            rule: "email",
+            errorMessage: "Введите корректный E-mail",
+        },
+        {
+            rule: "maxLength",
+            value: 256,
+            errorMessage: "E-mail не может содержать больше 256 символов",
+        },
+    ])
 
-  .addField("#password-input", [
-    {
-      rule: "required",
-      errorMessage: "Введите пароль",
-    },
-    {
-      rule: "maxLength",
-      value: 64,
-      errorMessage: "Пароль не может содержать больше 64 символов",
-    },
-  ]);
+    .addField("#password-input", [
+        {
+            rule: "required",
+            errorMessage: "Введите пароль",
+        },
+        {
+            rule: "maxLength",
+            value: 64,
+            errorMessage: "Пароль не может содержать больше 64 символов",
+        },
+    ]);
 
 // Сверяем пароли на совпадение
 let correctPass = false;
@@ -251,80 +310,103 @@ inCorrectDiv.innerText = "Пароли не совпадают";
 inCorrectDiv.classList.add("inCorrectPass");
 
 let checkPass = (first, second) => {
-  if (first === second) {
-    correctPass = true;
-    inCorrectDiv.remove();
-  } else {
-    addField = true;
-    correctPass = false;
-    secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
-  }
+    if (first === second) {
+        correctPass = true;
+        inCorrectDiv.remove();
+    } else {
+        addField = true;
+        correctPass = false;
+        secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
+    }
 };
 clearInput.addEventListener("input", () => {
-  checkPass(clearInput.value, secondClearInput.value);
+    checkPass(clearInput.value, secondClearInput.value);
 });
 secondClearInput.addEventListener("input", () => {
-  checkPass(clearInput.value, secondClearInput.value);
+    checkPass(clearInput.value, secondClearInput.value);
 });
 
+
 openModalConfirmReg.addEventListener("click", () => {
-  startValidatePass = true;
-  validationForm.onSuccess((event) => {
-    if (correctPass) {
-      openModalFunc(modalConfirmReg);
+    startValidatePass = true;
+    validationForm.onSuccess((event) => {
+        if (correctPass) {
+            let res = registration()
+            res
+                .then((res) => {
+                    if (res) {
+                        openModalFunc(modalConfirmReg);
+                    } else {
+                        console.log('Ошибка в регистрации')
+                    }
+                })
+                .catch((err)=>{
+                    console.log(err)
+                })
+        }
+    });
+    validationForm.onFail((event) => {
+        const confirmPass = document.querySelector(".password-control2");
+        confirmPass.style.bottom = "18%";
+    });
+    if (!correctPass && !addField) {
+        secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
+        secondClearInput.value = "";
     }
-  });
-  validationForm.onFail((event) => {
-    const confirmPass = document.querySelector(".password-control2");
-    confirmPass.style.bottom = "18%";
-  });
-  if (!correctPass && !addField) {
-    secondClearInput.insertAdjacentElement("afterend", inCorrectDiv);
-    secondClearInput.value = "";
-  }
 });
 
 let form2 = document.querySelector("#form-validate2");
 let validationForm2 = new JustValidate(form2);
 
 validationForm2
-  .addField("#email2", [
-    {
-      rule: "required",
-      errorMessage: "Введите E-mail",
-    },
-    {
-      rule: "email",
-      errorMessage: "Введите корректный E-mail",
-    },
-    {
-      rule: "maxLength",
-      value: 256,
-      errorMessage: "E-mail не может содержать больше 256 символов",
-    },
-  ])
-  .addField("#password-auth", [
-    {
-      rule: "required",
-      errorMessage: "Введите пароль",
-    },
-    {
-      rule: "maxLength",
-      value: 64,
-      errorMessage: "Пароль не может содержать больше 64 символов",
-    },
-  ]);
+    .addField("#email2", [
+        {
+            rule: "required",
+            errorMessage: "Введите E-mail",
+        },
+        {
+            rule: "email",
+            errorMessage: "Введите корректный E-mail",
+        },
+        {
+            rule: "maxLength",
+            value: 256,
+            errorMessage: "E-mail не может содержать больше 256 символов",
+        },
+    ])
+    .addField("#password-auth", [
+        {
+            rule: "required",
+            errorMessage: "Введите пароль",
+        },
+        {
+            rule: "maxLength",
+            value: 64,
+            errorMessage: "Пароль не может содержать больше 64 символов",
+        },
+    ]);
 
 // Add click event listener to modalAuthBtn
 modalAuthBtn.addEventListener("click", () => {
-  validationForm2
-    .onSuccess((event) => {
-      console.log(event);
-      document.location.href = "https://www.oge5.isp.sprint.1t.ru/profile.html";
-    })
-    .onFail((err) => {
-      console.log(err);
-      const inputEye = document.querySelector(".password-control3");
-      inputEye.style.bottom = "51%";
-    });
+    validationForm2
+        .onSuccess((event) => {
+            let res = login()
+            res
+                .then((res) => {
+                    if (res) {
+                        alert('Успех')
+                    } else {
+                        console.log('Ошибка в авторизации')
+                    }
+                })
+                .catch((err) => {
+                    throw err
+                })
+
+        })
+        .onFail((err) => {
+            console.log(err);
+            const inputEye = document.querySelector(".password-control3");
+            inputEye.style.bottom = "51%";
+        });
 });
