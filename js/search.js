@@ -1,49 +1,54 @@
 const search = document.getElementById('search');
 const formSearch = document.getElementById('search-form');
 
-import createTask from 'task.js';
-
 formSearch.addEventListener('submit', (e) => {
     e.preventDefault();
-    // console.log(search.value)
     axios.get('php/search.php', {
         params: {
             search: search.value
         }
     })
-    .then(response => {
-        console.log(response.data)
-        createList(response.data);
-    })
+        .then(response => {
+            console.log(response.data)
+            createList(response.data);
+        })
 })
 
-function createList(array) { 
-        const list = document.createElement('ul');
-        list.classList.add('search-list');
-    
-    if (array.length = 0) {
+function createList(array) {
+    if (document.querySelector('.search-list')) document.querySelector('.search-list').remove();
+
+    const list = document.createElement('ul');
+    list.classList.add('search-list');
+
+    document.addEventListener('click', (e) => {
+        if (!list.contains(e.target)) {
+            list.remove();
+        }
+    })
+
+    if (array == null) {
         const listItem = document.createElement('li');
         listItem.textContent = 'Ничего не найдено';
         listItem.classList.add('search-item');
         list.append(listItem);
-    } else {
+    }
+    else {
+        console.log(array)
         array.forEach(el => {
             const listItem = document.createElement('li');
             const listLink = document.createElement('a');
-            listLink.textContent = el;
+            listLink.textContent = el.name;
+            listLink.setAttribute('data-id', el.id);
             listItem.classList.add('search-item');
             listLink.classList.add('search-link');
             listItem.append(listLink);
             list.append(listItem);
 
             listLink.addEventListener('click', () => {
-                // createTask(id);
+                localStorage.setItem('id', el.id);
+                window.location.href = '/task.html';
             })
         });
     }
-
-    if (!document.querySelector('.search-list')) {
-        formSearch.append(list)
-    }
-
+    formSearch.append(list)
 }
