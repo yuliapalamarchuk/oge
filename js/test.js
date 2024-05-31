@@ -67,6 +67,8 @@ function createRules() {
 
     nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
+
+        axios.get('')
         document.body.innerHTML = '';
         document.body.append(createQuestion(num));
 
