@@ -3,6 +3,11 @@ const tabs = document.querySelectorAll(".lifehack_cards");
 const contents = document.querySelectorAll(".lifehack_content");
 
 for (let i = 0; i < tabs.length; i++) {
+  if (i == 0) {
+    tabs[i].classList.add('lifehack_cards--active');
+    contents[i].classList.add('lifehack_content--active');
+}
+
   tabs[i].addEventListener("click", (event) => {
     document.querySelectorAll(".lifehack_cards").forEach((el) => {
       if (el.classList.contains("lifehack_cards--active")) {
