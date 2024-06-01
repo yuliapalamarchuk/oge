@@ -1,3 +1,18 @@
+<?php
+require_once __DIR__ . '/php/boot.php';
+
+$sql = "select title, icon, image, picturetitle, preview, text1, url, text2 from lifehack where active=1";
+$results = pdo()->prepare($sql);
+$results->execute();
+$i=0;
+$lifehacks=[];
+while ($row = $results->fetch(PDO::FETCH_ASSOC)){
+      $lifehacks[$i] = $row; // кладем в массив все поля из БД
+      $i++;
+  };
+$lenght = $i;
+$adress_img = "uploads/images/";
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -11,7 +26,7 @@
       src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script
       src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-    <script defer module src="js/lifehack.js"></script>
+    <script defer src="js/lifehack.js"></script>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css" />
@@ -1216,14 +1231,14 @@
               <nav class="nav">
                 <ul class="header_menu_items">
                   <li class="menu_list"
-                    onclick="location.href='tasks.html'">Задания
+                    onclick="location.href='tasks.php'">Задания
                   </li>
                   <li class="menu_list menu_list_special"
                     onclick="location.href='404.html'">Пройти
                     тест
                   </li>
                   <li class="menu_list"
-                    onclick="location.href='lifehack.html'">Лайфхаки
+                    onclick="location.href='lifehack.php'">Лайфхаки
                   </li>
                   <li class="menu_list" onclick="location.href='#footer'">
                     Контакты
@@ -1522,217 +1537,55 @@
         </div>
       </div>
 
+     
       <section class="wrapper lifehack flex">
-        <div class="lifehack_name">
-
+        <div class="lifehack_name">        
           <div class="cards-wrap">
-            <div class="lifehack_cards lifehack_cards--active">
-              <img class="lifehack-cards-img" src="img/name1.png" alt>
-              <div>
-                <h3 class="lifehack-cards-name">Заголовок 1</h3>
-                <p class="lifehack-cards-about">Есть над чем задуматься: явные
-                  признаки победы институционализации
-                  призывают нас к новым свершениям, которые, в свою очередь,
-                  должны быть ограничены исключительно образом
-                  мышления.</p>
-              </div>
-            </div>
-
+          <?php
+            for ($i=0;$i<$lenght;$i++) {
+        ?>
             <div class="lifehack_cards">
-              <img class="lifehack-cards-img" src="img/name2.png" alt>
+              <img class="lifehack-cards-img" src="<?= $adress_img . $lifehacks[$i]["icon"]?>" alt>
               <div>
-                <h3 class="lifehack-cards-name">Заголовок 2</h3>
-                <p class="lifehack-cards-about">Есть над чем задуматься: явные
-                  признаки победы институционализации
-                  призывают нас к новым свершениям, которые, в свою очередь,
-                  должны быть ограничены исключительно образом
-                  мышления.</p>
+                <h3 class="lifehack-cards-name"><?= $lifehacks[$i]["title"]?></h3>
+                <p class="lifehack-cards-about"><?= $lifehacks[$i]["preview"]?></p>
               </div>
-            </div>
-
-            <div class="lifehack_cards">
-              <img class="lifehack-cards-img" src="img/name3.png" alt>
-              <div>
-                <h3 class="lifehack-cards-name">Заголовок 3</h3>
-                <p class="lifehack-cards-about">Есть над чем задуматься: явные
-                  признаки победы институционализации
-                  призывают нас к новым свершениям, которые, в свою очередь,
-                  должны быть ограничены исключительно образом
-                  мышления.</p>
-              </div>
-            </div>
-
-            <div class="lifehack_cards">
-              <img class="lifehack-cards-img" src="img/name4.png" alt>
-              <div>
-                <h3 class="lifehack-cards-name">Заголовок 4</h3>
-                <p class="lifehack-cards-about">Есть над чем задуматься: явные
-                  признаки победы институционализации
-                  призывают нас к новым свершениям, которые, в свою очередь,
-                  должны быть ограничены исключительно образом
-                  мышления.</p>
-              </div>
-            </div>
-
-            <div class="lifehack_cards">
-              <img class="lifehack-cards-img" src="img/name5.png" alt>
-              <div>
-                <h3 class="lifehack-cards-name">Заголовок 5</h3>
-                <p class="lifehack-cards-about">Есть над чем задуматься: явные
-                  признаки победы институционализации
-                  призывают нас к новым свершениям, которые, в свою очередь,
-                  должны быть ограничены исключительно образом
-                  мышления.</p>
-              </div>
-            </div>
-
+            </div>            
+            <?php
+            }
+          ?>
           </div>
-
+          
         </div>
-
+        
+        
         <div id="start" class="lifehack_information">
-          <div class="lifehack_content lifehack_content--active">
-            <div class="lifehack_img_close"> <img src="img/close2.svg"
-                alt></div>
-
-            <div class="lifehack-information-about">
-              <h2 class="lifehack-information-title">Заголовок</h2>
-            </div>
-
-            <div class="lifehack-information-about">
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. </p>
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. Есть над чем задуматься: явные признаки победы
-                институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. </p>
-            </div>
-
-            <div class="lifehack-information-img">
-              <img class="lifehack_foto" src="img/foto_1.jpg" alt>
-            </div>
-
-            <div class="lifehack-information-img_link">
-              <a class="lifehack-information-photo_caption" href="#"
-                target="_blank">Рисунок 1</a>
-            </div>
-
-            <div class="lifehack-information-about information-outside">
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления.</p>
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. Есть над чем задуматься: явные признаки победы
-                институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления.</p>
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. Есть над чем задуматься: явные признаки победы
-                институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. Есть над чем задуматься: явные признаки победы
-                институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления.</p>
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления.</p>
-            </div>
-
-            <div class="lifehack-information-end">
-              <a href="#start" class="lifehack-information-link">Вернуться к
-                началу статьи</a>
-            </div>
-          </div>
-
+        <?php
+            for ($i=0;$i<$lenght;$i++) {
+        ?>
           <div class="lifehack_content">
             <div class="lifehack_img_close"> <img src="img/close2.svg"
                 alt></div>
 
             <div class="lifehack-information-about">
-              <h2 class="lifehack-information-title">Заголовок 2</h2>
+              <h2 class="lifehack-information-title"><?= $lifehacks[$i]["title"]?></h2>
             </div>
 
             <div class="lifehack-information-about">
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. </p>
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. Есть над чем задуматься: явные признаки победы
-                институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. </p>
+              <p class="lifehack-information-text"><?= $lifehacks[$i]["text1"]?> </p>
             </div>
 
             <div class="lifehack-information-img">
-              <img class="lifehack_foto" src="img/foto_1.jpg" alt>
+              <img class="lifehack_foto" src="<?= $adress_img . $lifehacks[$i]["image"]?>" alt>
             </div>
 
             <div class="lifehack-information-img_link">
-              <a class="lifehack-information-photo_caption" href="#"
-                target="_blank">Рисунок 1</a>
+              <a class="lifehack-information-photo_caption" href="<?= $lifehacks[$i]["url"]?>"
+                target="_blank"><?= $lifehacks[$i]["picturetitle"]?></a>
             </div>
 
-            <div class="lifehack-information-about">
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления.</p>
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. Есть над чем задуматься: явные признаки победы
-                институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления.</p>
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. Есть над чем задуматься: явные признаки победы
-                институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления. Есть над чем задуматься: явные признаки победы
-                институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления.</p>
-              <p class="lifehack-information-text">Есть над чем задуматься:
-                явные признаки победы институционализации
-                призывают нас к новым свершениям, которые, в свою очередь,
-                должны быть ограничены исключительно образом
-                мышления.</p>
+            <div class="lifehack-information-about information-outside">
+              <p class="lifehack-information-text"><?= $lifehacks[$i]["text2"]?></p>              
             </div>
 
             <div class="lifehack-information-end">
@@ -1740,11 +1593,11 @@
                 началу статьи</a>
             </div>
           </div>
-
-          <div class="lifehack_content">Вкладка 3</div>
-          <div class="lifehack_content">Вкладка 4</div>
-          <div class="lifehack_content">Вкладка 5</div>
+          <?php
+            }
+        ?>
         </div>
+       
       </section>
     </main>
 
