@@ -4,7 +4,7 @@
         <div class="footer_logo_wrapper">
           <div class="logo" style="cursor: pointer;">
 
-            <svg onclick="location.href='mainpage.html'" width="110" height="107" viewBox="0 0 110 107" fill="none"
+            <svg onclick="location.href='mainpage.php'" width="110" height="107" viewBox="0 0 110 107" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_1325_3740)">
                 <path opacity="0.998" fill-rule="evenodd" clip-rule="evenodd"
