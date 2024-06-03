@@ -12,13 +12,34 @@ window.addEventListener('DOMContentLoaded', () => {
         const filter = document.querySelector('.tasks__block');
         filter.classList.remove('open');
     })
+    
+    
 
 
 
     const tabs = document.querySelectorAll('.tasks__item');
     const contents = document.querySelectorAll('.content');
+    
+    const cards = document.querySelectorAll('.cards__item');
+    
+    cards.forEach(el => {
+        el.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = el.getAttribute('id');
+            console.log(id)
+            localStorage.setItem('id', id)
+           window.location.href = 'https://oge5.isp.sprint.1t.ru/task.php'
+            
+        })
+    })
+    
+    
 
     for (let i=0; tabs.length > i; i++) {
+        if (i == 0) {
+            tabs[i].classList.add('active');
+            contents[i].classList.add('active');
+        }
         tabs[i].addEventListener('click', (e) => {
             e.preventDefault();
             const tabs = document.querySelectorAll('.tasks__item');

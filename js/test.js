@@ -1,5 +1,6 @@
 let num = 1;
 let questions = [];
+let answers = [];
 
 function createRules() {
     const section = document.createElement('section');
@@ -55,7 +56,7 @@ function createRules() {
     
 
 
-    btnBack.href = '/mainpage.html';
+    btnBack.href = '/mainpage.php';
     prevBtn.href = './test-banner.html'
 
     btnBack.innerHTML = `
@@ -67,10 +68,15 @@ function createRules() {
 
     nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        axios.get('')
-        document.body.innerHTML = '';
-        document.body.append(createQuestion(num));
+        axios.get('/php/test.php')
+            .then(response => {
+                questions = response.data;
+                console.log(questions)
+                document.body.innerHTML = '';
+                document.body.append(createQuestion(num));
+                
+            })
+        
 
     })
 
@@ -86,7 +92,7 @@ function createRules() {
 
 }
 
-function createQuestion() {
+function createQuestion(num) {
     const section = document.createElement('section');
     const container = document.createElement('div');
     const questionTop = document.createElement('div');
@@ -122,6 +128,7 @@ function createQuestion() {
     questionCount.classList.add('question__count');
 
     const question = getQuestionNum(num);
+    
 
     if (num == 1) prevBtn.disabled = true
 
@@ -139,7 +146,7 @@ function createQuestion() {
 
         if (question.url) {
             const img = document.createElement('img');
-            img.src = question.url;
+            img.src = question.picture;
             questionBlock.append(img);
         }
        
@@ -149,7 +156,7 @@ function createQuestion() {
         questionBlock.append(input);
 
 
-    btnBack.href = '/mainpage.html';
+    btnBack.href = '/mainpage.php';
 
     btnBack.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -161,13 +168,30 @@ function createQuestion() {
 
     nextBtn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // тут будет запрос на получение вопросов
+        
+        let result;
+        
+        if (input.value == question.answer) result = true
+        else result = false;
 
         document.body.innerHTML = '';
         num += 1;
-
-        console.log(num)
+        
+        const exists = answers.find((obj) => {
+            return obj.id == question.id;
+        })
+        
+        if (!exists) {
+            answers.push({
+            id: question.id,
+            answer: result
+        })
+        } else answers.find((obj) => {
+            if (obj.id == question.id) {
+                obj.answer = result;
+            }
+        })
+        
 
         if (num < 20) document.body.append(createQuestion(num))
         else window.location.href = '../test-final.html';
@@ -198,48 +222,12 @@ function createQuestion() {
 }
 
 
- questions = [
-    {
-        id: 0,
-        idtask: '1',
-        text1: 'Найдите значение выражения 1',
-        url: '',
-        text2: '',
-        answer: 'Правильный ответ'
-    },
-    {
-        id: 1,
-        idtask: '2',
-        text1: 'Одна из точек, отмеченных на координатной прямой, соответствует числу корень из 77.',
-        url: '../img/question.svg',
-        text2: 'Выберите вариант ответа и напишите его номер ниже: 1) Точка A; 2) Точка B; 3)Точка C; 4) Точка D.',
-        answer: 'Правильный ответ'
-    },
-    {
-        id: 2,
-        idtask: '3',
-        text1: 'Найдите значение выражения 3',
-        url: '',
-        text2: '',
-        answer: 'Правильный ответ'
-    },
-    {
-        id: 3,
-        idtask: '4',
-        text1: 'Решите уравнение x2–50–5x=0. Если уравнение имеет более одного корня, в ответе укажите больший из них.',
-        url: '',
-        text2: '',
-        answer: 'Правильный ответ'
-    },
-]
-
-
 
 function getQuestionNum(num) {
     let activeQuestion = {};
 
     questions.find((question, index) => {
-        if (question.id + 1 === num) activeQuestion = question
+        if (question.serialnumber == num) activeQuestion = question
     })
 
     return activeQuestion

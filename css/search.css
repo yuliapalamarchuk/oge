@@ -8,6 +8,7 @@
     border-radius: 12px;
     background-color: #FFFFFF;
     list-style: none;
+    z-index: 10;
 }
 
 .search-item {

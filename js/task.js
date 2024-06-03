@@ -1,39 +1,26 @@
 const task = document.getElementById('task');
 
-function createTask() {
-    const question =
-    {
-        id: 1,
-        url: '',
-        name: 'Название',
-        description: 'Есть над чем задуматься: активно развивающиеся страны третьего мира призывают нас к новым свершениям, которые, в свою очередь, должны быть указаны как претенденты на роль ключевых факторов. Есть над чем задуматься: активно развивающиеся страны третьего мира призывают нас к новым свершениям, которые, в свою очередь, должны быть указаны как претенденты на роль ключевых факторов. Есть над чем задуматься: активно развивающиеся страны третьего мира призывают нас к новым свершениям, которые, в свою очередь, должны быть указаны как претенденты на роль ключевых факторов.',
-        conspect: '',
-        questions: {
+let question = {};
 
-        },
-        likes: 10,
-    }
-
-    const questions = [
-        {
-            id: 1,
-            text: 'Есть над чем задуматься: активно развивающиеся страны третьего мира призывают нас к новым свершениям, которые, в свою очередь, должны быть указаны как претенденты на роль ключевых факторов.'
-        },
-        {
-            id: 2,
-            text: 'Есть над чем задуматься: активно развивающиеся страны третьего мира призывают нас к новым свершениям, которые, в свою очередь, должны быть указаны как претенденты на роль ключевых факторов.'
-        },
-        {
-            id: 3,
-            text: 'Есть над чем задуматься: активно развивающиеся страны третьего мира призывают нас к новым свершениям, которые, в свою очередь, должны быть указаны как претенденты на роль ключевых факторов.'
-        },
-        {
-            id: 4,
-            text: 'Есть над чем задуматься: активно развивающиеся страны третьего мира призывают нас к новым свершениям, которые, в свою очередь, должны быть указаны как претенденты на роль ключевых факторов.'
+window.addEventListener('load', () => {
+    axios.get('/php/video.php', {
+        params: {
+            id: localStorage.getItem('id')
         }
-    ]
+
+    })
+        .then(response => {
+            console.log(response)
+            question = response.data;
+            createTask();
+
+        })
+        .catch(error => console.log(error))
+
+})
 
 
+function createTask() {
     const videoBlock = document.createElement('div');
     const video = document.createElement('div');
     const videoName = document.createElement('h2');
@@ -41,10 +28,8 @@ function createTask() {
     const videoCount = document.createElement('p');
     const downloadBtn = document.createElement('a');
 
-    const testBlock = document.createElement('block'); 
-    const title = document.createElement('h2'); 
-    const testForm = document.createElement('form');
-    const submit = document.createElement('button');
+
+
 
     video.innerHTML = `
     <div class="f-video-container">
@@ -61,51 +46,93 @@ function createTask() {
     videoDescription.classList.add('card__desc');
     videoCount.classList.add('card__count');
     downloadBtn.classList.add('task__btn');
-    testBlock.classList.add('test');
-    testForm.classList.add('test__form');
-    submit.classList.add('test__submit', 'btn-reset', 'task__btn');
-    title.classList.add('card__title');
 
-    videoName.textContent = question.name;
-    videoDescription.innerHTML = question.description;
+
+
+    videoName.textContent = question[0].name;
+    videoDescription.innerHTML = question[0].description;
     videoCount.textContent = question.likes;
 
     downloadBtn.textContent = 'Скачать материалы';
     downloadBtn.download = true;
 
-    title.textContent = 'Тест';
-    submit.textContent = 'Принять ответы';
+    if (question[0].conspect != '') {
+        downloadBtn.href = question[0].conspect;
+    } else downloadBtn.disabled = true
 
-    questions.forEach(el => {
-        const block = document.createElement('div')
-        const subtitle = document.createElement('h3'); 
-        const text = document.createElement('p'); 
-        const input = document.createElement('input');
 
-        subtitle.textContent = `Задание ${el.id}`;
-        text.textContent = el.text;
-
-        input.placeholder = 'Введите ответ';
-
-        block.classList.add('test__block');
-        subtitle.classList.add('test__title');
-        text.classList.add('test__text');
-        input.classList.add('test__input');
-
-        block.append(subtitle, text, input);
-
-        testForm.append(block);    
-    })
 
     videoBlock.append(video, videoName, videoCount);
-    task.append(videoBlock, videoDescription, downloadBtn, testBlock);
-    testBlock.append(title, testForm);
-    testForm.append(submit);
+    task.append(videoBlock, videoDescription, downloadBtn);
+
+
+
+    if (question[1].questions[0]) {
+        const testBlock = document.createElement('div');
+        const title = document.createElement('h2');
+        const testForm = document.createElement('form');
+        const submit = document.createElement('button');
+
+        testForm.classList.add('test__form');
+        submit.classList.add('test__submit', 'btn-reset', 'task__btn');
+        title.classList.add('card__title');
+        testBlock.classList.add('test');
+
+        title.textContent = 'Тест';
+        submit.textContent = 'Принять ответы';
+
+        const questions = question[1].questions[0];
+        console.log(questions)
+
+        for (let i = 0; i <= questions.length - 1; i++) {
+            const block = document.createElement('div')
+            const subtitle = document.createElement('h3');
+            const text = document.createElement('div');
+            const input = document.createElement('input');
+
+            subtitle.textContent = `Задание ${i + 1}`;
+
+
+            text.innerHTML = questions[i].text1;
+
+
+
+
+            input.placeholder = 'Введите ответ';
+
+            block.classList.add('test__block');
+            subtitle.classList.add('test__title');
+            text.classList.add('test__text');
+            input.classList.add('test__input');
+
+            block.append(subtitle, text);
+
+            testForm.append(block, submit);
+            testBlock.append(title, testForm);
+            task.append(testBlock);
+
+            if (questions[i].picture != null) {
+                const img = document.createElement('img');
+                img.classList.add('test__img');
+                img.src = questions[i].picture;
+                block.append(img);
+            }
+
+            if (questions[i].text2 != null) {
+                const text2 = document.createElement('div');
+                text2.classList.add('test__text');
+                text2.innerHTML = questions[i].text2;
+                block.append(text2);
+            }
+
+
+            block.append(input);
+
+        }
+    }
+
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    createTask();
-})
 
 
 jQuery(document).ready(function ($) {

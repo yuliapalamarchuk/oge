@@ -46,7 +46,7 @@ function createList(array) {
 
             listLink.addEventListener('click', () => {
                 localStorage.setItem('id', el.id);
-                window.location.href = '/task.html';
+                window.location.href = '/task.php';
             })
         });
     }
