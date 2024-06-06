@@ -192,9 +192,27 @@ function createQuestion(num) {
             }
         })
         
+        
+        const userID = 1;
+        
 
         if (num < 20) document.body.append(createQuestion(num))
-        else window.location.href = '../test-final.html';
+        else {
+            axios.post('php/resulttest.php', {
+                params: {
+                    userID: userID,
+                    result: answers
+                }
+            })
+            .then(response => {
+                console.log(response)
+                window.location.href = '../test-final.html';
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            
+        } 
 
 
     })
