@@ -28,13 +28,10 @@ function createTask() {
     const videoCount = document.createElement('p');
     const downloadBtn = document.createElement('a');
 
-
-
-
     video.innerHTML = `
     <div class="f-video-container">
         <div class="f-video-player"></div>
-        <div id="2" class="f-video-cover" data-video="HZmGySTcBpA">
+        <div id="${localStorage.getItem('id')}" class="f-video-cover" data-video="${question[0].url}">
             <div class="card__play"></div>
             <img src="../img/task.png" width="100%" height="100%" alt="" class="card__img">
         </div>
@@ -51,7 +48,7 @@ function createTask() {
 
     videoName.textContent = question[0].name;
     videoDescription.innerHTML = question[0].description;
-    videoCount.textContent = question.likes;
+    videoCount.textContent = question[0].likes;
 
     downloadBtn.textContent = 'Скачать материалы';
     downloadBtn.download = true;
@@ -95,9 +92,6 @@ function createTask() {
 
             text.innerHTML = questions[i].text1;
 
-
-
-
             input.placeholder = 'Введите ответ';
 
             block.classList.add('test__block');
@@ -128,20 +122,20 @@ function createTask() {
 
             block.append(input);
 
+
+            jQuery(document).ready(function ($) {
+                (function initPlayVideo() {
+                    $(".f-video-cover").on("click", function () {
+                        var clickId = $(this).attr('id');
+                        $(this).fadeOut().siblings('.f-video-player').html(
+                            '<iframe src="https://rutube.ru/play/embed/' + $("#" + clickId).data("video") + '?frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>'
+                        );
+                    });
+                })();
+            });
+
         }
     }
-
 }
 
 
-
-jQuery(document).ready(function ($) {
-    (function initPlayVideo() {
-        $(".f-video-cover").on("click", function () {
-            var clickId = $(this).attr('id');
-            $(this).fadeOut().siblings('.f-video-player').html(
-                '<iframe src="https://www.youtube.com/embed/' + $("#" + clickId).data("video") + '?feature=oembed&autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-            );
-        });
-    })();
-});
