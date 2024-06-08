@@ -1,6 +1,13 @@
 const task = document.getElementById('task');
 
 let question = {};
+let answers = [];
+
+const closeModalBtn = document.querySelector('.modal-task .modal__close');
+const modal = document.querySelector('.modal-task');
+closeModalBtn.addEventListener('click', (e) => {
+    modal.classList.remove('open');
+})
 
 window.addEventListener('load', () => {
     axios.get('/php/video.php', {
@@ -21,12 +28,16 @@ window.addEventListener('load', () => {
 
 
 function createTask() {
+
     const videoBlock = document.createElement('div');
     const video = document.createElement('div');
     const videoName = document.createElement('h2');
     const videoDescription = document.createElement('div');
     const videoCount = document.createElement('p');
     const downloadBtn = document.createElement('a');
+
+
+
 
     video.innerHTML = `
     <div class="f-video-container">
@@ -89,10 +100,12 @@ function createTask() {
 
             subtitle.textContent = `Задание ${i + 1}`;
 
-
             text.innerHTML = questions[i].text1;
 
             input.placeholder = 'Введите ответ';
+
+            let result;
+
 
             block.classList.add('test__block');
             subtitle.classList.add('test__title');
@@ -108,7 +121,7 @@ function createTask() {
             if (questions[i].picture != null) {
                 const img = document.createElement('img');
                 img.classList.add('test__img');
-                img.src = questions[i].picture;
+                img.src = `uploads/images/${questions[i].picture}`;
                 block.append(img);
             }
 
@@ -122,20 +135,50 @@ function createTask() {
 
             block.append(input);
 
-
-            jQuery(document).ready(function ($) {
-                (function initPlayVideo() {
-                    $(".f-video-cover").on("click", function () {
-                        var clickId = $(this).attr('id');
-                        $(this).fadeOut().siblings('.f-video-player').html(
-                            '<iframe src="https://rutube.ru/play/embed/' + $("#" + clickId).data("video") + '?frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>'
-                        );
-                    });
-                })();
-            });
-
         }
+
+        const userID = localStorage.getItem('userID');
+
+        submit.addEventListener('click', (e) => {
+            e.preventDefault();
+            const inputs = document.querySelectorAll('.test__input');
+
+            for (let i = 0; i <= inputs.length - 1; i++) {
+                if (inputs[i].value == questions[i].answer) result = 1
+                else result = 0;
+                console.log(result)
+                answers.push({
+                    answer: result
+                })
+            }
+            res = {
+                    userID: userID,
+                    result: answers
+                }
+                 console.log(res);
+            axios.post('php/resultquestion.php', res)
+                .then(response => {
+                    console.log(response);
+                    modal.classList.add('open');
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        })
+
     }
+
+    jQuery(document).ready(function ($) {
+        (function initPlayVideo() {
+            $(".f-video-cover").on("click", function () {
+                var clickId = $(this).attr('id');
+                $(this).fadeOut().siblings('.f-video-player').html(
+                    '<iframe src="https://rutube.ru/play/embed/' + $("#" + clickId).data("video") + '?frameborder="0" webkitAllowFullScreen mozallowfullscreen allowfullscreen></iframe>'
+                );
+            });
+        })();
+    });
+
 }
 
 
