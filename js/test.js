@@ -171,8 +171,8 @@ function createQuestion(num) {
         
         let result;
         
-        if (input.value == question.answer) result = true
-        else result = false;
+        if (input.value == question.answer) result = 1
+        else result = 0;
 
         document.body.innerHTML = '';
         num += 1;
@@ -193,7 +193,7 @@ function createQuestion(num) {
         })
         
         
-        const userID = 1;
+        const userID = localStorage.getItem('userID');
         
 
         if (num < 20) document.body.append(createQuestion(num))
