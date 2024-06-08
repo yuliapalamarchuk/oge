@@ -137,33 +137,44 @@ function createTask() {
 
         }
 
+
         const userID = localStorage.getItem('userID');
 
         submit.addEventListener('click', (e) => {
             e.preventDefault();
-            const inputs = document.querySelectorAll('.test__input');
 
-            for (let i = 0; i <= inputs.length - 1; i++) {
-                if (inputs[i].value == questions[i].answer) result = 1
-                else result = 0;
-                console.log(result)
-                answers.push({
-                    answer: result
-                })
+            if (userID == null) {
+                document.getElementById('modalAuthReg').classList.add('showModal');
             }
-            res = {
+            else {
+                const inputs = document.querySelectorAll('.test__input');
+
+                for (let i = 0; i <= inputs.length - 1; i++) {
+                    if (inputs[i].value == questions[i].answer) result = 1
+                    else result = 0;
+                    console.log(result)
+                    answers.push({
+                        id: questions[i].id,
+                        answer: result
+                    })
+                }
+                res = {
                     userID: userID,
                     result: answers
                 }
-                 console.log(res);
-            axios.post('php/resultquestion.php', res)
-                .then(response => {
-                    console.log(response);
-                    modal.classList.add('open');
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+                console.log(res);
+                axios.post('php/resultquestion.php', res)
+                    .then(response => {
+                        console.log(response);
+                        modal.classList.add('open');
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }
+
+
+
         })
 
     }
@@ -180,5 +191,6 @@ function createTask() {
     });
 
 }
+
 
 
