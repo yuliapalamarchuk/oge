@@ -473,12 +473,12 @@ window.addEventListener("load", () => {
         },
       })
   ]).then(axios.spread(function(testData, questionData) {
-    test = testData.testData
+    test = testData.data
     question = questionData.data;
+
+    // console.log(testData, questionData);
   }))
 });
-
-// console.log(testData, questionsData);
 
 // Результаты во вкладке Задания
 $(document).ready(function () {
