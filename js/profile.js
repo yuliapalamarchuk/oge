@@ -246,9 +246,9 @@ validationPassword
 
 // Маска для ввода номера телефона
 const maskOptions = {
-    mask: '+7 (000) 000-00-00',
-    // lazy: false
-} 
+  mask: "+7 (000) 000-00-00",
+  // lazy: false
+};
 const mask = new IMask(phone, maskOptions);
 
 // Кнопка очистки инпутов
@@ -455,6 +455,30 @@ resultHide.addEventListener("click", (e) => {
   resultLook.classList.remove("hidden-total");
   btnAgain.classList.remove("hidden-total");
 });
+
+// Аксиосы на вывод результатов теста
+let test = {};
+let question = {};
+
+window.addEventListener("load", () => {
+  axios.all([
+    axios.get("/php/lktest.php", {
+        params: {
+          userID: localStorage.getItem("userID"),
+        },
+      }),
+      axios.get("/php/lkquestions.php", {
+        params: {
+          userID: localStorage.getItem("userID"),
+        },
+      })
+  ]).then(axios.spread(function(testData, questionData) {
+    test = testData.testData
+    question = questionData.data;
+  }))
+});
+
+// console.log(testData, questionsData);
 
 // Результаты во вкладке Задания
 $(document).ready(function () {
