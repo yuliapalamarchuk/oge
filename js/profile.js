@@ -62,9 +62,9 @@ const noLatin = /^[а-яёА-ЯЁ\d\s.,:;!?\\"()№-]+$/;
 
 const inputText = document.querySelectorAll(".input-profile--text");
 const mail = document.querySelectorAll(".input-profile--mail");
-const phone = document.querySelector(".input-profile--phone");
-const city = document.querySelector(".input-city");
-const school = document.querySelector(".input-school");
+const phoneInput = document.querySelector(".input-profile--phone");
+const cityInput = document.querySelector(".input-city");
+const schoolInput = document.querySelector(".input-school");
 
 inputText.forEach((el) => {
   el.addEventListener("keypress", (e) => {
@@ -82,19 +82,19 @@ mail.forEach((el) => {
   });
 });
 
-city.addEventListener("keypress", (e) => {
+cityInput.addEventListener("keypress", (e) => {
   if (!cyrillicMarks.test(e.key)) {
     e.preventDefault();
   }
 });
 
-// phone.addEventListener("keypress", (e) => {
+// phoneInput.addEventListener("keypress", (e) => {
 //   if (!telNumber.test(e.key)) {
 //     e.preventDefault();
 //   }
 // });
 
-school.addEventListener("keypress", (e) => {
+schoolInput.addEventListener("keypress", (e) => {
   if (!noLatin.test(e.key)) {
     e.preventDefault();
   }
@@ -249,7 +249,42 @@ const maskOptions = {
   mask: "+7 (000) 000-00-00",
   // lazy: false
 };
-const mask = new IMask(phone, maskOptions);
+const mask = new IMask(phoneInput, maskOptions);
+
+// Отправка данных пользователя при заполнении своего профиля в лк
+const profileForm = document.querySelector(".form-profile");
+const btnProfileSave = document.querySelector(".btn-profile_save");
+
+const surname = document.getElementById("surname").value;
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const city = document.getElementById("city").value;
+const phone = document.getElementById("phone").value;
+const school = document.getElementById("school").value;
+
+// Отправляем POST-запрос
+validation.onSuccess(() => {
+  btnProfileSave.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    axios
+      .post("/php/update_profile.php", {
+        params: {
+          surname: surname,
+          name: name,
+          email: email,
+          city: city,
+          phone: phone,
+          school: school,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Ошибка обновления профиля:", error);
+      });
+  });
+});
 
 // Кнопка очистки инпутов
 function updateButtonVisibility(input) {
@@ -413,24 +448,6 @@ for (let i = 0; i < resultsBtn.length; i++) {
   });
 }
 
-// Показать и скрыть таблицу с результатами
-const resultTest = document.querySelectorAll(".results-tests");
-const taskTable = document.querySelectorAll(".task-table-wrap");
-
-for (let i = 0; i < resultTest.length; i++) {
-  resultTest[i].addEventListener("click", function () {
-    const index = Array.from(resultTest).indexOf(this);
-
-    taskTable.forEach((table, tableIndex) => {
-      if (tableIndex === index) {
-        table.classList.toggle("visible");
-      } else {
-        table.classList.remove("visible");
-      }
-    });
-  });
-}
-
 // Кнопка Показать/скрыть результаты
 const mobileMediaQueryList = window.matchMedia("(max-width: 768px)");
 const resultLook = document.querySelector(".result-btn-look");
@@ -454,30 +471,6 @@ resultHide.addEventListener("click", (e) => {
   resultHide.classList.add("hidden-total");
   resultLook.classList.remove("hidden-total");
   btnAgain.classList.remove("hidden-total");
-});
-
-// Аксиосы на вывод результатов теста
-let test = {};
-let question = {};
-
-window.addEventListener("load", () => {
-  axios.all([
-    axios.get("/php/lktest.php", {
-        params: {
-          userID: localStorage.getItem("userID"),
-        },
-      }),
-      axios.get("/php/lkquestions.php", {
-        params: {
-          userID: localStorage.getItem("userID"),
-        },
-      })
-  ]).then(axios.spread(function(testData, questionData) {
-    test = testData.data
-    question = questionData.data;
-
-    // console.log(testData, questionData);
-  }))
 });
 
 // Результаты во вкладке Задания

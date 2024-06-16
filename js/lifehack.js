@@ -190,6 +190,7 @@ validation
   ]);
 
 // Модалка Спасибо
+const form = document.querySelector(".form");
 const btnForm = document.querySelector(".btn-form");
 const thanksModal = document.querySelector(".thanks-modal");
 const thanksClose = document.querySelector(".thanks-btn_close");
@@ -204,6 +205,33 @@ thanksClose.onclick = () => {
   modalOpen.style.display = "none";
   body.classList.remove("noscroll");
 };
+
+// const name = document.getElementById("name").value;
+// const email = document.getElementById("email").value;
+// const who = document.getElementById("who").value;
+// const lifehack = document.getElementById("lifehack").value;
+
+// Отправляем POST-запрос
+validation.onSuccess(() => {
+  btnForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    axios
+      .post("/php/add_lhack.php", {
+        params: {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          who: document.getElementById("who").value,
+          lifehack: document.getElementById("lifehack").value,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Ошибка:", error);
+      });
+  });
+});
 
 // Адаптив
 const mediaQuery2 = window.matchMedia("(max-width: 1750px)");
