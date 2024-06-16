@@ -10,6 +10,7 @@
             src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
         <script src="https://unpkg.com/imask"></script>
         <script defer src="js/profile.js"></script>
+        <script defer src="js/profile-bd.js"></script>
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="./css/mainpage.css">
         <link rel="stylesheet" href="css/tasks.css">
@@ -95,7 +96,7 @@
                 <div class="profile-left">
                     <button
                         class="btn-reset close profil-close hidden-total"></button>
-                    <p class="profile-fio">Иванов Иван</p>
+                    <p class="profile-fio"></p>
                     <div class="profile-list">
                         <div class="profile-card profile-card--active flex">
                             <div class="profile-left-icon">
@@ -253,7 +254,7 @@
                                 </div>
                             </div>
                             <button
-                                class="btn-reset btn-profile">Сохранить</button>
+                                class="btn-reset btn-profile btn-profile_save">Сохранить</button>
                         </form>
                     </div>
 
@@ -472,10 +473,10 @@
                             <div class="results-card results-card--active">
 
                                 <!-- Если нет баллов -->
-                                <!-- <div class="result-no-points">
+                                <div class="result-no-points hidden-total">
                                 <p class="profile-text profile-text--results">У вас нет пройденных тестов</p>
                                 <a href="test.html" class="btn-profile btn-no-points">Пройти тест</a>
-                            </div> -->
+                            </div>
 
                                 <!-- ---------------- -->
 
@@ -503,13 +504,13 @@
                                                     Результативность</td>
                                             </tr>
                                             <tr class="results-table--row2">
-                                                <td
+                                                <!-- <td
                                                     class="results-table--cell cell-border-right">16
                                                     из 16</td>
                                                 <td
                                                     class="results-table--cell cell-border-right">3</td>
                                                 <td
-                                                    class="results-table--cell">18,75%</td>
+                                                    class="results-table--cell">18,75%</td> -->
                                             </tr>
                                         </tbody>
                                     </table>
@@ -545,7 +546,7 @@
 
                                             <div
                                                 class="results-tests-wrap hidden-total">
-                                                <div class="result-block">
+                                                <!-- <div class="result-block">
                                                     <div
                                                         class="results-tests flex">
                                                         <p
@@ -951,7 +952,7 @@
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                             </div>
                                         </div>

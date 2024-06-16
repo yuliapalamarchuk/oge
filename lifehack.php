@@ -163,7 +163,7 @@ $adress_img = "uploads/images/";
 
           <label class="form-label flex">
             <span class="input-name">Ученик, педагог вы или родитель?</span>
-            <select class="form-select" name="who">
+            <select class="form-select" id="who" name="who">
               <option class="form-option" value>Выберите ответ</option>
               <option class="form-option" value="student">Ученик</option>
               <option class="form-option" value="teacher">Педагог</option>
