@@ -154,18 +154,6 @@ validation
     },
   ])
 
-  .addField("#password", [
-    {
-      rule: "required",
-      errorMessage: "Введите пароль",
-    },
-    {
-      rule: "maxLength",
-      value: 64,
-      errorMessage: "Пароль не может содержать больше 64 символов",
-    },
-  ])
-
   .addField("#city", [
     // {
     //   rule: "required",
@@ -286,35 +274,6 @@ validation.onSuccess(() => {
   });
 });
 
-// Кнопка очистки инпутов
-function updateButtonVisibility(input) {
-  const button = input.nextElementSibling;
-  if (input.value.length === 0) {
-    button.classList.add("hidden");
-  } else {
-    button.classList.remove("hidden");
-  }
-}
-
-function clearField(input) {
-  input.value = "";
-  updateButtonVisibility(input);
-}
-
-const inputWithClear = document.querySelectorAll(".input-profile--clear");
-
-inputWithClear.forEach((item) => {
-  item.addEventListener("input", () => {
-    updateButtonVisibility(item);
-  });
-
-  const clearButton = item.nextElementSibling;
-  clearButton.addEventListener("click", (event) => {
-    event.preventDefault();
-    clearField(item);
-  });
-});
-
 // Кнопка-глазик пароля
 const passwordBtns = document.querySelectorAll(".btn-eye--off");
 const inputPasswords = document.querySelectorAll(".form-profile--password");
@@ -336,9 +295,8 @@ for (let i = 0; i < passwordBtns.length; i++) {
 
 // Кнопка Изменить пароль
 const mobileSmallMediaQueryList = window.matchMedia("(max-width: 480px)");
-
-const passwordChange = document.querySelector(".password-change");
 const passwordChangeClose = document.querySelector(".changePassword-btn-close");
+const passwordChange = document.querySelector(".password-change");
 const changePasswordModal = document.querySelector(".changePasswordModal");
 let body = document.querySelector("body");
 const headerBlur = document.querySelector("header");
@@ -471,25 +429,6 @@ resultHide.addEventListener("click", (e) => {
   resultHide.classList.add("hidden-total");
   resultLook.classList.remove("hidden-total");
   btnAgain.classList.remove("hidden-total");
-});
-
-// Результаты во вкладке Задания
-$(document).ready(function () {
-  $(".results-card--topic").on("click", function (e) {
-    e.preventDefault();
-    if ($(this).hasClass("active")) {
-      $(this).removeClass("active");
-      $(this).siblings(".results-card--hidden").slideUp(200);
-      $(".card-svg").removeClass("minus").addClass("plus");
-    } else {
-      $(".card-svg").removeClass("minus").addClass("plus");
-      $(this).find("i").removeClass("plus").addClass("minus");
-      $(".results-card--topic").removeClass("active");
-      $(this).addClass("active");
-      $(".results-card--hidden").slideUp(200);
-      $(this).siblings(".results-card--hidden").slideDown(200);
-    }
-  });
 });
 
 // Меню профиля
