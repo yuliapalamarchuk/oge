@@ -193,17 +193,14 @@ function createQuestion(num) {
         })
         
         
-        const userID = localStorage.getItem('userID');
-        
+   
+        res = {
+            result: answers
+        }
 
         if (num < 20) document.body.append(createQuestion(num))
         else {
-            axios.post('php/resulttest.php', {
-                params: {
-                    userID: userID,
-                    result: answers
-                }
-            })
+            axios.post('php/resulttest.php', res)
             .then(response => {
                 console.log(response)
                 window.location.href = '../test-final.html';
