@@ -1,6 +1,18 @@
 let num = 1;
 let questions = [];
 let answers = [];
+let rules = [];
+
+window.addEventListener('load', () => {
+    axios.post('php/rools.php')
+            .then(response => {
+                console.log(response)
+                rules = response.data;
+            })
+            .catch(error => {
+                console.log(error)
+            })
+})
 
 function createRules() {
     const section = document.createElement('section');
@@ -16,8 +28,11 @@ function createRules() {
     const btnsBlock = document.createElement('div');
     const rulesText = document.createElement('div');
     const scrollBlock = document.createElement('div');
+    
+    console.log(rules[0].title)
 
-    title.textContent = 'Инструкция по прохождению общего теста ОГЭ';
+    // title.textContent = 'Инструкция по прохождению общего теста ОГЭ';
+    title.textContent = rules[0].title;
     prevBtn.textContent = 'Назад';
     nextBtn.textContent = 'Далее';
 
@@ -33,26 +48,7 @@ function createRules() {
     rulesText.classList.add('rules__text');
     scrollBlock.classList.add('scroll-block');
 
-    rulesText.innerHTML = `
-    <p class="">Инструкция поможет выполнить тест самостоятельно и без ошибок.</p>
-    <p>Вам предстоит решить задания из следующих разделов:</p>
-    <ul class="rules__list">
-        <li class="rules__item">Числа и вычисления (7 заданий);</li>
-        <li class="rules__item">Алгебраические выражения (1 задание);</li>
-        <li class="rules__item">Уравнения и неравенства (2 задания);</li>
-        <li class="rules__item">Числовые последовательности (1 задание);</li>
-        <li class="rules__item">Функции и графики (1 задание);</li>
-        <li class="rules__item">Координаты на прямой и плоскости (1 задание);</li>
-        <li class="rules__item">Геометрия (5 заданий);</li>
-        <li class="rules__item">Статистика и теория вероятностей (1 задание).</li>
-    </ul>
-    <p>Тест начинается с 6-го задания, которое соответствует 6 блоку ОГЭ «Вычисления». И далее приведены задания по всем блокам до 19-го - «Анализ геометрических высказываний».
-    Вам необходимо решить задание, записать ответ в поле ввода и нажать кнопку «Далее».
-    Ответ необходимо ввести в виде цифры, перечисления цифр (без пробелов и запятых).
-    Вы можете пропустить задание без ввода ответа, нажав кнопку «Далее». Так же, не доходя до окончания теста, вернуться к любому заданию и исправить ответ.
-    После прохождения теста в Личном кабинете вы можете посмотреть свои результаты (количество правильных ответов).</p>
-    <p>Желаем вам успешного прохождения общего Теста ОГЭ!</p>
-    `
+    rulesText.innerHTML = rules[0].text;
     
 
 
@@ -248,5 +244,7 @@ function getQuestionNum(num) {
     return activeQuestion
 }
 
+setTimeout(() => {
+    createRules();
+}, 500)
 
-createRules();
