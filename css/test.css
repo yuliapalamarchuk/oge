@@ -106,11 +106,11 @@ input:active {
     cursor: auto;
 }
 
-.rules__list {
+.rules ul {
     padding-left: 28px;
 }
 
-.rules__list li::marker {
+.rules ul li::marker {
     color: var(--orange);
     font-size: 28px;
 }
