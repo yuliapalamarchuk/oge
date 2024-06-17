@@ -352,7 +352,6 @@ body {
 
 .cards-wrap::-webkit-scrollbar-track {
   background: transparent;
-  
 }
 
 .cards-wrap::-webkit-scrollbar-thumb {
@@ -452,6 +451,8 @@ body {
 
 .lifehack-information-img {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .lifehack-information-img_link {
@@ -498,7 +499,8 @@ body {
 }
 
 .lifehack_foto {
-  width: 100%;
+  width: 544px;
+  height: 390px;
   border-radius: 40px;
 }
 
@@ -1063,6 +1065,8 @@ body {
   }
 
   .lifehack_foto {
+    width: 336px;
+    height: 241px;
     border-radius: 20px;
   }
 }
@@ -1465,5 +1469,10 @@ body {
 
   .animation-right {
     right: -20px;
+  }
+
+  .lifehack_foto {
+    width: 320px;
+    height: 229.4px;
   }
 }
