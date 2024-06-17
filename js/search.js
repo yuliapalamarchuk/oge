@@ -46,7 +46,7 @@ function createList(array) {
 
             listLink.addEventListener('click', () => {
                 localStorage.setItem('id', el.id);
-                window.location.href = '/task.php';
+                window.location.href = '/task.html';
             })
         });
     }
@@ -57,8 +57,16 @@ function createList(array) {
 const testBtn = document.querySelector('.menu_list--test');
 testBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    const userID = localStorage.getItem('userID');
-    if (userID == null) {
-        document.getElementById('modalAuthReg').classList.add('showModal');
-    } else document.location.href = '../test-banner.html';
+     axios.post('php/test.php')
+            .then(response => {
+                console.log(response)
+                if (response.data == 'error.no_id') {
+                    document.getElementById('modalAuthReg').classList.add('showModal');
+                } else document.location.href = '../test-banner.html';
+                
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
 })
