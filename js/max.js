@@ -1,4 +1,4 @@
-//Axios
+//Axios на авторизацию по логину и паролю
 let registration = async () => {
     try {
         let surname = document.querySelector('#surname')
@@ -11,15 +11,23 @@ let registration = async () => {
             email: email.value,
             pass: pass.value,
         }
+        let clearInputs = () => {
+            surname.value = '',
+                name.value = '',
+                email.value = '',
+                pass.value = ''
+        }
+
         const response = await axios.post('php/register.php', res);
-        if (response.data.status === 'success') {
-            console.log('Регистрация прошла успешно!');
+        console.log(response);
+        clearInputs()
+        if (response.data === 'success') {
             return true
-            // Дополнительные действия при успешной регистрации
+        } else if (response.data === 'duplicate') {
+            return 'duplicate'
         } else {
-            console.error('Ошибка при регистрации:', response.data.message);
+            console.error('Проверка статуса:', response);
             return false
-            // Дополнительные действия при ошибке регистрации
         }
     } catch (error) {
         console.error('Ошибка в запросе на регистрацию:', error);
@@ -31,21 +39,22 @@ let login = async () => {
         let email = document.querySelector('#email2')
         let pass = document.querySelector('#password-auth')
         let res = {
-            email: email.value,
-            pass: pass.value,
+            params: {
+                email: email.value, 
+                pass: pass.value,
+            }            
         }
         console.log(res)
-        const response = await axios.get('php/login.php', {
-            params: {
-                data: res
-            }
-        });
-        if (response.data.status === 'success') {
+        const response = await axios.get('php/login.php',  res );
+        console.log(response)
+       
+        if (response.data !== '') {
+             localStorage.setItem('userID', response.data)
             console.log('авторизация прошла успешно!');
             return true
             // Дополнительные действия при успешной регистрации
         } else {
-            console.error('Ошибка при авторизации:', response.data.message);
+            console.error('Проверка статуса::', response.data.message);
             return false
             // Дополнительные действия при ошибке регистрации
         }
@@ -73,9 +82,7 @@ const openModalReg = document.querySelector("#openModalReg"); // Кнопка "�
 const openModalAuth = document.querySelector("#openModalAuth"); // Кнопка "Войти"
 const switchToReg = document.querySelector("#switchToReg"); // Кнопка "Перейти к регистрации"
 const switchtoLogin = document.querySelector("#switchtoLogin"); // Кнопка "Перейти ко входу"
-const openModalAuthRegMobile = document.querySelector(
-    "#openModalAuthRegMobile"
-); //Кнопка "вход" на мобилке
+const openModalAuthRegMobile = document.querySelector("#openModalAuthRegMobile"); //Кнопка "вход" на мобилке
 const forgotPassword = document.querySelector("#forgotPassword"); //Кнопка забыли пароль?
 const forgotPassword2 = document.querySelector("#forgotPassword2");
 const forgotPassword3 = document.querySelector("#forgotPassword3");
@@ -184,9 +191,7 @@ $("body").on("click", ".password-control3", function () {
 
 //Ограничиваем ввод количества чисел в модалке забыли пароль 2
 
-const inputNumberforgotPass2 = document.querySelector(
-    "#inputNumberforgotPass2"
-);
+const inputNumberforgotPass2 = document.querySelector("#inputNumberforgotPass2");
 
 document
     .getElementById("inputNumberforgotPass2")
@@ -236,67 +241,35 @@ let form = document.querySelector("#form-validate");
 let validationForm = new JustValidate(form);
 
 validationForm
-    .addField("#surname", [
-        {
-            rule: "required",
-            errorMessage: "Введите фамилию",
-        },
-        {
-            rule: "customRegexp",
-            value: /[a-zа-яё]/i,
-            errorMessage: "Введите корректную фамилию",
-        },
-        {
-            rule: "maxLength",
-            value: 100,
-            errorMessage: "Фамилия не может содержать больше 100 символов",
-        },
-    ])
+    .addField("#surname", [{
+        rule: "required", errorMessage: "Введите фамилию",
+    }, {
+        rule: "customRegexp", value: /[a-zа-яё]/i, errorMessage: "Введите корректную фамилию",
+    }, {
+        rule: "maxLength", value: 100, errorMessage: "Фамилия не может содержать больше 100 символов",
+    },])
 
-    .addField("#name", [
-        {
-            rule: "required",
-            errorMessage: "Введите имя",
-        },
-        {
-            rule: "customRegexp",
-            value: /[a-zа-яё]/i,
-            errorMessage: "Введите корректное имя",
-        },
-        {
-            rule: "maxLength",
-            value: 100,
-            errorMessage: "Имя не может содержать больше 100 символов",
-        },
-    ])
+    .addField("#name", [{
+        rule: "required", errorMessage: "Введите имя",
+    }, {
+        rule: "customRegexp", value: /[a-zа-яё]/i, errorMessage: "Введите корректное имя",
+    }, {
+        rule: "maxLength", value: 100, errorMessage: "Имя не может содержать больше 100 символов",
+    },])
 
-    .addField("#email", [
-        {
-            rule: "required",
-            errorMessage: "Введите E-mail",
-        },
-        {
-            rule: "email",
-            errorMessage: "Введите корректный E-mail",
-        },
-        {
-            rule: "maxLength",
-            value: 256,
-            errorMessage: "E-mail не может содержать больше 256 символов",
-        },
-    ])
+    .addField("#email", [{
+        rule: "required", errorMessage: "Введите E-mail",
+    }, {
+        rule: "email", errorMessage: "Введите корректный E-mail",
+    }, {
+        rule: "maxLength", value: 256, errorMessage: "E-mail не может содержать больше 256 символов",
+    },])
 
-    .addField("#password-input", [
-        {
-            rule: "required",
-            errorMessage: "Введите пароль",
-        },
-        {
-            rule: "maxLength",
-            value: 64,
-            errorMessage: "Пароль не может содержать больше 64 символов",
-        },
-    ]);
+    .addField("#password-input", [{
+        rule: "required", errorMessage: "Введите пароль",
+    }, {
+        rule: "maxLength", value: 64, errorMessage: "Пароль не может содержать больше 64 символов",
+    },]);
 
 // Сверяем пароли на совпадение
 let correctPass = false;
@@ -334,13 +307,16 @@ openModalConfirmReg.addEventListener("click", () => {
             let res = registration()
             res
                 .then((res) => {
-                    if (res) {
+                    console.log(res)
+                    if (res === true) {
                         openModalFunc(modalConfirmReg);
+                    } else if (res == "duplicate") {
+                        alert('Такой пользователь зарегистрирован')
                     } else {
                         console.log('Ошибка в регистрации')
                     }
                 })
-                .catch((err)=>{
+                .catch((err) => {
                     console.log(err)
                 })
         }
@@ -359,32 +335,18 @@ let form2 = document.querySelector("#form-validate2");
 let validationForm2 = new JustValidate(form2);
 
 validationForm2
-    .addField("#email2", [
-        {
-            rule: "required",
-            errorMessage: "Введите E-mail",
-        },
-        {
-            rule: "email",
-            errorMessage: "Введите корректный E-mail",
-        },
-        {
-            rule: "maxLength",
-            value: 256,
-            errorMessage: "E-mail не может содержать больше 256 символов",
-        },
-    ])
-    .addField("#password-auth", [
-        {
-            rule: "required",
-            errorMessage: "Введите пароль",
-        },
-        {
-            rule: "maxLength",
-            value: 64,
-            errorMessage: "Пароль не может содержать больше 64 символов",
-        },
-    ]);
+    .addField("#email2", [{
+        rule: "required", errorMessage: "Введите E-mail",
+    }, {
+        rule: "email", errorMessage: "Введите корректный E-mail",
+    }, {
+        rule: "maxLength", value: 256, errorMessage: "E-mail не может содержать больше 256 символов",
+    },])
+    .addField("#password-auth", [{
+        rule: "required", errorMessage: "Введите пароль",
+    }, {
+        rule: "maxLength", value: 64, errorMessage: "Пароль не может содержать больше 64 символов",
+    },]);
 
 // Add click event listener to modalAuthBtn
 modalAuthBtn.addEventListener("click", () => {

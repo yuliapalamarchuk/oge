@@ -52,3 +52,13 @@ function createList(array) {
     }
     formSearch.append(list)
 }
+
+
+const testBtn = document.querySelector('.menu_list--test');
+testBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const userID = localStorage.getItem('userID');
+    if (userID == null) {
+        document.getElementById('modalAuthReg').classList.add('showModal');
+    } else document.location.href = '../test-banner.html';
+})

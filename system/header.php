@@ -311,7 +311,7 @@
                         <ul class="header_menu_items">
                             <li class="menu_list" onclick="location.href='tasks.php'">Задания
                             </li>
-                            <li class="menu_list menu_list_special" onclick="location.href='test-banner.html'">Пройти
+                            <li class="menu_list menu_list--test menu_list_special">Пройти
                                 тест
                             </li>
                             <li class="menu_list" onclick="location.href='lifehack.php'">Лайфхаки
