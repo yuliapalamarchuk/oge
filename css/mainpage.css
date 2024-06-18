@@ -47,10 +47,6 @@
   box-sizing: border-box;
 }
 
-
-
-
-
 .container {
   max-width: 1920px;
   margin: 0 auto;
@@ -305,7 +301,7 @@ body.menu-open {
   letter-spacing: 0em;
   text-align: left;
   color: #5c0c70;
-   position: relative;
+  position: relative;
 }
 .modal-reg-display-flex {
   display: flex;
@@ -1085,6 +1081,34 @@ nav {
   bottom: 15px;
   transition: 0.4s;
   width: 31px;
+}
+
+.header_btn_logout-wrapper,
+.header_btn_logout-wrapper-mobile {
+  display: flex;
+  align-items: normal;
+}
+
+.header_btn_logout {
+  font-family: "Jost";
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 28.8px;
+  text-align: center;
+  border: none;
+  color: #5c0c70;
+  cursor: pointer;
+}
+
+.burger_menu {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1200px) {
+  .header_btn_logout-wrapper {
+    display: none;
+  }
 }
 
 /*********** ***********/
