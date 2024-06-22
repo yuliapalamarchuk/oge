@@ -21,6 +21,7 @@ $adress_img = "uploads/images/";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Лайфхаки</title>
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
   <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
   <script defer src="js/lifehack.js"></script>
@@ -151,13 +152,13 @@ $adress_img = "uploads/images/";
         <form action="#" class="form" id="form">
           <label class="form-label flex">
             <span class="input-name">Ф.И.О *</span>
-            <input class="form-input form-name" id="name" type="text" name="name" placeholder="Введите Ф.И.О." required>
+            <input class="form-input form-name" id="lhack_name" type="text" name="name" placeholder="Введите Ф.И.О." required>
             <button class="btn-clear hidden"></button>
           </label>
 
           <label class="form-label flex">
             <span class="input-name">E-mail*</span>
-            <input class="form-input form-mail" id="email" type="email" name="email" placeholder="Введите E-mail" required>
+            <input class="form-input form-mail" id="lhack_email" type="email" name="email" placeholder="Введите E-mail" required>
             <button class="btn-clear hidden"></button>
           </label>
 

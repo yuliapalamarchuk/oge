@@ -203,7 +203,39 @@ validation
       value: 200,
       errorMessage: "Название школы не может содержать больше 200 символов",
     },
-  ]);
+  ])
+  // Отправка данных пользователя при заполнении своего профиля в лк
+  .onSuccess(() => {
+    const surname = document.getElementById("surname").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const city = document.getElementById("city").value;
+    const phone = document.getElementById("phone").value;
+    const school = document.getElementById("school").value;
+
+    axios
+      .post("/php/update_profile.php", {
+        surname: surname,
+        name: name,
+        email: email,
+        city: city,
+        phone: phone,
+        school: school,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Ошибка обновления профиля:", error);
+      });
+  });
+
+const profileForm = document.querySelector(".form-profile");
+
+// Отправляем данные по обновлению профиля
+profileForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+});
 
 // Валидация формы изменения пароля
 let validationPassword = new JustValidate("#changePasswordModal-modal");
@@ -230,7 +262,31 @@ validationPassword
       value: 64,
       errorMessage: "Пароль не может содержать больше 64 символов",
     },
-  ]);
+  ])
+  // Отправка данных для изменения пароля
+  .onSuccess(() => {
+    const currentPass = document.getElementById("current-password").value;
+    const newPass = document.getElementById("new-password").value;
+
+    axios
+      .post("/php/change_pass.php", {
+        currentPass: currentPass,
+        newPass: newPass,
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Ошибка:", error);
+      });
+  });
+
+const changePass = document.querySelector(".changePasswordModal-form");
+
+// Отправляем данные по изменению пароля
+changePass.addEventListener("submit", async (event) => {
+  event.preventDefault();
+});
 
 // Маска для ввода номера телефона
 const maskOptions = {
@@ -238,41 +294,6 @@ const maskOptions = {
   // lazy: false
 };
 const mask = new IMask(phoneInput, maskOptions);
-
-// Отправка данных пользователя при заполнении своего профиля в лк
-const profileForm = document.querySelector(".form-profile");
-const btnProfileSave = document.querySelector(".btn-profile_save");
-
-const surname = document.getElementById("surname").value;
-const name = document.getElementById("name").value;
-const email = document.getElementById("email").value;
-const city = document.getElementById("city").value;
-const phone = document.getElementById("phone").value;
-const school = document.getElementById("school").value;
-
-// Отправляем POST-запрос
-validation.onSuccess(() => {
-  btnProfileSave.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    axios
-      .post("/php/update_profile.php", {
-        params: {
-          surname: surname,
-          name: name,
-          email: email,
-          city: city,
-          phone: phone,
-          school: school,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Ошибка обновления профиля:", error);
-      });
-  });
-});
 
 // Кнопка-глазик пароля
 const passwordBtns = document.querySelectorAll(".btn-eye--off");

@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Профиль</title>
         <script src="js/jquery.js"></script>
+        <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
         <script
             src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
         <script src="https://unpkg.com/imask"></script>
