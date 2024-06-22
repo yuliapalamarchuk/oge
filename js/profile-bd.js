@@ -357,12 +357,14 @@ function createResults() {
 // Выход из личного кабинета
 const exitButton = document.querySelector(".exit-wrap");
 
-exitButton.addEventListener("click", async (event) => {
-  event.preventDefault();
-  axios.post("/php/logout.php").then((response) => {
-      window.location.href = "https://oge5.isp.sprint.1t.ru";
+exitButton.addEventListener("click", () => {
+  axios
+    .post("/php/logout.php")
+    .then((response) => {
+      window.location.href = "/mainpage.php";
       console.log(response.data);
     })
-    .catch((error) => {console.error("Ошибка:", error);
+    .catch((error) => {
+      console.error("Ошибка:", error);
     });
 });

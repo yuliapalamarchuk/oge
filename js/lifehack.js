@@ -4,9 +4,9 @@ const contents = document.querySelectorAll(".lifehack_content");
 
 for (let i = 0; i < tabs.length; i++) {
   if (i == 0) {
-    tabs[i].classList.add('lifehack_cards--active');
-    contents[i].classList.add('lifehack_content--active');
-}
+    tabs[i].classList.add("lifehack_cards--active");
+    contents[i].classList.add("lifehack_content--active");
+  }
 
   tabs[i].addEventListener("click", (event) => {
     document.querySelectorAll(".lifehack_cards").forEach((el) => {
@@ -109,22 +109,6 @@ inputWithClear.forEach((item) => {
   });
 });
 
-// Модалка
-const btnLifehack = document.querySelector(".btn-lifehack");
-const modalOpen = document.querySelector(".modal-open");
-const btnClose = document.querySelector(".btn-close");
-let body = document.querySelector("body");
-
-btnLifehack.onclick = () => {
-  modalOpen.style.display = "flex";
-  body.classList.add("noscroll");
-};
-
-btnClose.onclick = () => {
-  modalOpen.style.display = "none";
-  body.classList.remove("noscroll");
-};
-
 // Выпадающий список
 const select = document.querySelector(".form-select");
 const choices = new Choices(select, {
@@ -159,7 +143,7 @@ mail.forEach((el) => {
 let validation = new JustValidate("#form");
 
 validation
-  .addField("#name", [
+  .addField("#lhack_name", [
     {
       rule: "required",
       errorMessage: "Введите Ф.И.О",
@@ -171,7 +155,7 @@ validation
     },
   ])
 
-  .addField("#email", [
+  .addField("#lhack_email", [
     {
       rule: "required",
       errorMessage: "Введите E-mail",
@@ -187,17 +171,56 @@ validation
       rule: "required",
       errorMessage: "Напишите свой лайфхак",
     },
-  ]);
+  ])
+  // Отправка данных после успешной валидации (Post-запрос)
+  .onSuccess(() => {
+    const name = document.getElementById("lhack_name").value;
+    const email = document.getElementById("lhack_email").value;
+    const who = document.getElementById("who").value;
+    const lifehack = document.getElementById("lifehack").value;
+
+    axios
+      .post("/php/add_lhack.php", {
+        name: name,
+        email: email,
+        who: who,
+        lifehack: lifehack,
+      })
+      .then((response) => {
+        console.log(response.data);
+        thanksModal.style.display = "flex";
+        body.classList.add("noscroll");
+      })
+      .catch((error) => {
+        console.error("Ошибка:", error);
+      });
+  });
+
+// Модалка Предложить лайфхак
+const btnLifehack = document.querySelector(".btn-lifehack");
+const modalOpen = document.querySelector(".modal-open");
+const btnClose = document.querySelector(".btn-close");
+let body = document.querySelector("body");
+
+btnLifehack.onclick = () => {
+  modalOpen.style.display = "flex";
+  body.classList.add("noscroll");
+};
+
+btnClose.onclick = () => {
+  modalOpen.style.display = "none";
+  body.classList.remove("noscroll");
+};
 
 // Модалка Спасибо
-const form = document.querySelector(".form");
 const btnForm = document.querySelector(".btn-form");
 const thanksModal = document.querySelector(".thanks-modal");
 const thanksClose = document.querySelector(".thanks-btn_close");
+const form = document.getElementById("form");
 
-validation.onSuccess(() => {
-  thanksModal.style.display = "flex";
-  body.classList.add("noscroll");
+//Добавление лайфхака
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
 });
 
 thanksClose.onclick = () => {
@@ -205,33 +228,6 @@ thanksClose.onclick = () => {
   modalOpen.style.display = "none";
   body.classList.remove("noscroll");
 };
-
-// const name = document.getElementById("name").value;
-// const email = document.getElementById("email").value;
-// const who = document.getElementById("who").value;
-// const lifehack = document.getElementById("lifehack").value;
-
-// Отправляем POST-запрос
-validation.onSuccess(() => {
-  btnForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    axios
-      .post("/php/add_lhack.php", {
-        params: {
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          who: document.getElementById("who").value,
-          lifehack: document.getElementById("lifehack").value,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Ошибка:", error);
-      });
-  });
-});
 
 // Адаптив
 const mediaQuery2 = window.matchMedia("(max-width: 1750px)");
