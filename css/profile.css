@@ -232,7 +232,7 @@
 }
 
 .form-profile--content {
-  margin-bottom: 60px;
+  margin-bottom: 161px;
   gap: 120px;
 }
 
@@ -354,6 +354,20 @@
   top: 40px;
   right: 60px;
   cursor: pointer;
+}
+
+.password-result {
+  padding-top: 4px;
+  font-size: 14px;
+  line-height: 120%;
+}
+
+.password-error {
+  color: #f00;
+}
+
+.password-success {
+  color: #84ca5d;
 }
 
 .blur {
@@ -875,6 +889,7 @@ table.task-table--topic {
   }
 
   .form-profile--content {
+    margin-bottom: 165px;
     gap: 40px;
   }
 
@@ -1119,6 +1134,10 @@ table.task-table--topic {
 
   .card-hidden--left {
     width: 64%;
+  }
+
+  .form-profile--content {
+    margin-bottom: 160px;
   }
 
   /* .results-btn-wrap {

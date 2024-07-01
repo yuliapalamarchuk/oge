@@ -227,131 +227,128 @@ function createResults() {
   resultsTableRow.append(taskNumber, taskСorrect, taskEffectiveness);
 
   // Задания
-  const resultsCardTest = document.querySelector(".results-card--test");
+  // const resultsCardTest = document.querySelector(".results-card--test");
 
-  // Группируем задания по task и видео
-  const groupedDataVideo = question.reduce((acc, item) => {
-    const task = item.task;
-    const video = item.video;
+  // // Группируем задания по task и видео
+  // const groupedDataVideo = question.reduce((acc, item) => {
+  //   const task = item.task;
+  //   const video = item.video;
 
-    if (!acc[task]) {
-      acc[task] = {};
-    }
+  //   if (!acc[task]) {
+  //     acc[task] = {};
+  //   }
 
-    if (!acc[task][video]) {
-      acc[task][video] = [];
-    }
+  //   if (!acc[task][video]) {
+  //     acc[task][video] = [];
+  //   }
 
-    acc[task][video].push({
-      serialnumber: item.serialnumber,
-      result: item.result,
-    });
-    return acc;
-  }, {});
+  //   acc[task][video].push({
+  //     serialnumber: item.serialnumber,
+  //     result: item.result,
+  //   });
+  //   return acc;
+  // }, {});
 
-  // Создаем блоки с результатами заданий
-  for (const task in groupedDataVideo) {
-    const resultsCardItem = document.createElement("li");
-    resultsCardItem.classList.add("results-card--item");
+  // // Создаем блоки с результатами заданий
+  // for (const task in groupedDataVideo) {
+  //   const resultsCardItem = document.createElement("li");
+  //   resultsCardItem.classList.add("results-card--item");
 
-    // Название задания
-    const resultsCardTopic = document.createElement("div");
-    const resultsCardName = document.createElement("p");
+  //   // Название задания
+  //   const resultsCardTopic = document.createElement("div");
+  //   const resultsCardName = document.createElement("p");
 
-    resultsCardTopic.classList.add("results-card--topic");
-    resultsCardName.classList.add("results-card--name");
+  //   resultsCardTopic.classList.add("results-card--topic");
+  //   resultsCardName.classList.add("results-card--name");
 
-    resultsCardName.innerHTML = `${task}<i class="card-svg plus"></i>`;
+  //   resultsCardName.innerHTML = `${task}<i class="card-svg plus"></i>`;
 
-    // Сам блок с результатами
-    const resultsCardHidden = document.createElement("div");
-    resultsCardHidden.classList.add("results-card--hidden");
+  //   // Сам блок с результатами
+  //   const resultsCardHidden = document.createElement("div");
+  //   resultsCardHidden.classList.add("results-card--hidden");
 
-    resultsCardTest.append(resultsCardItem);
-    resultsCardItem.append(resultsCardTopic, resultsCardHidden);
-    resultsCardTopic.append(resultsCardName);
+  //   resultsCardTest.append(resultsCardItem);
+  //   resultsCardItem.append(resultsCardTopic, resultsCardHidden);
+  //   resultsCardTopic.append(resultsCardName);
 
-    // Блоки с видео
-    for (const video in groupedDataVideo[task]) {
-      const сardHidden = document.createElement("div");
-      const сardHiddenLeft = document.createElement("div");
-      const сardHiddenButton = document.createElement("div");
-      const сardHiddenName = document.createElement("p");
-      const сardHiddenText = document.createElement("p");
-      const сardButton = document.createElement("a");
+  //   // Блоки с видео
+  //   for (const video in groupedDataVideo[task]) {
+  //     const сardHidden = document.createElement("div");
+  //     const сardHiddenLeft = document.createElement("div");
+  //     const сardHiddenButton = document.createElement("div");
+  //     const сardHiddenName = document.createElement("p");
+  //     const сardHiddenText = document.createElement("p");
+  //     const сardButton = document.createElement("a");
 
-      сardHidden.classList.add("card-hidden", "flex");
-      сardHiddenLeft.classList.add("card-hidden--left");
-      сardHiddenName.classList.add("card-hidden--name");
-      сardHiddenText.classList.add("card-hidden--text");
-      сardButton.classList.add("btn-profile");
+  //     сardHidden.classList.add("card-hidden", "flex");
+  //     сardHiddenLeft.classList.add("card-hidden--left");
+  //     сardHiddenName.classList.add("card-hidden--name");
+  //     сardHiddenText.classList.add("card-hidden--text");
+  //     сardButton.classList.add("btn-profile");
 
-      сardButton.setAttribute("href", "#");
-      // сardButton.setAttribute("target", "_blank");
+  //     сardHiddenName.textContent = video;
+  //     сardHiddenText.textContent = "Урок не пройден";
+  //     сardButton.textContent = "Повторить урок";
 
-      сardHiddenName.textContent = video;
-      сardHiddenText.textContent = "Урок не пройден";
-      сardButton.textContent = "Повторить урок";
+  //     resultsCardHidden.append(сardHidden);
+  //     сardHidden.append(сardHiddenLeft, сardHiddenButton);
+  //     сardHiddenButton.append(сardButton);
 
-      resultsCardHidden.append(сardHidden);
-      сardHidden.append(сardHiddenLeft, сardHiddenButton);
-      сardHiddenButton.append(сardButton);
+  //     // Таблица с результатами
+  //     const taskTableTopic = document.createElement("table");
+  //     const tBodyTopic = document.createElement("tbody");
 
-      // Таблица с результатами
-      const taskTableTopic = document.createElement("table");
-      const tBodyTopic = document.createElement("tbody");
+  //     taskTableTopic.classList.add("task-table", "task-table--topic");
 
-      taskTableTopic.classList.add("task-table", "task-table--topic");
+  //     taskTableTopic.append(tBodyTopic);
 
-      taskTableTopic.append(tBodyTopic);
+  //     // Строки в таблице
+  //     groupedDataVideo[task][video].forEach((item) => {
+  //       const taskTableRowTopic = document.createElement("tr");
+  //       const taskTableTitleTopic = document.createElement("td");
+  //       const taskTableCellTopic = document.createElement("td");
 
-      // Строки в таблице
-      groupedDataVideo[task][video].forEach((item) => {
-        const taskTableRowTopic = document.createElement("tr");
-        const taskTableTitleTopic = document.createElement("td");
-        const taskTableCellTopic = document.createElement("td");
+  //       taskTableTitleTopic.classList.add(
+  //         "task-table-title",
+  //         "cell-border-right"
+  //       );
+  //       taskTableCellTopic.classList.add("task-table-cell");
 
-        taskTableTitleTopic.classList.add(
-          "task-table-title",
-          "cell-border-right"
-        );
-        taskTableCellTopic.classList.add("task-table-cell");
+  //       taskTableTitleTopic.innerHTML = `Задание ${item.serialnumber}`;
+  //       taskTableCellTopic.textContent =
+  //         item.result === 1 ? "Верно" : "Неверно";
 
-        taskTableTitleTopic.innerHTML = `Задание ${item.serialnumber}`;
-        taskTableCellTopic.textContent =
-          item.result === 1 ? "Верно" : "Неверно";
+  //       taskTableRowTopic.append(taskTableTitleTopic, taskTableCellTopic);
+  //       tBodyTopic.append(taskTableRowTopic);
+  //     });
 
-        taskTableRowTopic.append(taskTableTitleTopic, taskTableCellTopic);
-        tBodyTopic.append(taskTableRowTopic);
-      });
+  //     сardHiddenLeft.append(сardHiddenName, taskTableTopic);
+  //   }
+  // }
 
-      сardHiddenLeft.append(сardHiddenName, taskTableTopic);
-    }
-  }
+  // // Обработчик клика по заголовкам заданий
+  // $(document).ready(function () {
+  //   // Обработчик клика по заголовку задания
+  //   $(".results-card--topic").on("click", function (e) {
+  //     e.preventDefault();
+  //     const $this = $(this);
+  //     const $hiddenSection = $this.next(".results-card--hidden"); // Получаем блок с результатами
 
-  // Обработчик клика по заголовкам заданий
-  $(document).ready(function () {
-    // Обработчик клика по заголовку задания
-    $(".results-card--topic").on("click", function (e) {
-      e.preventDefault();
-      const $this = $(this);
-      const $hiddenSection = $this.next(".results-card--hidden"); // Получаем блок с результатами
-
-      // Проверяем, открыта ли карточка
-      if ($this.hasClass("active")) {
-        $this.removeClass("active");
-        $hiddenSection.slideUp(200);
-        $this.find(".card-svg").removeClass("minus").addClass("plus");
-      } else {
-        $(".results-card--topic").removeClass("active");
-        $this.addClass("active");
-        $(".results-card--hidden").slideUp(200); // Скрываем все другие карточки
-        $hiddenSection.slideDown(200); // Открываем карточку для текущего задания
-        $(".card-svg").removeClass("minus").addClass("plus"); // Сбрасываем иконку для всех карточек
-        $this.find(".card-svg").removeClass("plus").addClass("minus"); // Меняем иконку на текущей карточке
-      }
-    });
-  });
+  //     // Проверяем, открыта ли карточка
+  //     if ($this.hasClass("active")) {
+  //       $this.removeClass("active");
+  //       $hiddenSection.slideUp(200);
+  //       $this.find(".card-svg").removeClass("minus").addClass("plus");
+  //     } else {
+  //       $(".results-card--topic").removeClass("active");
+  //       $this.addClass("active");
+  //       $(".results-card--hidden").slideUp(200); // Скрываем все другие карточки
+  //       $hiddenSection.slideDown(200); // Открываем карточку для текущего задания
+  //       $(".card-svg").removeClass("minus").addClass("plus"); // Сбрасываем иконку для всех карточек
+  //       $this.find(".card-svg").removeClass("plus").addClass("minus"); // Меняем иконку на текущей карточке
+  //     }
+  //   });
+  // });
 }
 
 // Выход из личного кабинета
