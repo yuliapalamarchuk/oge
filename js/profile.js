@@ -267,6 +267,8 @@ validationPassword
   .onSuccess(() => {
     const currentPass = document.getElementById("current-password").value;
     const newPass = document.getElementById("new-password").value;
+    const passError = document.querySelector(".password-error");
+    const passSuccess = document.querySelector(".password-success");
 
     axios
       .post("/php/change_pass.php", {
@@ -275,6 +277,13 @@ validationPassword
       })
       .then((response) => {
         console.log(response.data);
+
+        if (response.data == "success") {
+          passSuccess.classList.remove("hidden-total");
+        } else if (response.data == "error.wrong_password") {
+          passSuccess.classList.add("hidden-total");
+          passError.classList.remove("hidden-total");
+        }
       })
       .catch((error) => {
         console.error("Ошибка:", error);
