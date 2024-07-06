@@ -1,4 +1,4 @@
-let num = 1;
+let num = 6;
 let questions = [];
 let answers = [];
 let rules = [];
@@ -126,12 +126,18 @@ function createQuestion(num) {
     const question = getQuestionNum(num);
     
 
-    if (num == 1) prevBtn.disabled = true
+    if (num == 6) prevBtn.disabled = true
 
         const questionText1 = document.createElement('p');
         questionText1.innerHTML = question.text1;
         questionText1.classList.add('question__text');
         questionBlock.append(questionText1);
+        
+         if (question.picture) {
+            const img = document.createElement('img');
+            img.src = `/uploads/images/${question.picture}`;
+            questionBlock.append(img);
+        }
 
         if (question.text2) {
             const questionText2 = document.createElement('p');
@@ -140,11 +146,7 @@ function createQuestion(num) {
             questionBlock.append(questionText2);
         }
 
-        if (question.url) {
-            const img = document.createElement('img');
-            img.src = question.picture;
-            questionBlock.append(img);
-        }
+       
        
         const input = document.createElement('input');
         input.placeholder = 'Введите ответ';
@@ -212,7 +214,7 @@ function createQuestion(num) {
 
     prevBtn.addEventListener('click', (e) => {
         e.preventDefault();       
-        if (num > 1) {
+        if (num > 6) {
             document.body.innerHTML = '';
             num -= 1;
             document.body.append(createQuestion(num));
