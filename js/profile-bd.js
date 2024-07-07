@@ -1,9 +1,12 @@
 const resultsTestsWrap = document.querySelector(".results-tests-wrap");
+const profileCards = document.querySelector(".profile-cards");
+const favouriteText = document.querySelector(".favourite-text");
 
 // Аксиосы на вывод результатов теста
 let test = {};
 let question = {};
 let fio = {};
+let fav = {};
 
 window.addEventListener("load", () => {
   axios
@@ -23,16 +26,23 @@ window.addEventListener("load", () => {
           userID: localStorage.getItem("userID"),
         },
       }),
+      axios.get("/php/lkfavorite.php", {
+        params: {
+          userID: localStorage.getItem("userID"),
+        },
+      }),
     ])
     .then(
-      axios.spread(function (testData, questionData, fioData) {
+      axios.spread(function (testData, questionData, fioData, favoriteData) {
         test = testData.data;
         question = questionData.data;
         fio = fioData.data;
+        fav = favoriteData.data;
 
         createResults();
+        createFavourite();
 
-        console.log(testData, questionData, fioData.data);
+        console.log(favoriteData);
       })
     );
 });
@@ -365,3 +375,104 @@ exitButton.addEventListener("click", () => {
       console.error("Ошибка:", error);
     });
 });
+
+// Добавление карточек в избранное
+function createFavourite() {
+  if (fav == "empty") {
+    favouriteText.classList.remove("hidden-total");
+  } else {
+    for (let k = 0; k < fav.length; k++) {
+      const cardsItem = document.createElement("li");
+      const profileCardFavorite = document.createElement("div");
+      const cardFavorite = document.createElement("button");
+      const cardFavoriteSvg = document.createElement("svg");
+      const cardsLink = document.createElement("a");
+      const cardsTitleProfile = document.createElement("h2");
+
+      cardsItem.classList.add("cards__item");
+      profileCardFavorite.classList.add("card", "profile-card-favorite");
+      cardFavorite.classList.add("card__favorite", "btn-reset");
+      cardsTitleProfile.classList.add("cards__title", "cards__title-profile");
+
+      cardsTitleProfile.textContent = fav[k].name;
+      cardFavoriteSvg.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="38" height="34" viewBox="0 0 38 34" fill="none">
+      <path d="M4.08831 3.70689C8.20606 -0.272806 14.8823 -0.272624 19 6.47004C23.1178 -0.272806 29.7939 -0.272806 33.9117 3.70689C38.0294 7.71769 38.0294 14.4648 33.9117 18.4756L19 33L4.08831 18.4756C-0.0294372 14.4648 -0.0294372 7.71769 4.08831 3.70689Z" fill="#FF4E00" stroke="#FF4E00" stroke-width="2" stroke-linejoin="round" />
+      </svg>`;
+
+      cardsLink.href = fav[k].url;
+      const cardId = fav[k].id;
+
+      cardsLink.append(cardsTitleProfile);
+      cardFavorite.append(cardFavoriteSvg);
+      cardsItem.append(profileCardFavorite, cardFavorite, cardsLink);
+      profileCards.append(cardsItem);
+
+      if (k > 3) {
+        cardsItem.classList.add("hidden-total");
+      }
+
+      // Удаление из избранного
+      const deleteButtons = document.querySelectorAll(".card__favorite");
+
+      deleteButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          axios
+            .post("/php/favorites.php", {
+              video_id: cardId,
+            })
+            .then((response) => {
+              cardsItem.remove();
+              fav = fav.filter((item) => item.id !== cardId);
+            })
+            .catch((error) => {
+              console.error("Ошибка:", error);
+            });
+        });
+      });
+    }
+
+    // Кнопка "Показать больше" в избранном
+    const SHOW_INITIAL = 4;
+    const SHOW_MORE = 2;
+    const hidden = () => $items.slice(SHOW_INITIAL);
+    const $button = $(".favorite-btn-show");
+    const $buttonHide = $(".favorite-btn-hide");
+    const $items = $(".cards__item").hide();
+    const getHidden = () => $items.filter(":hidden");
+
+    if (hidden().length > 0) {
+      $button.show();
+    }
+
+    showItems(SHOW_INITIAL);
+    $button.click(function () {
+      showItems(SHOW_MORE);
+      checkButtonVisibility();
+      $buttonHide.show();
+    });
+
+    function showItems(count) {
+      getHidden().slice(0, count).show();
+    }
+
+    function checkButtonVisibility() {
+      if (getHidden().length === 0) {
+        $button.hide();
+        $buttonHide.css("margin-top", "0");
+      }
+    }
+
+    //   Кнопка "Скрыть" в избранном
+    const showElementsButton = document.querySelector(".favorite-btn-show");
+    const hideElementsButton = document.querySelector(".favorite-btn-hide");
+    const listItems = document.querySelectorAll(".profile-cards li");
+
+    hideElementsButton.addEventListener("click", function () {
+      for (let i = 4; i < fav.length; i++) {
+        listItems[i].style.display = "none";
+        hideElementsButton.style.display = "none";
+        showElementsButton.style.display = "block";
+      }
+    });
+  }
+}

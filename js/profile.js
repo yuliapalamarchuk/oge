@@ -360,60 +360,6 @@ passwordChangeClose.addEventListener("click", (e) => {
   }
 });
 
-// Кнопка "Показать больше" в избранном
-const SHOW_INITIAL = 4;
-const SHOW_MORE = 2;
-const hidden = () => $items.slice(SHOW_INITIAL);
-const $button = $(".favorite-btn-show");
-const $buttonHide = $(".favorite-btn-hide");
-const $items = $(".cards__item").hide();
-const getHidden = () => $items.filter(":hidden");
-
-if (hidden().length > 0) {
-  $button.show();
-}
-
-showItems(SHOW_INITIAL);
-$button.click(function () {
-  showItems(SHOW_MORE);
-  checkButtonVisibility();
-  $buttonHide.show();
-});
-
-function showItems(count) {
-  getHidden().slice(0, count).show();
-}
-
-function checkButtonVisibility() {
-  if (getHidden().length === 0) {
-    $button.hide();
-    $buttonHide.css("margin-top", "0");
-  }
-}
-
-//   Кнопка "Скрыть" в избранном
-const showElementsButton = document.querySelector(".favorite-btn-show");
-const hideElementsButton = document.querySelector(".favorite-btn-hide");
-const listItems = document.querySelectorAll(".profile-cards li");
-
-hideElementsButton.addEventListener("click", function () {
-  for (let i = 4; i < listItems.length; i++) {
-    listItems[i].style.display = "none";
-    hideElementsButton.style.display = "none";
-    showElementsButton.style.display = "block";
-  }
-});
-
-// Удаление из избранного
-// const deleteButtons = document.querySelectorAll('.card__favorite');
-
-// deleteButtons.forEach(button => {
-//     button.addEventListener('click', function() {
-//         const listItem = this.parentElement; // Получаем родительский элемент li
-//         listItem.remove(); // Удаляем элемент из DOM
-//     });
-// });
-
 // Вкладки результатов
 const resultsBtn = document.querySelectorAll(".results-btn");
 const resultsCard = document.querySelectorAll(".results-card");
