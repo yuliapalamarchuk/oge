@@ -160,8 +160,9 @@
                 </div>
 
                 <div class="profile-content profile-content--favourite">
+                    <p class="favourite-text profile-text hidden-total">Ты пока еще ничего не добавил в избранное.</p>
                     <ul class="list-reset tasks__cards cards profile-cards">
-                        <li class="cards__item">
+                        <!-- <li class="cards__item">
                             <div class="card profile-card-favorite"></div>
                             <button class="card__favorite btn-reset">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="38" height="34" viewBox="0 0 38 34" fill="none">
@@ -210,10 +211,10 @@
                             <a href>
                                 <h2 class="cards__title cards__title-profile">Название</h2>
                             </a>
-                        </li>
+                        </li> -->
 
                         <!-- ------------------------------------- -->
-                        <li class="cards__item hidden-total">
+                        <!-- <li class="cards__item hidden-total">
                             <div class="card profile-card-favorite">
                             </div>
                             <button class="card__favorite btn-reset">
@@ -263,7 +264,7 @@
                             <a href>
                                 <h2 class="cards__title cards__title-profile">Название</h2>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
 
                     <div class="favorite-btn-wrap flex">
