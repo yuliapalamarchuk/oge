@@ -204,6 +204,7 @@
   letter-spacing: 0em;
   text-align: left;
   color: rgba(92, 12, 112, 1);
+  cursor: pointer;
 }
 
 .form-profile--input::placeholder {
@@ -389,6 +390,11 @@
 .cards__item .profile-card-favorite {
   margin-bottom: 18px;
   height: 356px;
+  cursor: pointer;
+}
+
+.cards__title-profile {
+  cursor: pointer;
 }
 
 .favorite-btn {
