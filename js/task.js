@@ -33,8 +33,9 @@ function createTask() {
     const video = document.createElement('div');
     const videoName = document.createElement('h2');
     const videoDescription = document.createElement('div');
-    const videoCount = document.createElement('p');
+    const videoCount = document.createElement('button');
     const downloadBtn = document.createElement('a');
+    const favBtn = document.createElement('button');
 
 
 
@@ -52,8 +53,16 @@ function createTask() {
     videoBlock.classList.add('card');
     videoName.classList.add('card__title');
     videoDescription.classList.add('card__desc');
-    videoCount.classList.add('card__count');
+    videoCount.classList.add('card__count', 'btn-reset');
     downloadBtn.classList.add('task__btn');
+    favBtn.classList.add('btn-reset', 'card__favorite');
+    
+    if (question[0].favorite == '1') favBtn.classList.add('active');
+    
+    favBtn.innerHTML = `<svg width="88" height="78" viewBox="0 0 88 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.37763 7.42887C18.2145 -2.02291 34.1632 -2.02248 44 13.9914C53.8368 -2.02291 69.7855 -2.02291 79.6224 7.42887C89.4592 16.9545 89.4592 32.9789 79.6224 42.5046L44 77L8.37763 42.5046C-1.45921 32.9789 -1.45921 16.9545 8.37763 7.42887Z" fill="#FAEEEB" stroke="#191812" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                        `
 
 
 
@@ -69,9 +78,71 @@ function createTask() {
     } else downloadBtn.disabled = true
 
 
-
+    video.append(favBtn);
     videoBlock.append(video, videoName, videoCount);
     task.append(videoBlock, videoDescription, downloadBtn);
+    
+    const id = localStorage.getItem('id');
+    
+    // Избранное
+
+ 
+        favBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            axios.post('php/favorites.php',  {video_id: id,})
+                .then(response => {
+                    console.log(response.data);
+                    if (response.data == 'Для просмотра этой страницы необходимо авторизоваться.') {
+                        document.getElementById('modalAuthReg').classList.add('showModal');
+                    }
+                    if (response.data == 'insert') {
+                        favBtn.classList.add('active');
+                    } else favBtn.classList.remove('active');
+                    
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        })
+
+    
+    
+    // Добавление/удаление лайков
+
+
+        videoCount.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const countLikes = question[0].likes;
+            
+            let count = countLikes;
+            console.log(count)
+        
+
+            if (!videoCount.classList.contains('active')) {
+                count = count + 1;
+            } 
+            
+            console.log(count)
+            
+            videoCount.innerHTML = count;
+             videoCount.classList.toggle('active');
+
+            axios.post('php/likes.php', {
+                    video_id: id,
+                    likes: count
+                
+            })
+                .then(response => {
+                    console.log(response.data);
+                    
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        })
+ 
+
 
 
 

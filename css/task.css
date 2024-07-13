@@ -224,6 +224,12 @@
     align-self: end;
 }
 
+.card__favorite {
+    right: 40px;
+    top: 40px;
+    
+}
+
 @media (max-width: 1400px) {
     .task__block {
         padding: 40px 120px;
@@ -271,6 +277,17 @@
     .test__input {
         max-width: 340px;
     }
+    
+       .card__favorite {
+         top: 26px;
+        right: 26px;
+    }
+    
+    .card__favorite svg {
+       
+        width: 40px;
+        height: 36px;
+    }
 
 
 
@@ -298,6 +315,8 @@
         font-size: 18px;
         line-height: 21.6px;
     }
+    
+ 
 }
 
 @media (max-width: 768px) {
@@ -365,9 +384,19 @@
         line-height: 19.01px;
     }
 
-    .modal__close svg {
+     .modal__close svg {
         width: 24px;
         height: 24px;
+    }
+    
+       .card__favorite {
+         top: 16px;
+        right: 14px;
+    }
+    
+    .card__favorite svg {
+        width: 24px;
+        height: 20px;
     }
 
     

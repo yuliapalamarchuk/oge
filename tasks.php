@@ -1,13 +1,8 @@
 <?php
 require_once __DIR__ . '/php/boot.php';
+$userid =  isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$sql = "select id, serialnumber, name, text, url, img from tasks where active=1 order by serialnumber";
 
-$sql = "select id, serialnumber, name, text, url from tasks where active=1 order by serialnumber";
-
-// select t.id, t.serialnumber, t.name, t.text, t.url, v.url, v.name, v.likes from tasks t
-// join video v
-// on t.id=v.task_id
-// where t.active=1
-// order by t.serialnumber
 $results = pdo()->prepare($sql);
 $results->execute();
 $i = 0;
@@ -18,7 +13,7 @@ while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
 };
 $lenght = $i;
 // var_dump($lenght);
-
+$adress_img = "./uploads/images/";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +69,6 @@ $lenght = $i;
                                                 <button class="btn-reset close"></button>
                                                 <ul class="list-reset tasks__list">
                                                       <?php
-                                                      // while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                                                       foreach ($tasks as $task) {
                                                       ?>
                                                             <li class="tasks__item">
@@ -103,7 +97,7 @@ $lenght = $i;
                                                             </p>
                                                       </div>
 
-                                                      <img class="banner__img" src="./img/banner-img.webp" alt>
+                                                      <img class="banner__img" src="<?= $adress_img . $tasks[$i]["img"] ?>" alt>
                                                 </div>
                                                 <?php
                                                 $sql = "select id, url, name, likes from video where task_id=:task_id order by likes";
@@ -115,28 +109,55 @@ $lenght = $i;
                                                 while ($row = $results->fetch(PDO::FETCH_ASSOC)) {
                                                       $videos[$row['id']] = $row; // кладем в массив все поля из БД по ключу ID
                                                 };
-                                                // var_dump($videos);
+
 
                                                 ?>
                                                 <ul class="list-reset tasks__cards cards">
                                                       <?php
                                                       foreach ($videos as $video) {
-                                                      ?>
-                                                            <li class="cards__item" id="<?= $video['id'] ?>">
-                                                                  <a href="task.php">
-                                                                        <div class="card">
+                                                            $sql_f = "select id from favorite where user_id=:user_id and video_id_id=:video_id";
+                                                            $result_f = pdo()->prepare($sql_f);
+                                                            $result_f->execute([
+                                                                  'user_id' => $userid,
+                                                                  'video_id' => $video['id'],
+                                                            ]);
+                                                            // $fav = '';
+                                                            $fav = $result_f->fetch(PDO::FETCH_ASSOC);
 
-                                                                        </div>
-                                                                        <button class="card__favorite btn-reset">
+                                                      ?>
+
+                                                            <li class="cards__item" id="<?= $video['id'] ?>">
+                                                                  <?php
+                                                                  if ($fav) {
+                                                                  ?>
+                                                                        <button class="card__favorite btn-reset active" data-itemid="<?= $video['id'] ?>">
                                                                               <svg xmlns="http://www.w3.org/2000/svg" width="38" height="34" viewBox="0 0 38 34" fill="none">
                                                                                     <path d="M4.08831 3.70689C8.20606 -0.272806 14.8823 -0.272624 19 6.47004C23.1178 -0.272806 29.7939 -0.272806 33.9117 3.70689C38.0294 7.71769 38.0294 14.4648 33.9117 18.4756L19 33L4.08831 18.4756C-0.0294372 14.4648 -0.0294372 7.71769 4.08831 3.70689Z" fill="#FAEEEB" stroke="#191812" stroke-width="2" stroke-linejoin="round">
                                                                                     </path>
                                                                               </svg>
                                                                         </button>
+                                                                  <?php
+                                                                  } else {
+                                                                  ?>
+                                                                        <button class="card__favorite btn-reset" data-itemid="<?= $video['id'] ?>">
+                                                                              <svg xmlns="http://www.w3.org/2000/svg" width="38" height="34" viewBox="0 0 38 34" fill="none">
+                                                                                    <path d="M4.08831 3.70689C8.20606 -0.272806 14.8823 -0.272624 19 6.47004C23.1178 -0.272806 29.7939 -0.272806 33.9117 3.70689C38.0294 7.71769 38.0294 14.4648 33.9117 18.4756L19 33L4.08831 18.4756C-0.0294372 14.4648 -0.0294372 7.71769 4.08831 3.70689Z" fill="#FAEEEB" stroke="#191812" stroke-width="2" stroke-linejoin="round">
+                                                                                    </path>
+                                                                              </svg>
+                                                                        </button>
+                                                                  <?php
+                                                                  }
+
+                                                                  ?>
+                                                                  <a href="task.php">
+                                                                        <div class="card">
+
+                                                                        </div>
+
 
                                                                         <h2 class="cards__title"><?= $video['name'] ?></h2>
                                                                   </a>
-                                                                  <p class="cards__count"><?= $video['likes'] ?></p>
+                                                                  <button data-count="<?= $video['likes'] ?>" data-id="<?= $video['id'] ?>" class="cards__count btn-reset"><?= $video['likes'] ?></button>
                                                             </li>
                                                       <?php
                                                       }
@@ -151,7 +172,7 @@ $lenght = $i;
 
 
                               </div>
-                        </div>  
+                        </div>
                   </div>
             </section>
       </main>
@@ -165,8 +186,25 @@ $lenght = $i;
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="./js/burger-menu.js"></script>
       <script src="./js/jquery.js"></script>
-      <script src="./js/max.js"></script>
+      <script type="module" src="./js/max.js"></script>
+      <script type="module" src="./js/auth/auth.js"></script>
+      <script type="module" src="./js/auth/registration.js"></script>
+      <script src="https://oauth.mail.ru/sdk/v0.16.2/oauth.js"></script>
+      <script>
+            MR.init({
+                  clientId: "0a66d6c9d00a4551b690f08eaa1d0cca",
+                  onlogin: function(state) {
+                        if (state.user) {
+                              console.info("MR.login:", state);
+                        }
+                  },
+                  onlogout: function() {
+                        console.info("MR.logout");
+                  },
+            });
+      </script>
       <script src="./js/search.js"></script>
+      <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
 </body>
 
 </html>

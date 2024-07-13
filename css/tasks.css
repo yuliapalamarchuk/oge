@@ -108,6 +108,7 @@ img {
     height: 35px !important;
     display: block;
     margin-left: 10px;
+    cursor: pointer;
   }
 }
 
@@ -121,6 +122,7 @@ img {
     height: 35px !important;
     display: block;
     margin-left: 10px;
+    cursor: pointer;
   }
 }
 
@@ -409,6 +411,11 @@ body {
   border-radius: 32px;
   background-color: #d9d9d9;
 }
+
+.card__favorite.active path {
+    stroke: var(--dark-orange);
+    fill: var(--dark-orange);
+} 
 
 @media (max-width: 1600px) {
   .theme__btn {
