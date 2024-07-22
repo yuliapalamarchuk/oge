@@ -70,6 +70,8 @@ function createTask() {
     videoDescription.innerHTML = question[0].description;
     videoCount.textContent = question[0].likes;
 
+    document.title = question[0].name;
+
     downloadBtn.textContent = 'Скачать материалы';
     downloadBtn.download = true;
 
