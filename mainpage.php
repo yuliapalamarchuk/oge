@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Главная ОГЭ</title>
+    <title>ОГЭ на 5 за 5 минут</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -14,6 +14,8 @@
     />
     <link rel="stylesheet" href="css/mainpage.css" />
     <link rel="stylesheet" href="css/search.css" />
+    <link rel="icon" href="favicon.ico">
+
   </head>
 
   <body>
