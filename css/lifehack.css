@@ -11,7 +11,7 @@ a {
 
 img {
   max-width: 100%;
-  /* display: block; */
+  /*display: block;*/
 }
 
 p,
@@ -352,6 +352,7 @@ body {
 
 .cards-wrap::-webkit-scrollbar-track {
   background: transparent;
+  
 }
 
 .cards-wrap::-webkit-scrollbar-thumb {
@@ -1470,7 +1471,7 @@ body {
   .animation-right {
     right: -20px;
   }
-
+  
   .lifehack_foto {
     width: 320px;
     height: 229.4px;

@@ -1,8 +1,40 @@
+const modalConfirmReg = document.querySelector("#modalConfirmReg");
+
+//Хедер блюр
+const headerBlur = document.querySelector("header");
+const mainBlur = document.querySelector("main");
+const footerBlur = document.querySelector("footer");
+
+// Ф-ия открытия модального окна
+const closeModalFunc = () => {
+  let openModal = document.querySelector(".showModal");
+  if (openModal) openModal.classList.toggle("showModal");
+  headerBlur.classList.remove("blur");
+  mainBlur.classList.remove("blur");
+  footerBlur.classList.remove("blur");
+};
+const openModalFunc = (modal) => {
+  closeModalFunc();
+  modal.classList.toggle("showModal");
+  headerBlur.classList.add("blur");
+  mainBlur.classList.add("blur");
+  footerBlur.classList.add("blur");
+};
+export {openModalFunc,modalConfirmReg,closeModalFunc}
+
+/*
+
 //МОДАЛКА ВОЙТИ ИЛИ ЗАРЕГИСТРИРОВАТЬСЯ
 const modalAuthReg = document.getElementById("modalAuthReg");
 const openModalAuthReg = document.getElementById("openModalAuthReg");
 const openModalAuthRegMobile = document.getElementById("openModalAuthRegMobile");
 const closeModalAuthReg = document.getElementById("closeModalAuthReg");
+
+
+//Хедер блюр
+const headerBlur = document.querySelector("header");
+const mainBlur = document.querySelector("main");
+const footerBlur = document.querySelector("footer");
 
 modalAuthReg.classList.add("display-none");
 
@@ -122,3 +154,4 @@ $("body").on("click", ".password-control3", function () {
   }
   return false;
 });
+*/

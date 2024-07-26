@@ -172,7 +172,7 @@ validation
       errorMessage: "Напишите свой лайфхак",
     },
   ])
-  // Отправка данных после успешной валидации (Post-запрос)
+    // Отправка данных после успешной валидации (Post запрос)
   .onSuccess(() => {
     const name = document.getElementById("lhack_name").value;
     const email = document.getElementById("lhack_email").value;
@@ -216,7 +216,7 @@ btnClose.onclick = () => {
 const btnForm = document.querySelector(".btn-form");
 const thanksModal = document.querySelector(".thanks-modal");
 const thanksClose = document.querySelector(".thanks-btn_close");
-const form = document.getElementById("form");
+const form = document.getElementById('form');
 
 //Добавление лайфхака
 form.addEventListener("submit", async (event) => {

@@ -1,3 +1,7 @@
+<?php
+    // require_once __DIR__.'/boot.php';
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -2194,7 +2198,7 @@
 -->
 
     <script type="module" src="./js/max.js"></script>
-    <script type="module" src="./js/auth.js"></script>
+    <script type="module" src="./js/auth/auth.js"></script>
 
     <!--
 <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@latest/bundled/lenis.js"></script>
@@ -2204,17 +2208,17 @@
 
     <script src="https://oauth.mail.ru/sdk/v0.16.2/oauth.js"></script>
     <script>
-      MR.init({
-        clientId: "0a66d6c9d00a4551b690f08eaa1d0cca",
-        onlogin: function (state) {
-          if (state.user) {
-            console.info("MR.login:", state);
-          }
-        },
-        onlogout: function () {
-          console.info("MR.logout");
-        },
-      });
+      // MR.init({
+      //   clientId: "0a66d6c9d00a4551b690f08eaa1d0cca",
+      //   onlogin: function (state) {
+      //     if (state.user) {
+      //       console.info("MR.login:", state);
+      //     }
+      //   },
+      //   onlogout: function () {
+      //     console.info("MR.logout");
+      //   },
+      // });
     </script>
 
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>

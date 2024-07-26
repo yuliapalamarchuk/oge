@@ -93,40 +93,6 @@ class Auth {
 
     }
 
-    // Метод для проверки аутентификации
-    isAuthenticated() {
-        /*      let value = localStorage.getItem('userID');
-              let cookie =  document.cookie.replace(/(?:(?:^|.*;\s*)userID\s*\=\s*([^;]*).*$)|^.*$/, "$1");
-              console.log(cookie !== undefined)
-              if ((value !== null && value !== undefined) || cookie ) {
-                  //ф-ия замены кнопок на выход
-                  const replaceBtn = (item) => {
-                      console.log(item)
-                      item.textContent = 'Выход'
-                      item.id = ''
-                      item.classList.add('logout_btn')
-                      const clone = item.cloneNode(true);
-                      item.replaceWith(clone);
-                      clone.addEventListener('click', () => {
-                          this.logout()
-                      })
-                  }
-
-                  let btn = document.querySelectorAll('.header_btn')
-                  let burgerBtn = document.querySelectorAll('.header_btn_burger')
-                  btn.forEach((item) => replaceBtn(item))
-                  burgerBtn.forEach((item)=>replaceBtn(item))
-
-                  this.authenticated = true
-              } else {
-                  let btn = document.querySelectorAll('.header_btn')
-                  btn.forEach((item) => {
-                      console.log(item)
-                      item.textContent = 'Вход'
-                  })
-              }*/
-        return this.authenticated;
-    }
 
     // Vk авторизация
     async vk_auth() {
