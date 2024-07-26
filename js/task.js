@@ -69,6 +69,8 @@ function createTask() {
     videoName.textContent = question[0].name;
     videoDescription.innerHTML = question[0].description;
     videoCount.textContent = question[0].likes;
+    
+    console.log(document.title)
 
     document.title = question[0].name;
 

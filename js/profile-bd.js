@@ -1,3 +1,6 @@
+import {Auth} from "./auth/registration.js";
+const auth = new Auth()
+
 const resultsTestsWrap = document.querySelector(".results-tests-wrap");
 const profileCards = document.querySelector(".profile-cards");
 const favouriteText = document.querySelector(".favourite-text");
@@ -26,7 +29,7 @@ window.addEventListener("load", () => {
           userID: localStorage.getItem("userID"),
         },
       }),
-      axios.get("/php/lkfavorite.php", {
+       axios.get("/php/lkfavorite.php", {
         params: {
           userID: localStorage.getItem("userID"),
         },
@@ -38,17 +41,17 @@ window.addEventListener("load", () => {
         question = questionData.data;
         fio = fioData.data;
         fav = favoriteData.data;
-
+  
         createResults();
         createFavourite();
 
-        console.log(favoriteData);
+        console.log(questionData.data);
       })
     );
 });
 
 function createResults() {
-  // Данные пользователя
+  // Имя пользователя
   const profileFio = document.querySelector(".profile-fio");
   const surname = document.getElementById("surname");
   const name = document.getElementById("name");
@@ -56,7 +59,7 @@ function createResults() {
   const city = document.getElementById("city");
   const phone = document.getElementById("phone");
   const school = document.getElementById("school");
-
+  
   profileFio.textContent = fio[0].surname + " " + fio[0].name;
   surname.value = fio[0].surname;
   name.value = fio[0].name;
@@ -64,8 +67,8 @@ function createResults() {
   city.value = fio[0].city;
   phone.value = fio[0].phone;
   school.value = fio[0].school;
-
-  // Вызываем updateButtonVisibility после установки значений
+  
+    // Вызываем updateButtonVisibility после установки значений
   updateButtonVisibility(surname);
   updateButtonVisibility(name);
   updateButtonVisibility(email);
@@ -101,8 +104,7 @@ function createResults() {
       clearField(item);
     });
   });
-
-  // Общий тест
+        
   //Блоки в зависимости от того, есть баллы или нет (проходили тесты или нет)
   const resultNoPoints = document.querySelector(".result-no-points");
   const resultWithPoints = document.querySelector(".result-with-points");
@@ -116,26 +118,30 @@ function createResults() {
   }
 
   //   Выводим значения в удобном виде
-  const groupedData = test.reduce((acc, item) => {
-    const timestamp = item.data;
-    if (!acc[timestamp]) {
-      acc[timestamp] = [];
-    }
-    acc[timestamp].push(item);
-    return acc;
-  }, {});
+  let groupedData;
+  if (test){
+     groupedData = test.reduce((acc, item) => {
+      const timestamp = item.data;
+      if (!acc[timestamp]) {
+        acc[timestamp] = [];
+      }
+      acc[timestamp].push(item);
+      return acc;
+    }, {});
+  }
 
-  // Получаем массив дат из ключей объекта
-  const dates = Object.keys(groupedData);
 
-  // Переворачиваем массив с датами
-  dates.reverse();
+      // Получаем массив дат из ключей объекта
+    const dates = Object.keys(groupedData);
 
-  // Создаем новый объект с перевернутым порядком дат
-  const reversedGroupedData = {};
-  dates.forEach((date) => {
-    reversedGroupedData[date] = groupedData[date];
-  });
+    // Переворачиваем массив с датами
+    dates.reverse();
+  
+    // Создаем новый объект с перевернутым порядком дат
+    const reversedGroupedData = {};
+    dates.forEach(date => {
+      reversedGroupedData[date] = groupedData[date];
+    });
 
   //Создаем таблицу с результатами теста
   for (const date in reversedGroupedData) {
@@ -190,16 +196,14 @@ function createResults() {
     }
 
     // Показать и скрыть таблицу с результатами
-    resultsTests.addEventListener("click", function () {
+       resultsTests.addEventListener("click", function () {
       const taskTableWrap = this.nextElementSibling;
-
+      
       // Открыть только выбранную таблицу
       taskTableWrap.classList.toggle("visible");
 
       // Закрыть все открытые таблицы
-      const visibleTables = resultsTestsWrap.querySelectorAll(
-        ".task-table-wrap.visible"
-      );
+      const visibleTables = resultsTestsWrap.querySelectorAll(".task-table-wrap.visible");
       visibleTables.forEach((table) => {
         if (table !== taskTableWrap) {
           //  Не закрывать ту же таблицу
@@ -208,7 +212,7 @@ function createResults() {
       });
     });
   }
-
+  
   //Общие данные по тесту (верхняя таблица)
   const resultsTableRow = document.querySelector(".results-table--row2");
   const taskNumber = document.createElement("td");
@@ -224,22 +228,20 @@ function createResults() {
   // Подсчитываем количество элементов в массиве
   const count = lastDateData.length;
   // Подсчитываем количество правильных ответов
-  const correctAnswers = lastDateData.filter(
-    (item) => item.result === 1
-  ).length;
-  // Вычисляем эффективность
+  const correctAnswers = lastDateData.filter((item) => item.result === 1).length;
+    // Вычисляем эффективность
   const taskEffectivenessCalc = (correctAnswers * 100) / count;
 
-  taskNumber.innerHTML = `${count} из 16`;
+  taskNumber.innerHTML = `${count} из 14`;
   taskСorrect.innerHTML = `${correctAnswers}`;
   taskEffectiveness.innerHTML = `${taskEffectivenessCalc.toFixed(2)}%`;
 
   resultsTableRow.append(taskNumber, taskСorrect, taskEffectiveness);
-
+  
   // Задания
   const resultsCardTest = document.querySelector(".results-card--test");
 
-  // Группируем задания по task и видео
+    // Группируем задания по task и видео
   const groupedDataVideo = question.reduce((acc, item) => {
     const task = item.task_name;
     const video = item.video_name;
@@ -260,12 +262,12 @@ function createResults() {
     return acc;
   }, {});
 
-  // Создаем блоки с результатами заданий
+//   Создаем блоки с результатами заданий
   for (const task in groupedDataVideo) {
     const resultsCardItem = document.createElement("li");
     resultsCardItem.classList.add("results-card--item");
 
-    // Название задания
+//     Название задания
     const resultsCardTopic = document.createElement("div");
     const resultsCardName = document.createElement("p");
 
@@ -274,7 +276,7 @@ function createResults() {
 
     resultsCardName.innerHTML = `${task}<i class="card-svg plus"></i>`;
 
-    // Сам блок с результатами
+//   Сам блок с результатами
     const resultsCardHidden = document.createElement("div");
     resultsCardHidden.classList.add("results-card--hidden");
 
@@ -282,7 +284,7 @@ function createResults() {
     resultsCardItem.append(resultsCardTopic, resultsCardHidden);
     resultsCardTopic.append(resultsCardName);
 
-    // Блоки с видео
+//     // Блоки с видео
     for (const video in groupedDataVideo[task]) {
       const сardHidden = document.createElement("div");
       const сardHiddenLeft = document.createElement("div");
@@ -305,24 +307,22 @@ function createResults() {
       сardHidden.append(сardHiddenLeft, сardHiddenButton);
       сardHiddenButton.append(сardButton);
 
-      // Таблица с результатами
+//       // Таблица с результатами
       const taskTableTopic = document.createElement("table");
       const tBodyTopic = document.createElement("tbody");
-
       taskTableTopic.classList.add("task-table", "task-table--topic");
-
       taskTableTopic.append(tBodyTopic);
 
-      // Строки в таблице
+//       // Строки в таблице
       groupedDataVideo[task][video].forEach((item) => {
-        
-        const cardId = item.id;
-        сardButton.addEventListener("click", (e) => {
-          e.preventDefault();
-          localStorage.setItem("id", cardId);
-          window.location.href = "/task.php";
-        });
-
+          
+      const cardId = item.id;
+      сardButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.setItem("id", cardId);
+        window.location.href = "/task.php";
+      });
+          
         const taskTableRowTopic = document.createElement("tr");
         const taskTableTitleTopic = document.createElement("td");
         const taskTableCellTopic = document.createElement("td");
@@ -333,13 +333,14 @@ function createResults() {
         );
         taskTableCellTopic.classList.add("task-table-cell");
 
-        taskTableTitleTopic.innerHTML = `Задание ${item.serialnumber}`;
-
+          taskTableTitleTopic.innerHTML = `Задание ${item.serialnumber}`;
+        
         // Проверяем, есть ли хоть один результат, не равный null
         let hasResults = groupedDataVideo[task][video].some(
           (item) => item.result !== null
         );
 
+        // Управление отображением для всего видео
         if (hasResults) {
           сardButton.textContent = "Повторить урок";
           сardHiddenText.classList.add("hidden-total");
@@ -349,7 +350,7 @@ function createResults() {
           сardHiddenText.classList.remove("hidden-total");
           taskTableTopic.classList.add("hidden-total");
         }
-
+        
         if (item.result === 1) {
           taskTableCellTopic.textContent = "Верно";
         } else if (item.result === 0) {
@@ -357,7 +358,7 @@ function createResults() {
         } else if (item.result === null) {
           taskTableCellTopic.textContent = "Нет ответа";
         }
-
+        
         taskTableRowTopic.append(taskTableTitleTopic, taskTableCellTopic);
         tBodyTopic.append(taskTableRowTopic);
       });
@@ -365,53 +366,51 @@ function createResults() {
       сardHiddenLeft.append(сardHiddenName, сardHiddenText, taskTableTopic);
     }
   }
-
-  // Обработчик клика по заголовкам заданий
-  $(document).ready(function () {
+  
+    // Обработчик клика по заголовкам заданий
+        $(document).ready(function () {
     // Обработчик клика по заголовку задания
-    $(".results-card--topic").on("click", function (e) {
-      e.preventDefault();
-      const $this = $(this);
-      const $hiddenSection = $this.next(".results-card--hidden"); // Получаем блок с результатами
+        $(".results-card--topic").on("click", function (e) {
+         e.preventDefault();
+         const $this = $(this);
+        const $hiddenSection = $this.next(".results-card--hidden");
 
-      // Проверяем, открыта ли карточка
-      if ($this.hasClass("active")) {
-        $this.removeClass("active");
-        $hiddenSection.slideUp(200);
-        $this.find(".card-svg").removeClass("minus").addClass("plus");
-      } else {
-        $(".results-card--topic").removeClass("active");
-        $this.addClass("active");
-        $(".results-card--hidden").slideUp(200); // Скрываем все другие карточки
-        $hiddenSection.slideDown(200); // Открываем карточку для текущего задания
-        $(".card-svg").removeClass("minus").addClass("plus"); // Сбрасываем иконку для всех карточек
-        $this.find(".card-svg").removeClass("plus").addClass("minus"); // Меняем иконку на текущей карточке
-      }
-    });
+    // Проверяем, открыта ли карточка
+    if ($this.hasClass("active")) {
+      $this.removeClass("active");
+      $hiddenSection.slideUp(200);
+      $this.find(".card-svg").removeClass("minus").addClass("plus"); 
+    } else {
+      $(".results-card--topic").removeClass("active");
+      $this.addClass("active");
+      $(".results-card--hidden").slideUp(200); // Скрываем все другие карточки
+      $hiddenSection.slideDown(200); // Открываем карточку для текущего задания
+      $(".card-svg").removeClass("minus").addClass("plus"); // Сбрасываем иконку для всех карточек
+      $this.find(".card-svg").removeClass("plus").addClass("minus"); // Меняем иконку на текущей карточке
+    }
   });
+});
 }
 
 // Выход из личного кабинета
 const exitButton = document.querySelector(".exit-wrap");
 
 exitButton.addEventListener("click", () => {
-  axios
-    .post("/php/logout.php")
-    .then((response) => {
+  auth.logout()
+  axios.post("/php/logout.php").then((response) => {
       window.location.href = "/mainpage.php";
       console.log(response.data);
     })
-    .catch((error) => {
-      console.error("Ошибка:", error);
+    .catch((error) => {console.error("Ошибка:", error);
     });
 });
 
-// Добавление карточек в избранное
-function createFavourite() {
-  if (fav == "empty") {
-    favouriteText.classList.remove("hidden-total");
-  } else {
-    for (let k = 0; k < fav.length; k++) {
+    // Добавление карточек в избранное
+    function createFavourite() {
+        if (fav == "empty") {
+        favouriteText.classList.remove("hidden-total");
+        } else {
+        for (let k = 0; k < fav.length; k++) {
       const cardsItem = document.createElement("li");
       const profileCardFavorite = document.createElement("div");
       const cardFavorite = document.createElement("button");
@@ -433,10 +432,10 @@ function createFavourite() {
       cardFavorite.append(cardFavoriteSvg);
       cardsItem.append(profileCardFavorite, cardFavorite, cardsLink);
       profileCards.append(cardsItem);
-
-      const cardId = fav[k].id;
-
-      profileCardFavorite.addEventListener("click", (e) => {
+      
+       const cardId = fav[k].id;
+      
+     profileCardFavorite.addEventListener("click", (e) => {
         e.preventDefault();
         localStorage.setItem("id", cardId);
         window.location.href = "/task.php";
@@ -451,21 +450,21 @@ function createFavourite() {
       if (k > 3) {
         cardsItem.classList.add("hidden-total");
       }
-
-      // Удаление из избранного
-      cardFavorite.addEventListener("click", function () {
-        axios
-          .post("/php/favorites.php", {
-            video_id: cardId,
-          })
-          .then((response) => {
-            cardsItem.remove();
-            fav = fav.filter((item) => item.id !== cardId);
-          })
-          .catch((error) => {
-            console.error("Ошибка:", error);
-          });
-      });
+      
+    // Удаление из избранного
+        cardFavorite.addEventListener("click", function () {
+          axios
+            .post("/php/favorites.php", {
+                video_id: cardId,
+            })
+            .then((response) => {
+              cardsItem.remove();
+            //   fav = fav.filter((item) => item.id !== cardId);
+            })
+            .catch((error) => {
+              console.error("Ошибка:", error);
+            });
+        });
     }
 
     // Кнопка "Показать больше" в избранном

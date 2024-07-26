@@ -864,6 +864,7 @@ table.task-table--topic {
 
 .profile-menu--icon {
   margin-right: 24px;
+  cursor: pointer;
 }
 
 .footer-logo-img {
@@ -947,10 +948,10 @@ table.task-table--topic {
     font-size: 20px;
     line-height: 19px;
   }
-
+  
   .favourite-text {
-    padding: 60px;
-  }
+  padding: 60px;
+}
 
   .results-table {
     margin-bottom: 40px;
@@ -1146,7 +1147,7 @@ table.task-table--topic {
   .card-hidden--left {
     width: 64%;
   }
-
+  
   .form-profile--content {
     margin-bottom: 160px;
   }
@@ -1409,8 +1410,8 @@ table.task-table--topic {
 
   .favorite-btn-show {
     margin-right: 0;
-    /* display: flex; */
-    /* align-items: center; */
+    /*display: flex;*/
+    /*align-items: center;*/
   }
 
   .favorite-btn-hide {
@@ -1434,7 +1435,7 @@ table.task-table--topic {
     font-size: 14px;
     line-height: 16.8px;
   }
-
+  
   .favourite-text {
     padding: 40px;
   }

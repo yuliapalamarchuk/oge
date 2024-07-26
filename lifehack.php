@@ -301,8 +301,10 @@ $adress_img = "uploads/images/";
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+  <script defer src="js/auth/auth.js" type="module"></script>
   <script src="./js/burger-menu.js"></script>
-  <script src="./js/max.js"></script>
+  <script src="./js/max.js" type="module"></script>
   <script src="js/search.js"></script>
 </body>
 

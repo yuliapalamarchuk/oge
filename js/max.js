@@ -1,69 +1,11 @@
 //Axios на авторизацию по логину и паролю
-let registration = async () => {
-    try {
-        let surname = document.querySelector('#surname')
-        let name = document.querySelector('#name')
-        let email = document.querySelector('#email')
-        let pass = document.querySelector('#password-input')
-        let res = {
-            surname: surname.value,
-            name: name.value,
-            email: email.value,
-            pass: pass.value,
-        }
-        let clearInputs = () => {
-            surname.value = '',
-                name.value = '',
-                email.value = '',
-                pass.value = ''
-        }
 
-        const response = await axios.post('php/register.php', res);
-        console.log(response);
-        clearInputs()
-        if (response.data === 'success') {
-            return true
-        } else if (response.data === 'duplicate') {
-            return 'duplicate'
-        } else {
-            console.error('Проверка статуса:', response);
-            return false
-        }
-    } catch (error) {
-        console.error('Ошибка в запросе на регистрацию:', error);
-        return false
-    }
-}
-let login = async () => {
-    try {
-        let email = document.querySelector('#email2')
-        let pass = document.querySelector('#password-auth')
-        let res = {
-            params: {
-                email: email.value, 
-                pass: pass.value,
-            }            
-        }
-        console.log(res)
-        const response = await axios.get('php/login.php',  res );
-        console.log(response)
-       
-        if (response.data !== '') {
-             localStorage.setItem('userID', response.data)
-            console.log('авторизация прошла успешно!');
-            return true
-            // Дополнительные действия при успешной регистрации
-        } else {
-            console.error('Проверка статуса::', response.data.message);
-            return false
-            // Дополнительные действия при ошибке регистрации
-        }
-    } catch (error) {
+import {Auth} from "./auth/registration.js";
 
-        console.error('Ошибка при авторизации:', error);
-        return false
-    }
-}
+
+const auth = new Auth()
+
+
 
 
 // Модальные окна
@@ -80,6 +22,7 @@ const closeModal = document.querySelectorAll(".close-modal"); // Кнопка з
 const openModalAuthReg = document.querySelector("#openModalAuthReg"); // Кнопка "Вход"
 const openModalReg = document.querySelector("#openModalReg"); // Кнопка "Зарегистрироваться"
 const openModalAuth = document.querySelector("#openModalAuth"); // Кнопка "Войти"
+const logoutBtn = document.querySelectorAll('.header_btn_logout')
 const switchToReg = document.querySelector("#switchToReg"); // Кнопка "Перейти к регистрации"
 const switchtoLogin = document.querySelector("#switchtoLogin"); // Кнопка "Перейти ко входу"
 const openModalAuthRegMobile = document.querySelector("#openModalAuthRegMobile"); //Кнопка "вход" на мобилке
@@ -93,6 +36,15 @@ const modalAuthBtn = document.querySelector("#modalAuthBtn");
 const headerBlur = document.querySelector("header");
 const mainBlur = document.querySelector("main");
 const footerBlur = document.querySelector("footer");
+
+//Слушатель событий на кнопку Выход
+logoutBtn.forEach((btn)=>{
+    btn.addEventListener('click',async ()=> {
+        await auth.logout()
+        }
+    )
+})
+
 
 // Ф-ия открытия модального окна
 const openModalFunc = (modal) => {
@@ -120,9 +72,12 @@ closeModal.forEach((item) => {
     });
 });
 
-openModalAuthReg.addEventListener("click", () => {
-    openModalFunc(modalEnter);
-});
+if(openModalAuthReg){
+    openModalAuthReg.addEventListener("click", () => {
+        openModalFunc(modalEnter);
+    });
+}
+
 openModalReg.addEventListener("click", () => {
     openModalFunc(modalReg);
 });
@@ -135,9 +90,12 @@ switchToReg.addEventListener("click", () => {
 switchtoLogin.addEventListener("click", () => {
     openModalFunc(modalAuth);
 });
-openModalAuthRegMobile.addEventListener("click", () => {
-    openModalFunc(modalEnter);
-});
+if(openModalAuthRegMobile){
+    openModalAuthRegMobile.addEventListener("click", () => {
+        openModalFunc(modalEnter);
+    });
+}
+
 forgotPassword.addEventListener("click", () => {
     openModalFunc(modalForgotPassword);
 });
@@ -302,23 +260,10 @@ secondClearInput.addEventListener("input", () => {
 
 openModalConfirmReg.addEventListener("click", () => {
     startValidatePass = true;
-    validationForm.onSuccess((event) => {
+    validationForm
+        .onSuccess((event) => {
         if (correctPass) {
-            let res = registration()
-            res
-                .then((res) => {
-                    console.log(res)
-                    if (res === true) {
-                        openModalFunc(modalConfirmReg);
-                    } else if (res == "duplicate") {
-                        alert('Такой пользователь зарегистрирован')
-                    } else {
-                        console.log('Ошибка в регистрации')
-                    }
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+            auth.register()
         }
     });
     validationForm.onFail((event) => {
@@ -352,19 +297,7 @@ validationForm2
 modalAuthBtn.addEventListener("click", () => {
     validationForm2
         .onSuccess((event) => {
-            let res = login()
-            res
-                .then((res) => {
-                    if (res) {
-                        alert('Успех')
-                    } else {
-                        console.log('Ошибка в авторизации')
-                    }
-                })
-                .catch((err) => {
-                    throw err
-                })
-
+            let res = auth.login()
         })
         .onFail((err) => {
             console.log(err);
@@ -372,3 +305,4 @@ modalAuthBtn.addEventListener("click", () => {
             inputEye.style.bottom = "51%";
         });
 });
+

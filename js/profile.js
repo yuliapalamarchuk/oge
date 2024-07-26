@@ -204,7 +204,7 @@ validation
       errorMessage: "Название школы не может содержать больше 200 символов",
     },
   ])
-  // Отправка данных пользователя при заполнении своего профиля в лк
+    // Отправка данных пользователя при заполнении своего профиля в лк
   .onSuccess(() => {
     const surname = document.getElementById("surname").value;
     const name = document.getElementById("name").value;
@@ -229,10 +229,12 @@ validation
         console.error("Ошибка обновления профиля:", error);
       });
   });
-
+  
+  // Отправка данных пользователя при заполнении своего профиля в лк
 const profileForm = document.querySelector(".form-profile");
+// const btnProfileSave = document.querySelector(".btn-profile_save");
 
-// Отправляем данные по обновлению профиля
+// Отправляем данные
 profileForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 });
@@ -263,7 +265,7 @@ validationPassword
       errorMessage: "Пароль не может содержать больше 64 символов",
     },
   ])
-  // Отправка данных для изменения пароля
+    // Отправка данных для изменения пароля
   .onSuccess(() => {
     const currentPass = document.getElementById("current-password").value;
     const newPass = document.getElementById("new-password").value;
@@ -277,7 +279,7 @@ validationPassword
       })
       .then((response) => {
         console.log(response.data);
-
+        
         if (response.data == "success") {
           passSuccess.classList.remove("hidden-total");
         } else if (response.data == "error.wrong_password") {
@@ -325,8 +327,8 @@ for (let i = 0; i < passwordBtns.length; i++) {
 
 // Кнопка Изменить пароль
 const mobileSmallMediaQueryList = window.matchMedia("(max-width: 480px)");
-const passwordChangeClose = document.querySelector(".changePassword-btn-close");
 const passwordChange = document.querySelector(".password-change");
+const passwordChangeClose = document.querySelector(".changePassword-btn-close");
 const changePasswordModal = document.querySelector(".changePasswordModal");
 let body = document.querySelector("body");
 const headerBlur = document.querySelector("header");

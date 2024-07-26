@@ -25,6 +25,7 @@ body {
     height: 35px;
     display: block;
     margin-left: 10px;
+    cursor: pointer;
   }
 }
 

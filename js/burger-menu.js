@@ -8,15 +8,22 @@ $(document).ready(function () {
         $('body').toggleClass('menu-open')
     });
 });
-let openVideo = document.querySelector('.btn_play ')
-openVideo.addEventListener('click', () => {
-    document.querySelector('#modal').style.visibility = 'visible'
-    document.querySelector('#modal').style.opacity = '1'
-    document.querySelector('body').classList.add('openModalVideo')
+let openVideo = document.querySelectorAll('.btn_play ')
+openVideo.forEach((item) => {
+    item.addEventListener('click', () => {
+        document.querySelector('#modal').style.visibility = 'visible'
+        document.querySelector('#modal').style.opacity = '1'
+        document.querySelector('body').classList.add('openModalVideo')
+    })
 })
-const modalClose = document.querySelector('.modal-close')
-modalClose.addEventListener('click', () => {
-    document.querySelector('#modal').style.visibility = 'hidden'
-    document.querySelector('#modal').style.opacity = '0'
-    document.querySelector('body').classList.remove('openModalVideo')
+const modalClose = document.querySelectorAll('.modal-close')
+
+modalClose.forEach((item) => {
+    console.log(item)
+    item.addEventListener('click', () => {
+        document.querySelector('#modal').style.visibility = 'hidden'
+        document.querySelector('#modal').style.opacity = '0'
+        document.querySelector('body').classList.remove('openModalVideo')
+    })
+
 })
