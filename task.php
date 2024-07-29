@@ -70,11 +70,14 @@ session_start();
       </main>
 
       <?php include_once 'system/footer.php'; ?>
+      <script src="./js/jquery.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      
       <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
       <script src="js/task.js"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      
       <script src="./js/burger-menu.js"></script>
-      <script src="./js/jquery.js"></script>
+      
       <script type="module" src="./js/max.js"></script>
       <script type="module" src="./js/auth/auth.js"></script>
       <script type="module" src="./js/auth/registration.js"></script>

@@ -2,11 +2,11 @@ let num = 6;
 let questions = [];
 let answers = [];
 let rules = [];
+let fullAnswers = [];
 
 window.addEventListener('load', () => {
     axios.post('php/rools.php')
             .then(response => {
-                console.log(response)
                 rules = response.data;
             })
             .catch(error => {
@@ -29,7 +29,6 @@ function createRules() {
     const rulesText = document.createElement('div');
     const scrollBlock = document.createElement('div');
     
-    console.log(rules[0].title)
 
     // title.textContent = 'Инструкция по прохождению общего теста ОГЭ';
     title.textContent = rules[0].title;
@@ -67,7 +66,6 @@ function createRules() {
         axios.get('/php/test.php')
             .then(response => {
                 questions = response.data;
-                console.log(questions)
                 document.body.innerHTML = '';
                 document.body.append(createQuestion(num));
                 
@@ -152,6 +150,15 @@ function createQuestion(num) {
         input.placeholder = 'Введите ответ';
         input.classList.add('question__input');
         questionBlock.append(input);
+        
+        input.id = question.id;
+
+        
+        fullAnswers.find((obj) => {
+            if (obj.id == input.id) {
+                input.value = obj.answer
+            }
+        })
 
 
     btnBack.href = '/mainpage.php';
@@ -190,6 +197,22 @@ function createQuestion(num) {
             }
         })
         
+        const fullExists = fullAnswers.find((obj) => {
+            return obj.id == question.id;
+        })
+        
+        
+        if (!fullExists) {
+            fullAnswers.push({
+            id: question.id,
+            answer: input.value
+        })
+        } else fullAnswers.find((obj) => {
+            if (obj.id == question.id) {
+                obj.answer = input.value;
+            }
+        })
+        
         
    
         res = {
@@ -200,7 +223,6 @@ function createQuestion(num) {
         else {
             axios.post('php/resulttest.php', res)
             .then(response => {
-                console.log(response)
                 window.location.href = '../test-final.html';
             })
             .catch(error => {
@@ -218,6 +240,8 @@ function createQuestion(num) {
             document.body.innerHTML = '';
             num -= 1;
             document.body.append(createQuestion(num));
+            
+            
         } 
         
 
