@@ -326,7 +326,7 @@
                                 Контакты
                             </li>
                             
-                            <div class="burger_menu header_button dpnone">
+                            <div class="burger_menu header_button dpnone  menu_list">
                                 <?php
                                     if($userid==NULL){
                                 ?>
@@ -342,7 +342,7 @@
                                  <div class="header_btn_logout-wrapper-mobilet">
                                      <a href="https://oge5.isp.sprint.1t.ru/profile.php" style="
                                         font-family: Maki-Sans;
-                                        font-size: 24px;
+                                        <!--font-size: 24px;-->
                                         font-weight: 400;
                                         color: #5c0c70;
                                         line-height: 28.51px;
