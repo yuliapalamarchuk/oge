@@ -4,104 +4,63 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6e55141-aeb8-409f-8d15-9897549631e2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/img/sot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/axios.js" afterDir="false" />
+    <list default="true" id="61932d60-c790-457a-87a7-09502008e6a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_04_2024_20_51__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_04_2024_20_51__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/mainpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/mainpage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/tasks.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tasks.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/test.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/test.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ЛОГО_СОТ-1.webp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/max.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/max.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifehack.html" beforeDir="false" afterPath="$PROJECT_DIR$/lifehack.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/mainpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks.html" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="8d78b032e3f711c0253e1d5b89dec16f180b0dfd" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\OSPanel\modules\php\PHP_8.2\php.exe" />
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
+  &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2c0RHmjPgVXlyu4Y4gf1vIUNecH" />
+  <component name="ProjectId" id="2jnMNXb2IyCY4y52n2ez2xHJC5Y" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nikit/Desktop/PROJECT/ITITANS/oge&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "last_opened_file_path": "C:/Users/nikit/Desktop/PROJECT/ITITANS/oge",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
-      </set>
-    </attachedChunks>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b6e55141-aeb8-409f-8d15-9897549631e2" name="Changes" comment="" />
-      <created>1707246426396</created>
+      <changelist id="61932d60-c790-457a-87a7-09502008e6a5" name="Changes" comment="" />
+      <created>1722018348145</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1707246426396</updated>
-      <workItem from="1707246427967" duration="849000" />
-      <workItem from="1707421444959" duration="598000" />
-      <workItem from="1707607960150" duration="4904000" />
-      <workItem from="1707638338771" duration="3780000" />
-      <workItem from="1707675614698" duration="6513000" />
-      <workItem from="1708019660910" duration="1236000" />
-      <workItem from="1711829198595" duration="4455000" />
-      <workItem from="1712165613721" duration="5337000" />
-      <workItem from="1712174916643" duration="548000" />
-      <workItem from="1712356861233" duration="1156000" />
-      <workItem from="1714916720230" duration="475000" />
-      <workItem from="1714917214265" duration="2193000" />
-      <workItem from="1715018251315" duration="652000" />
-      <workItem from="1715337667790" duration="203000" />
-      <workItem from="1715413692443" duration="1202000" />
-      <workItem from="1715978204344" duration="30000" />
-      <workItem from="1716569471290" duration="3215000" />
-      <workItem from="1716620673265" duration="4806000" />
+      <updated>1722018348145</updated>
+      <workItem from="1722018349260" duration="511000" />
+      <workItem from="1722067456628" duration="15000" />
+      <workItem from="1722372535243" duration="436000" />
     </task>
     <servers />
   </component>
