@@ -1615,7 +1615,28 @@
                 </div>
               </div>
               <div class="swiper-slide">
-                <div class="slide_img_wrapper">
+              <div class="swiper-slide">
+                      <div class="slide_img_wrapper">
+                          <img
+                              src="img/shamil.webp"
+                              alt="mentor_eugenia"
+                              class="slide_img"
+                          />
+                      </div>
+                      <div class="slide_text_wrapper">
+                          <div class="slide_title_wrapper">
+                              <h4 class="slide_title">Кравцов Шамиль Андреевич</h4>
+                          </div>
+                          <ul class="slide_list">
+                              <li>5 лет опыта преподавательской деятельности</li>
+                              <li>
+                                  Лауреат Учитель Года 2016 в номинации «Педагогический дебют»
+                              </li>
+                          </ul>
+                          <p class="slide_text">«Тех, у которых мы учимся, правильно называют учителями, но не всякий, кто учит нас, заслуживает это имя»</p>
+                      </div>
+                  </div>
+              <div class="slide_img_wrapper">
                   <img
                     src="img/eugenia.webp"
                     alt="mentor_eugenia"
@@ -1687,6 +1708,27 @@
                   <p class="slide_text">«Учить не всех, а каждого»</p>
                 </div>
               </div>
+              <div class="swiper-slide">
+                    <div class="slide_img_wrapper">
+                        <img
+                            src="img/shamil.webp"
+                            alt="mentor_eugenia"
+                            class="slide_img"
+                        />
+                    </div>
+                    <div class="slide_text_wrapper">
+                        <div class="slide_title_wrapper">
+                            <h4 class="slide_title">Кравцов Шамиль Андреевич</h4>
+                        </div>
+                        <ul class="slide_list">
+                            <li>5 лет опыта преподавательской деятельности</li>
+                            <li>
+                                Лауреат Учитель Года 2016 в номинации «Педагогический дебют»
+                            </li>
+                        </ul>
+                        <p class="slide_text">«Тех, у которых мы учимся, правильно называют учителями, но не всякий, кто учит нас, заслуживает это имя»</p>
+                    </div>
+                </div>
             </div>
           </div>
         </div>
