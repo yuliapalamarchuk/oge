@@ -56,7 +56,7 @@
               </svg>
             </button>
 
-            <a href="https://www.mail.ru" target="_blank">
+            <a href="https://connect.mail.ru/oauth/authorize?client_id=789633&response_type=code&redirect_uri=https://oge5.isp.sprint.1t.ru/php/mailru-auth.php">
 
               <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="40" height="40" rx="20" fill="#005FF9" />
