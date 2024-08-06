@@ -5,8 +5,8 @@
  */
 
 return [
-    'db_name' => 'oge_rules',
-    'db_host' => 'localhost',
-    'db_user' => 'ogerulez_dbuser',
-    'db_pass' => '3lHoXe3t',
+    'db_name' => 'u540878',
+    'db_host' => 'u540878.mysql.masterhost.ru',
+    'db_user' => 'u540878',
+    'db_pass' => '.ngLaRt3viaNt',
 ];

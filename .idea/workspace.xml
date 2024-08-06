@@ -7,6 +7,8 @@
     <list default="true" id="61932d60-c790-457a-87a7-09502008e6a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainpage.php" beforeDir="false" afterPath="$PROJECT_DIR$/mainpage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/boot.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/boot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/config.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +43,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nikit/Desktop/PROJECT/ITITANS/oge-git&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/nikit/Desktop/PROJECT/ITITANS/serbia&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -63,6 +65,11 @@
       <workItem from="1722372535243" duration="436000" />
       <workItem from="1722464708441" duration="1097000" />
       <workItem from="1722544789310" duration="433000" />
+      <workItem from="1722600114530" duration="592000" />
+      <workItem from="1722704284210" duration="1892000" />
+      <workItem from="1722760480581" duration="316000" />
+      <workItem from="1722869613461" duration="491000" />
+      <workItem from="1722922174734" duration="3204000" />
     </task>
     <servers />
   </component>

@@ -16,11 +16,12 @@ function pdo(): PDO
             trigger_error($msg, E_USER_ERROR);
         }
         // Подключение к БД
-        $dsn = 'mysql:dbname='.$config['db_name'].';host='.$config['db_host'];
+        $dsn = 'mysql:dbname='.$config['db_name'].';host='.$config['db_host']. ';charset=utf8mb4';
         $pdo = new PDO($dsn, $config['db_user'], $config['db_pass']);
+        $pdo->exec("SET NAMES 'utf8mb4'");
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
-
+    header('Content-Type: text/html; charset=utf-8');
     return $pdo;
 }
 

@@ -316,7 +316,7 @@ session_start();
             <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/5h3LUNXy4a8?si=eTZkijZJ-nsTXnjE"
+                src="https://rutube.ru/play/embed/2919bf1be526d2b1fbcade4312ccc564/"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1595,27 +1595,6 @@ session_start();
                     <div class="swiper-slide">
                         <div class="slide_img_wrapper">
                             <img
-                                src="img/maria.webp"
-                                alt="mentor_eugenia"
-                                class="slide_img"
-                            />
-                        </div>
-                        <div class="slide_text_wrapper">
-                            <div class="slide_title_wrapper">
-                                <h4 class="slide_title">Шерская Мария Алексеевна</h4>
-                            </div>
-                            <ul class="slide_list">
-                                <li>Педагогический стаж 13 лет</li>
-                                <li>
-                                    Победитель Всероссийского конкурса «Флагманы образования»
-                                </li>
-                            </ul>
-                            <p class="slide_text">«Учить не всех, а каждого»</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slide_img_wrapper">
-                            <img
                                 src="img/shamil.webp"
                                 alt="mentor_eugenia"
                                 class="slide_img"
@@ -1685,27 +1664,6 @@ session_start();
                                 </li>
                             </ul>
                             <p class="slide_text">«Краткость — сестра таланта»</p>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="slide_img_wrapper">
-                            <img
-                                src="img/maria.webp"
-                                alt="mentor_eugenia"
-                                class="slide_img"
-                            />
-                        </div>
-                        <div class="slide_text_wrapper">
-                            <div class="slide_title_wrapper">
-                                <h4 class="slide_title">Шерская Мария Алексеевна</h4>
-                            </div>
-                            <ul class="slide_list">
-                                <li>Педагогический стаж 13 лет</li>
-                                <li>
-                                    Победитель Всероссийского конкурса «Флагманы образования»
-                                </li>
-                            </ul>
-                            <p class="slide_text">«Учить не всех, а каждого»</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
