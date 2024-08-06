@@ -29,7 +29,6 @@ else {
     else {
         if (password_verify($pass, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            // setcookie("userid", $user['id'], time() + 3600*4);
             header('Content-Type: application/json');
             $response = [
                 'status' => 'success',
@@ -40,11 +39,8 @@ else {
             ];
             http_response_code(200);
             echo json_encode($response);
-         //header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
         }
     }
     
 }
 
-// flash('Пароль неверен');
-// header('Location: login.php');

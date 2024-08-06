@@ -340,7 +340,7 @@
                                     else {
                                 ?>      
                                  <div class="header_btn_logout-wrapper-mobilet">
-                                     <a href="https://oge5.isp.sprint.1t.ru/profile.php" style="
+                                     <a href="https://oge5to5.ru/profile.php" style="
                                         font-family: Maki-Sans;
                                         <!--font-size: 24px;-->
                                         font-weight: 400;
@@ -385,7 +385,7 @@
                     ?>  
                <div class="header_btn_logout-wrapper">
                 <!--<img src="../img/iconamoon_exit-light.svg" alt="" />-->
-                <a href="https://oge5.isp.sprint.1t.ru/profile.php" style="
+                <a href="https://oge5to5.ru/profile.php" style="
                 font-family: Maki-Sans;
                 font-size: 24px;
                 font-weight: 400;

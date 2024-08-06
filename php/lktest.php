@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__.'/boot.php';
-// session_start();
 $userid =  isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 if(!$userid){
     echo "Для просмотра этой страницы необходимо авторизоваться.";
@@ -28,5 +27,3 @@ else {
     echo json_encode($arr);
 }
 }
-// flash('Пароль неверен');
-// header('Location: login.php');

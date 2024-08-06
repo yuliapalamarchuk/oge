@@ -2,7 +2,7 @@
 require_once __DIR__.'/boot.php';
 $params = array(
 	'client_id'     => '85633fa4277643ceaf4bfd7bbdeb1d56',
-	'redirect_uri'  => 'https://oge5.isp.sprint.1t.ru/php/yandex_auth.php',
+	'redirect_uri'  => 'https://oge5to5.ru/php/yandex_auth.php',
 	'response_type' => 'code',
 	'state'         => '123'
 );
@@ -11,7 +11,7 @@ $url = 'https://oauth.yandex.ru/authorize?' . urldecode(http_build_query($params
 
 if(!empty($_SESSION['user_id'])) {
     setcookie('userID', $_SESSION['user_id']);
-    header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+    header('Location: https://oge5to5.ru/profile.php');
     exit;
 } else {
     echo $url;
@@ -61,7 +61,7 @@ if (!empty($_GET['code'])) {
         if($row){
             $_SESSION['user_id'] = $row['id'];
             // setcookie('userID', $row['id']);
-            header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+            header('Location: https://oge5to5.ru/profile.php');
         }
         else {
             $role = json_encode(["ROLE_USER"]);
@@ -81,7 +81,7 @@ if (!empty($_GET['code'])) {
             $row3 = $request3->fetch(PDO::FETCH_ASSOC);
              $_SESSION['user_id'] = $row3['id'];
             //  setcookie('userID', $row3['id']);
-             header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+             header('Location: https://oge5to5.ru/profile.php');
         }
 	}
 }

@@ -24,7 +24,7 @@ try {
                 <title>Подтвердите Email</title>
                 </head>
                 <body>
-                <p>Чтобы подтвердить Email, перейдите по <a href="https://oge5.isp.sprint.1t.ru/confirme.php?hash=' . $hash . '">ссылке</a></p>
+                <p>Чтобы подтвердить Email, перейдите по <a href="https://oge5to5.ru/confirme.php?hash=' . $hash . '">ссылке</a></p>
                 </body>
                 </html>
                 ';
