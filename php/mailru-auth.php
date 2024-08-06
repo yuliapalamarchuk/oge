@@ -2,7 +2,7 @@
 require_once __DIR__.'/boot.php';
 if(!empty($_SESSION['user_id'])) {
     // setcookie('userID', $_SESSION['user_id']);
-    header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+    header('Location: https://oge5to5.ru/profile.php');
     exit;
 }
 else {
@@ -17,7 +17,7 @@ else {
     $client_id = '789633'; // ID
     $client_secret = '50fd719b73510ff664f9f917031ec816'; // Секретный ключ
 
-    $redirect_uri = 'https://oge5.isp.sprint.1t.ru/php/mailru-auth.php'; // Ссылка на приложение
+    $redirect_uri = 'https://oge5to5.ru/php/mailru-auth.php'; // Ссылка на приложение
 
 // $url = 'https://connect.mail.ru/oauth/authorize'; 
 
@@ -56,7 +56,7 @@ else {
                 $row = $request->fetch(PDO::FETCH_ASSOC);
                 if($row){
                     $_SESSION['user_id'] = $row['id'];
-                    header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+                    header('Location: https://oge5to5.ru/profile.php');
                 }
                 else {
                     $role = json_encode(["ROLE_USER"]);
@@ -73,7 +73,7 @@ else {
                     ]);
                     $row3 = $request3->fetch(PDO::FETCH_ASSOC);
                     $_SESSION['user_id'] = $row3['id'];
-                    header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+                    header('Location: https://oge5to5.ru/profile.php');
                 }
                 // echo $uid;
                 // echo ';';
