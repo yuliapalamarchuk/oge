@@ -3,7 +3,7 @@
 require_once __DIR__.'/boot.php';
 $client_id = 51940504; // ID приложения
 $client_secret = 'B4X6qzrmsmCol7v8diGa'; // Защищённый ключ
-$redirect_uri = 'https://oge5.isp.sprint.1t.ru/php/auth.php'; // Адрес сайта
+$redirect_uri = 'https://oge5to5.ru/php/auth.php'; // Адрес сайта
 
 $url = 'http://oauth.vk.com/authorize'; // Ссылка для авторизации на стороне ВК
 
@@ -11,7 +11,7 @@ $params = [ 'client_id' => $client_id, 'redirect_uri'  => $redirect_uri, 'respon
 
 if(!empty($_SESSION['user_id'])) {
     setcookie('userID', $_SESSION['user_id']);
-    header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+    header('Location: https://oge5to5.ru/profile.php');
     exit;
 } else {
     // $link=$url . '?' . urldecode(http_build_query($params)) . '&scope=email';
@@ -54,7 +54,7 @@ if (isset($_GET['code'])) {
         if($row){
             $_SESSION['user_id'] = $row['id'];
             setcookie('userID', $row['id']);
-            header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+            header('Location: https://oge5to5.ru/profile.php');
         }
         else {
             $role = json_encode(["ROLE_USER"]);
@@ -74,7 +74,7 @@ if (isset($_GET['code'])) {
             $row3 = $request3->fetch(PDO::FETCH_ASSOC);
              $_SESSION['user_id'] = $row3['id'];
              setcookie('userID', $row3['id']);
-             header('Location: https://oge5.isp.sprint.1t.ru/profile.php');
+             header('Location: https://oge5to5.ru/profile.php');
         }
         // echo "ID пользователя: " . $userInfo['id'] . '<br />';
         // echo "Имя пользователя: " . $userInfo['first_name'] . '<br />';
